@@ -29,12 +29,45 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-security-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-session-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'		
+	implementation 'org.springframework.boot:spring-boot-starter-mail'	
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor:4.0.0'
+	
+	implementation 'org.springframework.data:spring-data-envers'
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:2.0.0'
+	//implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.12.1'	
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
 	
+	implementation 'org.apache.poi:poi:5.5.0'	
+	implementation 'org.apache.poi:poi-ooxml:5.5.0'
+	implementation 'com.fasterxml.uuid:java-uuid-generator:5.1.1'
+	implementation 'io.hypersistence:hypersistence-utils-hibernate-71:3.12.0'
+	implementation 'com.ezylang:EvalEx:3.5.0'
+	
+	implementation 'com.oracle.database.jdbc:ojdbc17'
+	implementation 'com.oracle.database.security:osdt_core:21.19.0.0'
+	implementation 'com.oracle.database.security:osdt_cert:21.19.0.0'
+	implementation 'com.oracle.database.security:oraclepki:23.9.0.25.07'
+	
+	implementation 'jakarta.validation:jakarta.validation-api:3.1.1'
+	implementation 'org.hibernate.validator:hibernate-validator'
+		
+	compileOnly 'org.projectlombok:lombok:1.18.42'
+	annotationProcessor 'org.projectlombok:lombok:1.18.42'
+	testCompileOnly 'org.projectlombok:lombok:1.18.42'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+	
+	implementation 'org.mapstruct:mapstruct:1.6.3'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+	
+	implementation 'io.github.openfeign.querydsl:querydsl-jpa:7.1'	
+	annotationProcessor 'io.github.openfeign.querydsl:querydsl-apt:7.1:jpa'
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-security-oauth2-client-test'
@@ -46,4 +79,22 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
+
+def querydslDir = "build/generated"
+
+tasks.withType(JavaCompile) {
+    options.generatedSourceOutputDirectory = file(querydslDir)
+}
+
+sourceSets {
+	main.java.srcDirs += "$projectDir/build/generated"
+}
+
+clean {
+    delete file(querydslDir)
 }
