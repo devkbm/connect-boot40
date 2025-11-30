@@ -2,6 +2,7 @@ package com.like.system.menu_role.application.service.menu_role;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.out.menu_role.MenuGroupByRolesSelectDbPort;
@@ -10,6 +11,7 @@ import com.like.system.menu_role.export.MenuGroupDTO;
 import com.like.system.user.export.SystemUserDTO;
 import com.like.system.user.export.SystemUserDTOSelectUseCase;
 
+@Application
 @Service
 public class MenuGroupByUserSelectService implements MenuGroupByUserSelectUseCase {
 

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.like.system.user.adapter.out.file.SystemUserProfileImageUploader;
 import com.like.system.user.application.port.in.image.SystemUserImageUploadUseCase;
 
+@PrimaryAdapter
 @Controller
 public class SystemUserImageUploadController {
 			

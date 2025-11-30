@@ -1,5 +1,6 @@
 package com.like.system.user.application.service.delete;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -7,6 +8,7 @@ import com.like.system.user.application.port.in.delete.SystemUserDeleteUseCase;
 import com.like.system.user.application.port.out.SystemUserCommandDbPort;
 
 @Transactional
+@Application
 @Service
 public class SystemUserDeleteService implements SystemUserDeleteUseCase {
 

@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import com.like.system.user.application.port.in.query.SystemUserQueryDTO;
 import com.like.system.user.application.port.in.query.SystemUserQueryResultDTO;
 import com.like.system.user.application.port.in.query.SystemUserQueryUseCase;
 
+@PrimaryAdapter
 @RestController
 public class SystemUserQueryController {
 

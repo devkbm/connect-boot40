@@ -1,5 +1,6 @@
 package com.like.system.menu_role.application.service.role;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.in.role.select.RoleSelectDTO;
@@ -7,6 +8,7 @@ import com.like.system.menu_role.application.port.in.role.select.RoleSelectDTOMa
 import com.like.system.menu_role.application.port.in.role.select.RoleSelectUseCase;
 import com.like.system.menu_role.application.port.out.role.RoleCommandDbPort;
 
+@Application
 @Service
 public class RoleSelectService implements RoleSelectUseCase {
 

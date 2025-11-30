@@ -2,6 +2,7 @@ package com.like.system.menu_role.application.service.role;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.like.system.menu_role.application.port.in.role.query.RoleQueryUseCase
 import com.like.system.menu_role.application.port.out.role.RoleQueryDbPort;
 
 @Transactional(readOnly = true)
+@Application
 @Service
 public class RoleQueryService implements RoleQueryUseCase {
 

@@ -2,9 +2,12 @@ package com.like.system.menu_role.application.port.out.role;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryPort;
+
 import com.like.system.menu_role.application.port.in.role.query.RoleQueryDTO;
 import com.like.system.menu_role.application.port.in.role.query.RoleQueryResultDTO;
 
+@SecondaryPort
 public interface RoleQueryDbPort {
 
 	/**

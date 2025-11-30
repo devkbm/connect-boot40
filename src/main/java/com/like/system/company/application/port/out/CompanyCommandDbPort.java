@@ -2,9 +2,12 @@ package com.like.system.company.application.port.out;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryPort;
+
 import com.like.system.company.domain.CompanyInfo;
 import com.like.system.company.domain.CompanyInfoId;
 
+@SecondaryPort
 public interface CompanyCommandDbPort {
 
 	boolean exists(CompanyInfoId companyId);

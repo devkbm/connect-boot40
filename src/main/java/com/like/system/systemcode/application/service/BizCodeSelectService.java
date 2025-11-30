@@ -1,5 +1,6 @@
 package com.like.system.systemcode.application.service;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.systemcode.application.port.in.select.BizCodeSelectDTO;
@@ -7,6 +8,7 @@ import com.like.system.systemcode.application.port.in.select.BizCodeSelectDTOMap
 import com.like.system.systemcode.application.port.in.select.BizCodeSelectUseCase;
 import com.like.system.systemcode.application.port.out.BizCodeCommandDbPort;
 
+@Application
 @Service
 public class BizCodeSelectService implements BizCodeSelectUseCase {
 	

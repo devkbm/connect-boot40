@@ -5,6 +5,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.holiday.application.port.in.query.HolidayQueryUseCase;
 import com.like.system.holiday.domain.HolidayInfo;
 
+@PrimaryAdapter
 @RestController
 public class HolidayQueryController {
 

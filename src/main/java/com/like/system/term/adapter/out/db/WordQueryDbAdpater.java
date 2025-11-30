@@ -2,12 +2,14 @@ package com.like.system.term.adapter.out.db;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.term.adapter.out.db.data.WordDictionaryJpaRepository;
 import com.like.system.term.application.port.out.WordQueryDbPort;
 import com.like.system.term.domain.WordDictionary;
 
+@SecondaryAdapter
 @Repository
 public class WordQueryDbAdpater implements WordQueryDbPort {
 	

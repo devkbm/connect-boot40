@@ -3,6 +3,7 @@ package com.like.system.user.adapter.out.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntity;
@@ -12,6 +13,7 @@ import com.like.system.user.adapter.out.db.data.SystemUserRoleRepository;
 import com.like.system.user.application.port.out.SystemUserRoleCommandDbPort;
 import com.like.system.user.domain.SystemUserCompanyRole;
 
+@SecondaryAdapter
 @Repository
 public class SystemUserRoleCommandAdapter implements SystemUserRoleCommandDbPort {
 

@@ -2,6 +2,7 @@ package com.like.system.user.application.service.password;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.like.system.user.application.port.in.password.SystemUserPasswordChangeDTO;
@@ -12,6 +13,7 @@ import com.like.system.user.domain.SystemUser;
 import com.like.system.user.domain.SystemUserPassword;
 
 @Transactional
+@Application
 @Service
 public class SystemUserPasswordService implements SystemUserPasswordChangeUseCase, SystemUserPasswordInitUseCase {
 

@@ -2,6 +2,7 @@ package com.like.system.company.adapter.out.db;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.company.adapter.out.db.data.CompanyJpaRepository;
@@ -9,6 +10,7 @@ import com.like.system.company.application.port.out.CompanyCommandDbPort;
 import com.like.system.company.domain.CompanyInfo;
 import com.like.system.company.domain.CompanyInfoId;
 
+@SecondaryAdapter
 @Repository
 public class CompanyCommandDbAdapter implements CompanyCommandDbPort {
 

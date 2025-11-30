@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.holiday.domain.HolidayInfo;
@@ -13,6 +14,7 @@ import com.like.system.holiday.application.port.in.query.HolidayQueryUseCase;
 import com.like.system.holiday.application.port.out.HolidayQueryDbPort;
 import com.like.system.holiday.domain.Holiday;
 
+@Application
 @Service
 public class HolidayQueryService implements HolidayQueryUseCase {
 

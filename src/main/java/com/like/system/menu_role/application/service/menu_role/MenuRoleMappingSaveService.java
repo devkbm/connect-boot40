@@ -2,6 +2,7 @@ package com.like.system.menu_role.application.service.menu_role;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.like.system.menu_role.application.port.in.menu_role.save.MenuRoleMapp
 import com.like.system.menu_role.application.port.out.menu_role.MenuRoleMappingSaveDbPort;
 
 @Transactional
+@Application
 @Service
 public class MenuRoleMappingSaveService implements MenuRoleMappingSaveUseCase {
 

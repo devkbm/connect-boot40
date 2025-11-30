@@ -2,6 +2,7 @@ package com.like.system.term.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.core.message.MessageUtil;
 import com.like.system.term.application.port.in.domain.DataDomainDeleteUseCase;
 
+@PrimaryAdapter
 @RestController
 public class DataDomainDeleteController {
 

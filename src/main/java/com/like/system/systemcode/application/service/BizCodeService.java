@@ -1,5 +1,6 @@
 package com.like.system.systemcode.application.service;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeType;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeTypeId;
 import com.like.system.systemcode.application.dto.BizCodeDTO;
 
+@Application
 @Service
 @Transactional
 public class BizCodeService {

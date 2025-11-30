@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -16,6 +17,7 @@ import com.like.system.term.application.dto.domain.DataDomainSaveDTO;
 import com.like.system.term.application.port.in.domain.DataDomainQueryUseCase;
 import com.like.system.term.domain.Database;
 
+@PrimaryAdapter
 @RestController
 public class DataDomainQueryController {
 

@@ -3,6 +3,7 @@ package com.like.system.user.adapter.out.db;
 import java.util.List;
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.user.adapter.out.db.data.SystemUserRepository;
@@ -10,7 +11,7 @@ import com.like.system.user.application.port.out.SystemUserCommandDbPort;
 import com.like.system.user.domain.SystemUser;
 import com.like.system.user.domain.SystemUserId;
 
-
+@SecondaryAdapter
 @Repository
 public class SystemUserCommandDbAdapter implements SystemUserCommandDbPort {
 

@@ -2,12 +2,14 @@ package com.like.system.term.adapter.out.db;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.term.adapter.out.db.data.DataDomainDictionaryJpaRepository;
 import com.like.system.term.application.port.out.DataDomainQueryDbPort;
 import com.like.system.term.domain.DataDomainDictionary;
 
+@SecondaryAdapter
 @Repository
 public class DataDomainQueryDbAdapter implements DataDomainQueryDbPort {
 

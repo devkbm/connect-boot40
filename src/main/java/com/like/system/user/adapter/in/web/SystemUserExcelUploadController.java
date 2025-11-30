@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import com.like.excel.upload.ExcelUploader;
 import com.like.system.user.application.port.in.upload.SystemUserExcelUploadUseCase;
 import com.like.system.user.application.port.in.upload.SystemUserExcelUploadDTO2;
 
+@PrimaryAdapter
 @Controller
 public class SystemUserExcelUploadController {
 	

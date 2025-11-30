@@ -1,5 +1,6 @@
 package com.like.system.term.application.service.term;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +10,7 @@ import com.like.system.term.application.port.in.term.TermSelectUseCase;
 import com.like.system.term.application.port.out.TermCommandDbPort;
 
 @Transactional
+@Application
 @Service
 public class TermSelectService implements TermSelectUseCase {
 

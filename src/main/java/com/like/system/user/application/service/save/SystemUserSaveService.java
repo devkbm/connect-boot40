@@ -2,6 +2,7 @@ package com.like.system.user.application.service.save;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ import com.like.system.user.domain.SystemUserCompanyRole;
 import com.like.system.user.domain.SystemUserPassword;
 
 @Transactional
+@Application
 @Service
 public class SystemUserSaveService implements SystemUserSaveUseCase {
 

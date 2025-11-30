@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.time.LocalDate;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.core.message.MessageUtil;
 import com.like.system.holiday.application.port.in.delete.HolidayDeleteUseCase;
 
+@PrimaryAdapter
 @RestController
 public class HolidayDeleteController {
 

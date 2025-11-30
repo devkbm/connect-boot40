@@ -2,6 +2,7 @@ package com.like.system.holiday.application.service;
 
 import java.time.LocalDate;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.holiday.application.port.in.save.HolidaySaveDTO;
@@ -10,6 +11,7 @@ import com.like.system.holiday.application.port.in.save.HolidaySaveUseCase;
 import com.like.system.holiday.application.port.out.HolidayCommandDbPort;
 import com.like.system.holiday.domain.Holiday;
 
+@Application
 @Service
 public class HolidaySaveService implements HolidaySaveUseCase {
 

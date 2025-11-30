@@ -3,6 +3,7 @@ package com.like.system.menu_role.application.service.menu_role;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.out.menu_role.MenuHierarchyByRolesSelectDbPort;
@@ -11,6 +12,7 @@ import com.like.system.menu_role.domain.menu.MenuHierarchyGenerator;
 import com.like.system.menu_role.export.MenuHierarchyByRolesSelectUseCase;
 import com.like.system.menu_role.export.MenuHierarchyNgZorroDTO;
 
+@Application
 @Service
 public class MenuHierarchyByRolesSelectService implements MenuHierarchyByRolesSelectUseCase {
 

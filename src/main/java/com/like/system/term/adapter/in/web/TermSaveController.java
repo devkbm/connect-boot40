@@ -2,6 +2,7 @@ package com.like.system.term.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import com.like.system.term.application.port.in.term.TermSaveUseCase;
 
 import jakarta.validation.Valid;
 
+@PrimaryAdapter
 @RestController
 public class TermSaveController {
 

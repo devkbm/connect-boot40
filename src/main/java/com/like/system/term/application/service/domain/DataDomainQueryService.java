@@ -2,6 +2,7 @@ package com.like.system.term.application.service.domain;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.term.application.dto.domain.DataDomainSaveDTO;
@@ -9,6 +10,7 @@ import com.like.system.term.application.dto.domain.DataDomainSaveDTOMapper;
 import com.like.system.term.application.port.in.domain.DataDomainQueryUseCase;
 import com.like.system.term.application.port.out.DataDomainQueryDbPort;
 
+@Application
 @Service
 public class DataDomainQueryService implements DataDomainQueryUseCase {
 

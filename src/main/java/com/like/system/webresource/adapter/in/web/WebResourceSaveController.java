@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.system.webresource.application.port.in.save.WebResourceSaveUseCase;
 import com.like.system.webresource.application.port.in.save.WebResourceSaveDTO;
 
+@PrimaryAdapter
 @RestController
 public class WebResourceSaveController {
 

@@ -2,6 +2,7 @@ package com.like.system.systemcode.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.systemcode.application.port.in.save.BizCodeTypeSaveDTO;
 import com.like.system.systemcode.application.port.in.save.BizCodeTypeSaveUseCase;
 
+@PrimaryAdapter
 @RestController
 public class BizCodeTypeSaveController {
 

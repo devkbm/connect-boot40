@@ -2,12 +2,14 @@ package com.like.system.systemcode.adapter.out.db;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.systemcode.adapter.out.db.querydsl.BizCodeTypeQueryJpaRepository;
 import com.like.system.systemcode.application.port.in.query.BizCodeTypeQueryResultDTO;
 import com.like.system.systemcode.application.port.out.BizCodeTypeQueryPort;
 
+@SecondaryAdapter
 @Repository
 public class BizCodeTypeQueryDbAdapter implements BizCodeTypeQueryPort {
 

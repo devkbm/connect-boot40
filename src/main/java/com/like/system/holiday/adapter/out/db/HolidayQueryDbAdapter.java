@@ -3,6 +3,7 @@ package com.like.system.holiday.adapter.out.db;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.holiday.adapter.out.db.data.HolidayJpaRepository;
@@ -11,6 +12,7 @@ import com.like.system.holiday.domain.Holiday;
 import com.like.system.holiday.domain.QHoliday;
 import com.querydsl.core.types.Predicate;
 
+@SecondaryAdapter
 @Repository
 public class HolidayQueryDbAdapter implements HolidayQueryDbPort {
 

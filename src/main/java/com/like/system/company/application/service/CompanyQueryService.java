@@ -2,6 +2,7 @@ package com.like.system.company.application.service;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.like.system.company.application.port.in.query.CompanyQueryResultDTOMa
 import com.like.system.company.application.port.in.query.CompanyQueryUseCase;
 
 @Transactional(readOnly = true)
+@Application
 @Service
 public class CompanyQueryService implements CompanyQueryUseCase {
 

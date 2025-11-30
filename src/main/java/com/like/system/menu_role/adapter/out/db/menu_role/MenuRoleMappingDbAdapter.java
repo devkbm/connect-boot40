@@ -2,6 +2,7 @@ package com.like.system.menu_role.adapter.out.db.menu_role;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.domain.menu_role.QMenuRoleMapping;
@@ -10,6 +11,7 @@ import com.like.system.menu_role.application.port.out.menu_role.MenuRoleMappingS
 import com.like.system.menu_role.domain.menu_role.MenuRoleMapping;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
+@SecondaryAdapter
 @Repository
 public class MenuRoleMappingDbAdapter implements MenuRoleMappingSaveDbPort {
 

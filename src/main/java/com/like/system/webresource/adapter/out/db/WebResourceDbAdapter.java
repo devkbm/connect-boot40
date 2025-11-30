@@ -2,12 +2,14 @@ package com.like.system.webresource.adapter.out.db;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.webresource.adapter.out.db.data.WebResourceJpaRepository;
 import com.like.system.webresource.application.port.out.WebResourceCommandDbPort;
 import com.like.system.webresource.domain.WebResource;
 
+@SecondaryAdapter
 @Repository
 public class WebResourceDbAdapter implements WebResourceCommandDbPort {
 

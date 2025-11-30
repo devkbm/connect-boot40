@@ -1,5 +1,6 @@
 package com.like.system.systemcode.application.service;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.systemcode.application.port.in.save.BizCodeTypeSaveDTO;
@@ -7,6 +8,7 @@ import com.like.system.systemcode.application.port.in.save.BizCodeTypeSaveDTOMap
 import com.like.system.systemcode.application.port.in.save.BizCodeTypeSaveUseCase;
 import com.like.system.systemcode.application.port.out.BizCodeTypeCommandDbPort;
 
+@Application
 @Service
 public class BizCodeTypeSaveService implements BizCodeTypeSaveUseCase {
 	BizCodeTypeCommandDbPort port;

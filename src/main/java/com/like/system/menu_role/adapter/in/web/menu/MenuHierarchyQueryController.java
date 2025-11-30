@@ -6,6 +6,7 @@ import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.like.system.menu_role.application.port.in.menu.hierarchy.MenuHierarch
 
 
 @Slf4j
+@PrimaryAdapter
 @RestController
 public class MenuHierarchyQueryController {
 

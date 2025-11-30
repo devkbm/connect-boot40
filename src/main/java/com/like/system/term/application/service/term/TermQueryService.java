@@ -2,6 +2,7 @@ package com.like.system.term.application.service.term;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import com.like.system.term.application.port.out.TermQueryDbPort;
 
 
 @Transactional(readOnly = true)
+@Application
 @Service
 public class TermQueryService implements TermQueryUseCase {
 

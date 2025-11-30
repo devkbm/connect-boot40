@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
 import java.time.LocalDate;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.holiday.application.port.in.select.HolidaySelectDTO;
 import com.like.system.holiday.application.port.in.select.HolidaySelectUseCase;
 
+@PrimaryAdapter
 @RestController
 public class HolidaySelectController {
 

@@ -1,5 +1,6 @@
 package com.like.system.menu_role.application.service.menu;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.in.menu.select.MenuSelectDTO;
@@ -8,6 +9,7 @@ import com.like.system.menu_role.application.port.in.menu.select.MenuSelectUseCa
 import com.like.system.menu_role.application.port.out.menu.MenuCommandDbPort;
 import com.like.system.menu_role.domain.menu.MenuId;
 
+@Application
 @Service
 public class MenuSelectService implements MenuSelectUseCase {
 

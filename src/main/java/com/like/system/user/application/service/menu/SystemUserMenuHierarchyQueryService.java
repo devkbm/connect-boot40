@@ -2,6 +2,7 @@ package com.like.system.user.application.service.menu;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.export.MenuHierarchyByRolesSelectUseCase;
@@ -10,6 +11,7 @@ import com.like.system.user.application.port.in.menu.SystemUserMenuHierarchyQuer
 import com.like.system.user.application.port.out.SystemUserCommandDbPort;
 import com.like.system.user.domain.SystemUser;
 
+@Application
 @Service
 public class SystemUserMenuHierarchyQueryService implements SystemUserMenuHierarchyQueryUseCase {
 	

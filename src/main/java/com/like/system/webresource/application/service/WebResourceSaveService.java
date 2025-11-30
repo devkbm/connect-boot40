@@ -1,5 +1,6 @@
 package com.like.system.webresource.application.service;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.webresource.application.port.in.save.WebResourceSaveUseCase;
@@ -10,6 +11,7 @@ import com.like.system.webresource.domain.WebResource;
 
 import jakarta.persistence.EntityNotFoundException;
 
+@Application
 @Service
 public class WebResourceSaveService implements WebResourceSaveUseCase {
 

@@ -4,6 +4,7 @@ import static org.springframework.util.StringUtils.hasText;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.application.port.in.role.query.RoleQueryDTO;
@@ -14,6 +15,7 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
+@SecondaryAdapter
 @Repository
 public class RoleQueryDbAdpater implements RoleQueryDbPort {
 

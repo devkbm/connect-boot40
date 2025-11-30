@@ -2,6 +2,7 @@ package com.like.system.term.adapter.out.db;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.term.application.dto.term.TermQueryDTO;
@@ -10,6 +11,7 @@ import com.like.system.term.domain.QTermDictionary;
 import com.like.system.term.domain.TermDictionary;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
+@SecondaryAdapter
 @Repository
 public class TermQueryDbAdapter implements TermQueryDbPort {
 	

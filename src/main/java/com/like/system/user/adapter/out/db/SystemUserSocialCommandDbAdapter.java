@@ -2,6 +2,7 @@ package com.like.system.user.adapter.out.db;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.user.adapter.out.db.data.SystemUserSocialRepository;
@@ -9,6 +10,7 @@ import com.like.system.user.application.port.out.SystemUserSocialEmailCommandDbP
 import com.like.system.user.domain.oauth2.SystemUserSocialEmail;
 import com.like.system.user.domain.oauth2.SystemUserSocialEmailId;
 
+@SecondaryAdapter
 @Repository
 public class SystemUserSocialCommandDbAdapter implements SystemUserSocialEmailCommandDbPort {
 

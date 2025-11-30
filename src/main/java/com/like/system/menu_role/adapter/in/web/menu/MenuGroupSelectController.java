@@ -2,6 +2,7 @@ package com.like.system.menu_role.adapter.in.web.menu;
 
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.menu_role.application.port.in.menu.select.MenuGroupSelectDTO;
 import com.like.system.menu_role.application.port.in.menu.select.MenuGroupSelectUseCase;
 
+@PrimaryAdapter
 @RestController
 public class MenuGroupSelectController {
 	

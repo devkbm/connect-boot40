@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,7 @@ import com.like.system.user.application.port.in.profile.SystemUserProfileSelectU
 
 import jakarta.servlet.http.HttpServletRequest;
 
+@PrimaryAdapter
 @RestController
 public class SystemUserProfileController {		
 				

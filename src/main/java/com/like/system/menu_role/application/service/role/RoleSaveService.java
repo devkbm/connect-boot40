@@ -1,5 +1,6 @@
 package com.like.system.menu_role.application.service.role;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import com.like.system.menu_role.application.port.out.role.RoleCommandDbPort;
 import com.like.system.menu_role.domain.role.Role;
 
 @Transactional
+@Application
 @Service
 public class RoleSaveService implements RoleSaveUseCase {
 

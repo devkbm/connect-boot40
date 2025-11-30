@@ -3,6 +3,7 @@ package com.like.system.hierarchycode.adapter.in.web;
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import com.like.system.hierarchycode.application.dto.HierarchySaveDTO;
 import com.like.system.hierarchycode.application.service.HierarchyCodeCommandService;
 import com.like.system.hierarchycode.domain.Code;
 
+@PrimaryAdapter
 @RestController
 public class HierarchyCodeController {
 	

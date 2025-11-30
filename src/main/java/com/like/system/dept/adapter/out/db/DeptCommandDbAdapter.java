@@ -2,6 +2,7 @@ package com.like.system.dept.adapter.out.db;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.dept.adapter.out.db.data.DeptJpaRepository;
@@ -9,6 +10,7 @@ import com.like.system.dept.application.port.out.DeptCommandDbPort;
 import com.like.system.dept.domain.Dept;
 import com.like.system.dept.domain.DeptId;
 
+@SecondaryAdapter
 @Repository
 public class DeptCommandDbAdapter implements DeptCommandDbPort {
 

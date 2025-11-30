@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.springframework.expression.ExpressionParser;
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -24,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
+@PrimaryAdapter
 @RestController
 public class SystemUserSelectController {		
 				

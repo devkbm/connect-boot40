@@ -4,6 +4,7 @@ import static org.springframework.util.StringUtils.hasText;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.adapter.out.db.menu.data.MenuJpaRepository;
@@ -15,6 +16,7 @@ import com.like.system.menu_role.domain.menu.QMenuGroup;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
+@SecondaryAdapter
 @Repository
 public class MenuQueryDbAdapter implements MenuQueryDbPort {
 

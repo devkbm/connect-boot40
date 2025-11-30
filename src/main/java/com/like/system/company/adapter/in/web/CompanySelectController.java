@@ -2,6 +2,7 @@ package com.like.system.company.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.company.application.port.in.select.CompanySelectDTO;
 import com.like.system.company.application.port.in.select.CompanySelectUseCase;
 
+@PrimaryAdapter
 @RestController
 public class CompanySelectController {
 

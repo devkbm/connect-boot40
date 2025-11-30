@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import com.like.system.systemcode.adapter.out.db.entity.JpaBizTypeEnum;
 import com.like.system.systemcode.application.port.in.query.BizCodeTypeQueryResultDTO;
 import com.like.system.systemcode.application.port.in.query.BizCodeTypeQueryUseCase;
 
+@PrimaryAdapter
 @RestController
 public class BizCodeTypeQueryController {
 

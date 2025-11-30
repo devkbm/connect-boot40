@@ -1,5 +1,6 @@
 package com.like.system.user.application.service.select;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.user.application.port.in.select.SystemUserSelectDTO;
@@ -7,6 +8,7 @@ import com.like.system.user.application.port.in.select.SystemUserSelectDTOMapper
 import com.like.system.user.application.port.in.select.SystemUserSelectUseCase;
 import com.like.system.user.application.port.out.SystemUserCommandDbPort;
 
+@Application
 @Service
 public class SystemUserSelectService implements SystemUserSelectUseCase {
 

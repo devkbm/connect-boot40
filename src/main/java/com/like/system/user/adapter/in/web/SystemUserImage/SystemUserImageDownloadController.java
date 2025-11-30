@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import com.like.system.user.application.port.in.select.SystemUserSelectUseCase;
 
 import jakarta.servlet.http.HttpServletResponse;
 
+@PrimaryAdapter
 @Controller
 public class SystemUserImageDownloadController {
 

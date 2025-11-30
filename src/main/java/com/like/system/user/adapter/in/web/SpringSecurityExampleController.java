@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
 import java.security.Principal;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.core.message.MessageUtil;
 import com.like.system.user.domain.SystemUser;
 
+@PrimaryAdapter
 @RestController
 public class SpringSecurityExampleController {
 	

@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import com.like.system.term.application.dto.term.TermSaveDTO;
 import com.like.system.term.application.port.in.term.TermQueryUseCase;
 import com.like.system.term.domain.SystemType;
 
+@PrimaryAdapter
 @RestController
 public class TermQueryController {
 

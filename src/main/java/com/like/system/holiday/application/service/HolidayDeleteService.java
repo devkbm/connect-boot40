@@ -2,11 +2,13 @@ package com.like.system.holiday.application.service;
 
 import java.time.LocalDate;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.holiday.application.port.in.delete.HolidayDeleteUseCase;
 import com.like.system.holiday.application.port.out.HolidayCommandDbPort;
 
+@Application
 @Service
 public class HolidayDeleteService implements HolidayDeleteUseCase {
 

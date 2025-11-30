@@ -2,6 +2,7 @@ package com.like.system.systemcode.adapter.out.db;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeTypeMapper;
 import com.like.system.systemcode.application.port.out.BizCodeTypeCommandDbPort;
 import com.like.system.systemcode.domain.BizCodeType;
 
+@SecondaryAdapter
 @Repository
 @Transactional
 public class BizCodeTypeAdapter implements BizCodeTypeCommandDbPort {

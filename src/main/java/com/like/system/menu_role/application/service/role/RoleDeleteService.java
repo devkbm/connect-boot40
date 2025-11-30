@@ -1,10 +1,12 @@
 package com.like.system.menu_role.application.service.role;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.in.role.delete.RoleDeleteUseCase;
 import com.like.system.menu_role.application.port.out.role.RoleCommandDbPort;
 
+@Application
 @Service
 public class RoleDeleteService implements RoleDeleteUseCase {
 

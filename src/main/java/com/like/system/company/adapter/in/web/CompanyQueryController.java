@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.system.company.application.port.in.query.CompanyQueryResultDTO;
 import com.like.system.company.application.port.in.query.CompanyQueryUseCase;
 
+@PrimaryAdapter
 @RestController
 public class CompanyQueryController {
 

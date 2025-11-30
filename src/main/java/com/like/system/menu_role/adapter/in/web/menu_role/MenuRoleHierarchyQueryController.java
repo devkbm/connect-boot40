@@ -4,6 +4,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.core.message.MessageUtil;
 import com.like.system.menu_role.application.port.in.menu_role.select.MenuRoleHierarchySelectUseCase;
 
+@PrimaryAdapter
 @RestController
 public class MenuRoleHierarchyQueryController {
 

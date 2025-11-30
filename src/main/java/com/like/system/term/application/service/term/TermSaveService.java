@@ -3,6 +3,7 @@ package com.like.system.term.application.service.term;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import com.like.system.term.domain.TermDictionary;
 import com.like.system.term.domain.WordDictionary;
 
 @Transactional
+@Application
 @Service
 public class TermSaveService implements TermSaveUseCase {
 

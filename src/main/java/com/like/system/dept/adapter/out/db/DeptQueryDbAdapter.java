@@ -4,6 +4,7 @@ import static org.springframework.util.StringUtils.hasText;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.dept.adapter.out.db.data.DeptJpaRepository;
@@ -14,6 +15,7 @@ import com.like.system.dept.domain.QDept;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
+@SecondaryAdapter
 @Repository
 public class DeptQueryDbAdapter implements DeptQueryDbPort {
 

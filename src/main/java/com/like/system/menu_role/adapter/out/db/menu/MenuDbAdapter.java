@@ -2,6 +2,7 @@ package com.like.system.menu_role.adapter.out.db.menu;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.adapter.out.db.menu.data.MenuGroupJpaRepository;
@@ -10,6 +11,7 @@ import com.like.system.menu_role.application.port.out.menu.MenuCommandDbPort;
 import com.like.system.menu_role.domain.menu.Menu;
 import com.like.system.menu_role.domain.menu.MenuId;
 
+@SecondaryAdapter
 @Repository
 public class MenuDbAdapter implements MenuCommandDbPort {
 	

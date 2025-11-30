@@ -3,6 +3,7 @@ package com.like.system.user.application.service.image;
 import java.io.File;
 import java.io.IOException;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import com.like.system.user.application.port.out.SystemUserCommandDbPort;
 import com.like.system.user.domain.SystemUser;
 
 @Transactional
+@Application
 @Service
 public class SystemUserImageUploadService implements SystemUserImageUploadUseCase {
 

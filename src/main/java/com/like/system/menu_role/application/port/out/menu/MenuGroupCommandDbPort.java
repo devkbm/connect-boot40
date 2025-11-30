@@ -2,9 +2,12 @@ package com.like.system.menu_role.application.port.out.menu;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryPort;
+
 import com.like.system.menu_role.domain.menu.MenuGroup;
 import com.like.system.menu_role.domain.menu.MenuGroupId;
 
+@SecondaryPort
 public interface MenuGroupCommandDbPort {
 
 	boolean exist(MenuGroupId id);

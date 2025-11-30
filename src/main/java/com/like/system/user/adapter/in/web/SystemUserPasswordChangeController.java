@@ -2,6 +2,7 @@ package com.like.system.user.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.system.user.application.port.in.password.SystemUserPasswordChangeDTO;
 import com.like.system.user.application.port.in.password.SystemUserPasswordChangeUseCase;
 
+@PrimaryAdapter
 @RestController
 public class SystemUserPasswordChangeController {		
 				

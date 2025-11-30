@@ -2,6 +2,7 @@ package com.like.system.menu_role.application.service.menu;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.in.menu.query.MenuGroupQueryDTO;
@@ -10,6 +11,7 @@ import com.like.system.menu_role.application.port.in.menu.query.MenuGroupQueryRe
 import com.like.system.menu_role.application.port.in.menu.query.MenuGroupQueryUseCase;
 import com.like.system.menu_role.application.port.out.menu.MenuGroupQueryDbPort;
 
+@Application
 @Service
 public class MenuGroupQueryService implements MenuGroupQueryUseCase {
 

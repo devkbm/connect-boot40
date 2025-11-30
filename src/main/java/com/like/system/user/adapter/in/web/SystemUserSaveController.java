@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.like.core.message.MessageUtil;
 import com.like.system.user.application.port.in.save.SystemUserSaveDTO;
 import com.like.system.user.application.port.in.save.SystemUserSaveUseCase;
 
+@PrimaryAdapter
 @RestController
 public class SystemUserSaveController {		
 					

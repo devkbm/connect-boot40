@@ -2,6 +2,7 @@ package com.like.system.menu_role.adapter.out.db.role;
 
 import java.util.Optional;
 
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaRepository;
 import com.like.system.menu_role.application.port.out.role.RoleCommandDbPort;
 import com.like.system.menu_role.domain.role.Role;
 
+@SecondaryAdapter
 @Repository
 @Transactional
 public class RoleCommandDbAdapter implements RoleCommandDbPort {

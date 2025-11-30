@@ -5,6 +5,7 @@ import static com.like.core.web.util.ResponseEntityUtil.toList;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import com.like.system.menu_role.domain.menu.MenuType;
 
 import jakarta.validation.Valid;
 
+@PrimaryAdapter
 @RestController
 public class MenuQueryController {
 
