@@ -1,4 +1,4 @@
-package com.like.system.term.application.dto.word;
+package com.like.system.term.application.port.in.word;
 
 import lombok.Builder;
 

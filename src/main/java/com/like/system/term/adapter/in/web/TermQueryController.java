@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.common.dto.HtmlSelectOptionable;
 import com.like.core.message.MessageUtil;
-import com.like.system.term.application.dto.term.TermQueryDTO;
-import com.like.system.term.application.dto.term.TermSaveDTO;
+import com.like.system.term.application.port.in.term.TermQueryDTO;
 import com.like.system.term.application.port.in.term.TermQueryUseCase;
+import com.like.system.term.application.port.in.term.TermSaveDTO;
 import com.like.system.term.domain.SystemType;
 
 @PrimaryAdapter

@@ -1,4 +1,4 @@
-package com.like.system.term.application.dto.domain;
+package com.like.system.term.application.port.in.domain;
 
 import lombok.Builder;
 

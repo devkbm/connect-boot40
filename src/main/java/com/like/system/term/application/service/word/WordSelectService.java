@@ -3,8 +3,8 @@ package com.like.system.term.application.service.word;
 import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
-import com.like.system.term.application.dto.word.WordSaveDTO;
-import com.like.system.term.application.dto.word.WordSaveDTOMapper;
+import com.like.system.term.application.port.in.word.WordSaveDTO;
+import com.like.system.term.application.port.in.word.WordSaveDTOMapper;
 import com.like.system.term.application.port.in.word.WordSelectUseCase;
 import com.like.system.term.application.port.out.WordCommandDbPort;
 

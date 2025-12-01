@@ -1,4 +1,4 @@
-package com.like.system.term.application.dto.term;
+package com.like.system.term.application.port.in.term;
 
 import static org.springframework.util.StringUtils.hasText;
 

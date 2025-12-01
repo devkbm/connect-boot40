@@ -6,9 +6,9 @@ import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.term.application.dto.word.WordSaveDTO;
-import com.like.system.term.application.dto.word.WordSaveDTOMapper;
 import com.like.system.term.application.port.in.word.WordQueryUseCase;
+import com.like.system.term.application.port.in.word.WordSaveDTO;
+import com.like.system.term.application.port.in.word.WordSaveDTOMapper;
 import com.like.system.term.application.port.out.WordQueryDbPort;
 
 @Transactional(readOnly = true)

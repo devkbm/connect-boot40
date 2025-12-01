@@ -7,8 +7,8 @@ import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.term.application.dto.term.TermSaveDTO;
-import com.like.system.term.application.dto.term.TermSaveDTOMapper;
+import com.like.system.term.application.port.in.term.TermSaveDTO;
+import com.like.system.term.application.port.in.term.TermSaveDTOMapper;
 import com.like.system.term.application.port.in.term.TermSaveUseCase;
 import com.like.system.term.application.port.out.DataDomainCommandDbPort;
 import com.like.system.term.application.port.out.TermCommandDbPort;

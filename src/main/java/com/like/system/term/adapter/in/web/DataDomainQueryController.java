@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.common.dto.HtmlSelectOptionable;
 import com.like.core.message.MessageUtil;
-import com.like.system.term.application.dto.domain.DataDomainSaveDTO;
 import com.like.system.term.application.port.in.domain.DataDomainQueryUseCase;
+import com.like.system.term.application.port.in.domain.DataDomainSaveDTO;
 import com.like.system.term.domain.Database;
 
 @PrimaryAdapter

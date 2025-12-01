@@ -3,13 +3,14 @@ package com.like.system.user.adapter.out.db.mybatis;
 
 import java.util.List;
 
-//import org.apache.ibatis.annotations.Mapper;
-//import org.apache.ibatis.annotations.Select;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import com.like.system.user.application.port.in.query.SystemUserQueryDTO;
 import com.like.system.user.application.port.in.query.SystemUserQueryResultDTO;
 
-//@Mapper
+@Mapper
 public interface SystemUserMapper {
 
 	
@@ -22,7 +23,7 @@ public interface SystemUserMapper {
 	 </if>
 	 */
 	
-	/*
+	
 	@Select("""
 	<script>		
 		<![CDATA[
@@ -98,7 +99,7 @@ public interface SystemUserMapper {
 		     , A.FK_FILE
 		]]>				 
 	</script>
-	""")	*/
+	""")
 	List<SystemUserQueryResultDTO> selectList(SystemUserQueryDTO dto);
 	
 	

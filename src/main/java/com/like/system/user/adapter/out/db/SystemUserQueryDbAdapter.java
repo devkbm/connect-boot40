@@ -14,20 +14,15 @@ import com.like.system.user.application.port.out.SystemUserQueryDbPort;
 @Repository
 public class SystemUserQueryDbAdapter implements SystemUserQueryDbPort {
 
-	//SystemUserMapper mapper;
-	
-	SystemUserQueryDbAdapter() {
+	SystemUserMapper mapper;
 		
+	SystemUserQueryDbAdapter(SystemUserMapper mapper) {		
+		this.mapper = mapper;
 	}
-	
-	//SystemUserQueryDbAdapter(SystemUserMapper mapper) {		
-		//this.mapper = mapper;
-	//}
 
 	@Override
 	public List<SystemUserQueryResultDTO> selectList(SystemUserQueryDTO dto) {
-		//return this.mapper.selectList(dto);
-		return null;
+		return this.mapper.selectList(dto);		
 	}
 		
 }
