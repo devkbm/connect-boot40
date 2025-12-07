@@ -1,0 +1,37 @@
+package com.like.hrm.hrmcode.application.service.hrmcodetype;
+
+import org.jmolecules.architecture.hexagonal.Application;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import com.like.hrm.hrmcode.application.dto.hrmcodetype.HrmCodeTypeSaveDTO;
+import com.like.hrm.hrmcode.application.port.in.hrmcodetype.HrmCodeTypeSaveUseCase;
+import com.like.hrm.hrmcode.application.port.out.hrmcodetype.HrmCodeTypeCommandDbPort;
+import com.like.hrm.hrmcode.domain.HrmCodeType;
+
+@Application
+@Service
+public class HrmCodeTypeSaveService implements HrmCodeTypeSaveUseCase {
+
+	HrmCodeTypeCommandDbPort dbPort;
+	
+	HrmCodeTypeSaveService(HrmCodeTypeCommandDbPort dbPort) {
+		this.dbPort = dbPort;
+	}
+	
+	@Override
+	public void save(HrmCodeTypeSaveDTO dto) {
+
+		HrmCodeType hrmType = null;
+		
+		if (StringUtils.hasText(dto.typeId())) hrmType = dbPort.select(dto.typeId()).orElse(null);		
+		
+		if (hrmType == null) {
+			hrmType = dto.newEntity();
+		} else {					
+			hrmType = dto.modify(hrmType);
+		}		
+		dbPort.save(hrmType);	
+	}
+	
+}
