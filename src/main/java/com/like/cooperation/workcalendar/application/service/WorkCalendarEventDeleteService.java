@@ -1,0 +1,26 @@
+package com.like.cooperation.workcalendar.application.service;
+
+import org.jmolecules.architecture.hexagonal.Application;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.like.cooperation.workcalendar.application.port.in.event.delete.WorkCalendarEventDeleteUseCase;
+import com.like.cooperation.workcalendar.application.port.out.WorkCalendarEventCommandDbPort;
+
+@Application
+@Transactional
+@Service
+public class WorkCalendarEventDeleteService implements WorkCalendarEventDeleteUseCase {
+
+	WorkCalendarEventCommandDbPort dbPort;
+	
+	WorkCalendarEventDeleteService(WorkCalendarEventCommandDbPort dbPort) {
+		this.dbPort = dbPort;
+	}
+	
+	@Override
+	public void delete(Long id) {
+		this.dbPort.delete(id);
+	}
+
+}
