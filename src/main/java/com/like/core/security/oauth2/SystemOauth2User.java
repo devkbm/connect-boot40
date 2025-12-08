@@ -20,7 +20,7 @@ import org.springframework.util.Assert;
 
 public class SystemOauth2User implements OAuth2User, Serializable {
 
-	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
+	//private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
 	private final Set<GrantedAuthority> authorities;
 
