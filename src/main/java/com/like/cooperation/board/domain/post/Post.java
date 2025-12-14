@@ -12,7 +12,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -46,9 +45,8 @@ public class Post extends AbstractAuditEntity {
 	@Tsid
 	@Column(name="POST_ID")
 	Long postId;	
-		
-	@Comment("게시글 부모ID")
-	@Column(name="POST_P_ID")
+			
+	@Column(name="POST_P_ID", comment="게시글 부모ID")
 	Long postParentId;		
 			
 	@Column(name="USER_ID")
@@ -59,14 +57,11 @@ public class Post extends AbstractAuditEntity {
 	
 	@Embedded
 	PostPassword password;
-		       
-	@Comment("계층 레벨")
-	@Column(name="DEPTH_LEVEL")
+		       	
+	@Column(name="DEPTH_LEVEL", comment="계층 레벨")
     int depth;
-	
-	
-	@Comment("조회 수")
-	@Column(name="HIT_CNT")
+		
+	@Column(name="HIT_CNT", comment="조회 수")
     int hitCount;	
 	
 	@Column(name="TOP_FIXED_YN")

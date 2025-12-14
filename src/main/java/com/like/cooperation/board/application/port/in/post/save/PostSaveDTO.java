@@ -20,7 +20,7 @@ public record PostSaveDTO(
 		String title,
 		String contents,
 		String pwd,
-		int hitCount,			
+		Integer hitCount,			
 		Integer seq,
 		Integer depth,
 		boolean isFiexedTop,
