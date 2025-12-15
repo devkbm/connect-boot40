@@ -13,8 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import lombok.AccessLevel;
@@ -33,9 +31,8 @@ public class Team extends AbstractAuditEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="TEAM_ID")
 	Long teamId;
-	
-	@Comment("팀명")
-	@Column(name="TEAM_NAME")
+		
+	@Column(name="TEAM_NAME", comment="팀명")
 	String teamName;
 	
 	/*@OneToOne

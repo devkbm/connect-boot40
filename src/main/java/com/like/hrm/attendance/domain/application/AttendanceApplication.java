@@ -9,8 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import io.hypersistence.utils.hibernate.id.Tsid;
@@ -43,9 +41,8 @@ public class AttendanceApplication extends AbstractAuditEntity {
 	
 	@Column(name="STAFF_NO") 
 	String staffNo;		
-		
-	@Comment("근무사유")
-	@Column(name="DUTY_REASON", nullable = false)
+			
+	@Column(name="DUTY_REASON", nullable = false, comment="근무사유")
 	String dutyReason;	
 						
 	@Transient

@@ -2,7 +2,6 @@ package com.like.hrm.payitem.domain.payinfo;
 
 import java.math.BigDecimal;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -33,9 +32,8 @@ public class PayStaffItem extends AbstractAuditEntity {
 	
 	@Column(name="PAY_ITEM_CODE")
 	String payItemCode;
-	
-	@Comment("금액")
-	@Column(name="WAGE_AMOUNT")
+		
+	@Column(name="WAGE_AMOUNT", comment="금액")
 	BigDecimal wageAmount;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

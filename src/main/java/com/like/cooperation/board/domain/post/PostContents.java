@@ -4,8 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Lob;
 
-import org.hibernate.annotations.Comment;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,18 +12,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Embeddable
 public class PostContents {
-
-	@Comment("제목")
-	@Column(name="TITLE")
+	
+	@Column(name="TITLE", comment="제목")
 	String title;
-        
-	@Comment("내용")
-	@Column(name="CONTENTS")
+        	
+	@Column(name="CONTENTS", comment="내용")
 	@Lob
     String contents;
 	
-	public PostContents(String title
-						  ,String contents) {
+	public PostContents(String title, String contents) {
 		if (title == null || title == "") throw new IllegalArgumentException("게시글 제목은 필수 입력값입니다.");
 		
 		this.title = title;

@@ -9,7 +9,6 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -40,17 +39,14 @@ public class PayTable extends AbstractAuditEntity {
 	
 	@Column(name="EFFECTIVE_DT")
 	LocalDate effectiveDate;
-
-	@Comment("직종코드")
-	@Column(name="OCCUPATION_CODE")
+	
+	@Column(name="OCCUPATION_CODE", comment="직종코드")
 	String occupationCode;
-		
-	@Comment("직급코드")
-	@Column(name="JOB_GRADE_CODE")
+			
+	@Column(name="JOB_GRADE_CODE", comment="직급코드")
 	String jobGradeCode;
-		
-	@Comment("호봉코드")
-	@Column(name="PAY_STEP_CODE")
+			
+	@Column(name="PAY_STEP_CODE", comment="호봉코드")
 	String payStepCode;
 	
 	@Column(name="WAGE_AMOUNT")

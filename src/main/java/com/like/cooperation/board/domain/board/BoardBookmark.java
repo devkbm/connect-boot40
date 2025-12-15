@@ -14,7 +14,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -43,22 +42,18 @@ public class BoardBookmark extends AbstractAuditEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="PK_BOOKMARK")
 	Long pkBookmark;
-	
-	@Comment("게시판 ID")
+		
 	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="FK_BOARD")
+	@JoinColumn(name="FK_BOARD", comment="게시판 ID")
 	Board board;
 	
-	@Comment("사용자 ID")
-	@Column(name="USER_ID")
+	@Column(name="USER_ID", comment="사용자 ID")
 	String userId;
-				
-	@Comment("순번")
-	@Column(name="SEQ")
+					
+	@Column(name="SEQ", comment="순번")
 	Long seq;
 		
-	public BoardBookmark(Board board
-						,String userId) {		
+	public BoardBookmark(Board board, String userId) {		
 		if (board == null) throw new IllegalArgumentException("게시판이 존재하지 않습니다.");
 		
 		this.board 	= board;

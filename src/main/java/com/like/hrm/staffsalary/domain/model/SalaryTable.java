@@ -11,8 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,25 +26,24 @@ import lombok.ToString;
 public class SalaryTable {
 	
 	@Id		
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Comment("식별자")
-	@Column(name="ID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@Column(name="ID", nullable = false, comment="식별자")
 	Long id;
-	
-	@Comment("기준일")
-	@Column(name="BASE_DT")
+		
+	@Column(name="BASE_DT", comment="기준일")
 	LocalDate baseDate;
 		
 	@Embedded
 	SalaryAppointmentInformation appointmentInfo;
-			
-	@Comment("금액")
-	@Column(name="AMOUNT")
+				
+	@Column(name="AMOUNT", comment="금액")
 	BigDecimal amount;
 		
-	public SalaryTable(LocalDate baseDate
-					  ,SalaryAppointmentInformation appointmentInfo
-					  ,BigDecimal amount) {
+	public SalaryTable(
+			LocalDate baseDate,
+			SalaryAppointmentInformation appointmentInfo,
+			BigDecimal amount
+			) {
 		this.baseDate = baseDate;
 		this.appointmentInfo = appointmentInfo;		
 		this.amount = amount;		

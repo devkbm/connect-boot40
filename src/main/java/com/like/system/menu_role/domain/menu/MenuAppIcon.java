@@ -2,8 +2,6 @@ package com.like.system.menu_role.domain.menu;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Comment;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
@@ -16,13 +14,11 @@ import lombok.NoArgsConstructor;
 public class MenuAppIcon implements Serializable {
 	
 	private static final long serialVersionUID = -6474952912094147032L;
-	
-	@Comment("APP ICON")
-	@Column(name="APP_ICON_TYPE")
+		
+	@Column(name="APP_ICON_TYPE", comment="APP_ICON_TYPE")
 	String appIconType;
-	
-	@Comment("APP ICON")
-	@Column(name="APP_ICON")
+		
+	@Column(name="APP_ICON", comment="APP ICON")
 	String appIcon;	
 	
 	public MenuAppIcon(String appIconType, String appIcon) {

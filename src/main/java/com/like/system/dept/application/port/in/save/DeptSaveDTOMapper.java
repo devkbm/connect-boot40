@@ -2,7 +2,7 @@ package com.like.system.dept.application.port.in.save;
 
 import java.util.Optional;
 
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import com.like.common.vo.LocalDatePeriod;
 import com.like.system.dept.domain.Dept;

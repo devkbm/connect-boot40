@@ -12,7 +12,6 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -45,39 +44,35 @@ public class StaffFamily extends AbstractAuditEntity implements Serializable {
 	
 	@EmbeddedId
 	StaffFamilyId id;	
-		
-	@Comment("가족성명")
-	@Column(name="FAMILY_NAME", nullable = false)
+			
+	@Column(name="FAMILY_NAME", nullable = false, comment="가족성명")
 	String name;
-	
-	@Comment("주민등록번호")
-	@Column(name="RREGNO", nullable = false)
+		
+	@Column(name="RREGNO", nullable = false, comment="주민등록번호")
 	String residentRegistrationNumber;
-		
-	@Comment("가족관계")
-	@Column(name="FAMILY_REL_CODE", nullable = false)
+			
+	@Column(name="FAMILY_REL_CODE", nullable = false, comment="가족관계")
 	String relation;
-		
-	@Comment("직업명")
-	@Column(name="OCCUPATION_NAME", nullable = true)
+			
+	@Column(name="OCCUPATION_NAME", nullable = true, comment="직업명")
 	String occupation;
-		
-	@Comment("학력구분")
-	@Column(name="SCHOOL_CAREER_CODE", nullable = true)
+			
+	@Column(name="SCHOOL_CAREER_CODE", nullable = true, comment="학력구분")
 	String schoolCareerType;
-		
-	@Comment("비고")
-	@Column(name="CMT", nullable = true)
+			
+	@Column(name="CMT", nullable = true, comment="비고")
 	String comment;
 	
 	@Builder
-	public StaffFamily(Staff staff
-					  ,String name
-					  ,String residentRegistrationNumber
-					  ,String relation
-					  ,String occupation
-					  ,String schoolCareerType
-					  ,String comment) {		
+	public StaffFamily(
+			Staff staff,
+			String name,
+			String residentRegistrationNumber,
+			String relation,
+			String occupation,
+			String schoolCareerType,
+			String comment
+			) {		
 		this.staff = staff;
 		this.id = new StaffFamilyId(staff, staff.getFamilyList().getNextSequence());
 		this.name = name;
@@ -89,12 +84,14 @@ public class StaffFamily extends AbstractAuditEntity implements Serializable {
 	}
 	
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modifyEntity(String name
-							,String residentRegistrationNumber
-							,String relation
-							,String occupation
-							,String schoolCareerType
-							,String comment) {
+	public void modifyEntity(
+			String name,
+			String residentRegistrationNumber,
+			String relation,
+			String occupation,
+			String schoolCareerType,
+			String comment
+			) {
 		this.name = name;
 		this.residentRegistrationNumber = residentRegistrationNumber;
 		this.relation = relation;

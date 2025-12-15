@@ -2,7 +2,6 @@ package com.like.hrm.staff.domain.staff.period;
 
 import java.time.LocalDate;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.common.vo.LocalDatePeriod;
@@ -44,9 +43,8 @@ public class StaffPeriod extends AbstractAuditEntity {
 		
 	@Embedded
 	LocalDatePeriod period;
-	
-	@Comment("비고")
-	@Column(name="CMT")
+		
+	@Column(name="CMT", comment="비고")
 	String comment;
 	
 	public StaffPeriod(

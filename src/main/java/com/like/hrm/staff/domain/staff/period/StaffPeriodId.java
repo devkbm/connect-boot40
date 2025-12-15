@@ -2,8 +2,6 @@ package com.like.hrm.staff.domain.staff.period;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.Column;
@@ -29,9 +27,8 @@ public class StaffPeriodId implements Serializable {
 	
 	@Column(name="PERIOD_TYPE_CD")
 	String periodType;
-	
-	@Comment("등록순번")
-	@Column(name="SEQ")
+		
+	@Column(name="SEQ", comment="등록순번")
 	Long seq;	
 	
 	public StaffPeriodId(

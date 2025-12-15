@@ -58,51 +58,46 @@ public class StaffSchoolCareer extends AbstractAuditEntity implements Serializab
 
 	@EmbeddedId
 	StaffSchoolCareerId id;
-			
-	@Comment("학력유형")
-	@Column(name="SCHOOL_CAREER_CODE")
+				
+	@Column(name="SCHOOL_CAREER_CODE", comment="학력유형")
 	String schoolCareerType;
-		
-	@Comment("학교코드")
-	@Column(name="SCHOOL_CODE")
+			
+	@Column(name="SCHOOL_CODE", comment="학교코드")
 	String schoolCode;
 		
 	@Embedded
 	LocalDatePeriod period;
-		
-	@Comment("전공학과명")
-	@Column(name="MAJOR_NAME")
+			
+	@Column(name="MAJOR_NAME", comment="전공학과명")
 	String majorName;
-		
-	@Comment("복수전공학과명")
-	@Column(name="PLURAL_MAJOR_NAME")
+			
+	@Column(name="PLURAL_MAJOR_NAME", comment="복수전공학과명")
 	String pluralMajorName;
-		
-	@Comment("소재지")
-	@Column(name="LOCATION_NAME")
+			
+	@Column(name="LOCATION_NAME", comment="소재지")
 	String location;
-		
-	@Comment("수업연한")
-	@Column(name="LESSON_YEAR")
+			
+	@Column(name="LESSON_YEAR", comment="수업연한")
 	Integer lessonYear;
-		
-	@Comment("비고")
-	@Column(name="CMT")
+			
+	@Column(name="CMT", comment="비고")
 	String comment;
 		
 	// 시작일, 종료일, 전공학과명, 복수전공학과명, 학교소재지, 수업연한, 입사학력여부, 수고권대학여부, 야간여부, 이공계여부, 이미지	
 	
 	@Builder
-	public StaffSchoolCareer(Staff staff
-						    ,String schoolCareerType
-						    ,String schoolCode
-						    ,LocalDate fromDate
-							,LocalDate toDate
-							,String majorName
-							,String pluralMajorName
-							,String location
-							,Integer lessonYear
-						    ,String comment) {
+	public StaffSchoolCareer(
+			Staff staff,
+			String schoolCareerType,
+			String schoolCode,
+			LocalDate fromDate,
+			LocalDate toDate,
+			String majorName,
+			String pluralMajorName,
+			String location,
+			Integer lessonYear,
+			String comment
+			) {
 		this.staff = staff;
 		this.id = new StaffSchoolCareerId(staff, staff.getSchoolCareerList().getNextSequence());		
 		this.schoolCareerType = schoolCareerType;
@@ -117,15 +112,16 @@ public class StaffSchoolCareer extends AbstractAuditEntity implements Serializab
 		
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
 	public void modifyEntity(
-			String schoolCareerType
-		    ,String schoolCode
-		    ,LocalDate fromDate
-			,LocalDate toDate
-			,String majorName
-			,String pluralMajorName
-			,String location
-			,Integer lessonYear
-		    ,String comment) {
+			String schoolCareerType,
+			String schoolCode,
+			LocalDate fromDate,
+			LocalDate toDate,
+			String majorName,
+			String pluralMajorName,
+			String location,
+			Integer lessonYear,
+			String comment
+			) {
 		this.schoolCareerType = schoolCareerType;
 		this.schoolCode = schoolCode;
 		this.period = new LocalDatePeriod(fromDate, toDate);

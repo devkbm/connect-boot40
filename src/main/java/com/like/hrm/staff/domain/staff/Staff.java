@@ -10,7 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.hrm.staff.domain.AbstractStaff;
@@ -53,29 +52,23 @@ public class Staff extends AbstractStaff implements Serializable {
 	
 	@Column(name="STAFF_YN")
 	Boolean isStaff = true;
-			
-	@Comment("성별")
-	@Column(name="GENDER")
-	String gender;
 				
-	@Comment("생일")
-	@Column(name="BIRTHDAY")
+	@Column(name="GENDER", comment="성별")
+	String gender;
+					
+	@Column(name="BIRTHDAY", comment="생일")
 	LocalDate birthday;	
-		
-	@Comment("입사일")
-	@Column(name="JOIN_COMP_DT")
+			
+	@Column(name="JOIN_COMP_DT", comment="입사일")
 	LocalDate joinDate;
-	
-	@Comment("퇴사일")
-	@Column(name="RETIRE_COMP_DT")
-	LocalDate retireDate;
-	
-	@Comment("근무상태")
-	@Column(name="WORK_STATE_CODE")
-	String workStateCode;
 		
-	@Comment("이미지경로")
-	@Column(name="IMG_PATH")
+	@Column(name="RETIRE_COMP_DT", comment="퇴사일")
+	LocalDate retireDate;
+		
+	@Column(name="WORK_STATE_CODE", comment="근무상태")
+	String workStateCode;
+			
+	@Column(name="IMG_PATH", comment="이미지경로")
 	String imagePath;
 		
 	@Embedded

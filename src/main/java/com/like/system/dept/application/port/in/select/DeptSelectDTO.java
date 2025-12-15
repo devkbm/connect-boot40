@@ -33,23 +33,5 @@ public record DeptSelectDTO(
 		Integer seq,
 		String comment
 		) {
-
 	
-	
-	
-	
-	/*
-	public void modifyDept(Dept dept, @Nullable Dept parentDept) {
-		dept.modifyEntity(deptNameKorean
-						 ,deptAbbreviationKorean
-						 ,deptNameEnglish
-						 ,deptAbbreviationEnglish
-						 ,new LocalDatePeriod(this.fromDate, this.toDate)
-						 ,seq
-						 ,comment
-						 ,parentDept);
-		
-		dept.setAppUrl(clientAppUrl);
-	}
-	*/
 }

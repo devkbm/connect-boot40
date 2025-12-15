@@ -1,9 +1,6 @@
 package com.like.hrm.attendance.domain.application;
 
-
 import java.time.LocalTime;
-
-import org.hibernate.annotations.Comment;
 
 import com.like.common.vo.LocalDatePeriod;
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -18,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,9 +40,8 @@ public class AttendanceDetail extends AbstractAuditEntity {
 	
 	@Column(name="STAFF_NO") 
 	String staffNo;
-	
-	@Comment("근무코드")
-	@Column(name="DUTY_CODE", nullable = false)
+		
+	@Column(name="DUTY_CODE", nullable = false, comment="근무코드")
 	String dutyCode;
 		
 	@AttributeOverrides({

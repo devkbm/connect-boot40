@@ -11,8 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import lombok.AccessLevel;
@@ -35,29 +33,26 @@ public class StaffSalaryItem extends AbstractAuditEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	//@JoinColumn(name = "ID", nullable=false, updatable=false)
 	StaffSalary staffSalary;
-			
-	@Comment("급여항목")
-	@Column(name="SALARY_ITEM_CODE")
+				
+	@Column(name="SALARY_ITEM_CODE", comment="급여항목")
 	String salaryItemCode;
-
-	@Comment("계산일수")
-	@Column(name="CALC_DAY")
+	
+	@Column(name="CALC_DAY", comment="계산일수")
 	Integer calcDays;
-	
-	@Comment("계산식")
-	@Column(name="CALC_FOMULA")
+		
+	@Column(name="CALC_FOMULA", comment="계산식")
 	String calcFomula;
-	
-	@Comment("금액")
-	@Column(name="AMOUNT")
+		
+	@Column(name="AMOUNT", comment="금액")
 	BigDecimal amount;
 		
-	public StaffSalaryItem(StaffSalary staffSalary
-						  ,String salaryItemCode
-						  ,Integer calcDays
-						  ,String calcFomula
-						  ,BigDecimal amount
-						  ) {
+	public StaffSalaryItem(
+			StaffSalary staffSalary,
+			String salaryItemCode,
+			Integer calcDays,
+			String calcFomula,
+			BigDecimal amount
+			) {
 		this.staffSalary = staffSalary;
 		this.salaryItemCode = salaryItemCode;
 		this.calcDays = calcDays;

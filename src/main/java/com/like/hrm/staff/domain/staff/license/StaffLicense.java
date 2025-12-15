@@ -13,7 +13,6 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -57,35 +56,32 @@ public class StaffLicense extends AbstractAuditEntity implements Serializable {
 	
 	@EmbeddedId
 	StaffLicenseId id;
-			
-	@Comment("자격면허유형")
-	@Column(name="LICENSE_TYPE", nullable = false)
+				
+	@Column(name="LICENSE_TYPE", nullable = false, comment="자격면허유형")
 	String licenseType;
-		
-	@Comment("자격면허번호")
-	@Column(name="LICENSE_NO", nullable = false)
+			
+	@Column(name="LICENSE_NO", nullable = false, comment="자격면허번호")
 	String licenseNumber;
 		
-	// acquisition date
-	@Comment("취득일자")
-	@Column(name="DATE_OF_ACQUISITION", nullable = true)
+	// acquisition date	
+	@Column(name="DATE_OF_ACQUISITION", nullable = true, comment="취득일자")
 	LocalDate dateOfAcquisition;
-		
-	@Comment("인증기관")
-	@Column(name="CERTIFICATION_AUTHORITY", nullable = true)
+			
+	@Column(name="CERTIFICATION_AUTHORITY", nullable = true, comment="인증기관")
 	String certificationAuthority;		
-		
-	@Comment("비고")
-	@Column(name="CMT", nullable = true)
+			
+	@Column(name="CMT", nullable = true, comment="비고")
 	String comment;	
 	
 	@Builder
-	public StaffLicense(Staff staff
-					   ,String licenseType
-					   ,String licenseNumber
-					   ,LocalDate dateOfAcquisition
-					   ,String certificationAuthority
-					   ,String comment) {
+	public StaffLicense(
+			Staff staff,
+			String licenseType,
+			String licenseNumber,
+			LocalDate dateOfAcquisition,
+			String certificationAuthority,
+			String comment
+			) {
 		this.staff = staff;
 		this.id = new StaffLicenseId(staff, staff.getLicenseList().getNextSequence());
 		this.licenseType = licenseType;
@@ -96,11 +92,13 @@ public class StaffLicense extends AbstractAuditEntity implements Serializable {
 	}
 	
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modifyEntity(String licenseType
-							,String licenseNumber
-							,LocalDate dateOfAcquisition
-							,String certificationAuthority
-							,String comment) {
+	public void modifyEntity(
+			String licenseType,
+			String licenseNumber,
+			LocalDate dateOfAcquisition,
+			String certificationAuthority,
+			String comment
+			) {
 		this.licenseType = licenseType;
 		this.licenseNumber = licenseNumber;
 		this.dateOfAcquisition = dateOfAcquisition;

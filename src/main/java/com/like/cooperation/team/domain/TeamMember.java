@@ -37,7 +37,6 @@ public class TeamMember extends AbstractAuditEntity {
 	private SystemUser user;	
 	*/
 	
-	//@Comment("권한")
 	String authority;	
 	
 	public TeamMember(Team team, String userId) {

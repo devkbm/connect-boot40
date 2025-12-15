@@ -11,7 +11,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.AccessLevel;
@@ -34,13 +33,11 @@ public class PostReply {
 	
 	@Column(name="USER_ID")
 	String userId;
-	
-	@Comment("내용")
-	@Column(name="CONTENTS", length = 4000)
+		
+	@Column(name="CONTENTS", length = 4000, comment="내용")
     String contents;
-	
-	@Comment("댓글 부모ID")
-	@Column(name="ARTICLE_REPLY_P_ID")
+		
+	@Column(name="ARTICLE_REPLY_P_ID", comment="댓글 부모ID")
 	Long articleReplyParentId;
 	
 	/**

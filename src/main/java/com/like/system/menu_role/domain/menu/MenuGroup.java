@@ -8,7 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -32,9 +31,8 @@ public class MenuGroup extends AbstractAuditEntity implements Serializable {
 	
 	@Column(name="MENU_GROUP_NM")
 	String name; 
-		
-	@Comment("MENU_GROUP_URL")
-	@Column(name="MENU_GROUP_URL")
+			
+	@Column(name="MENU_GROUP_URL", comment="MENU_GROUP_URL")
 	String menuGroupUrl;
 	
 	@Column(name="DESCRIPTION")

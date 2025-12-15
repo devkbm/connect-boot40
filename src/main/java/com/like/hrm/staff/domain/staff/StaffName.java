@@ -3,8 +3,6 @@ package com.like.hrm.staff.domain.staff;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import org.hibernate.annotations.Comment;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,17 +15,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Embeddable
 public class StaffName {
-	
-	@Comment("직원명")
-	@Column(name="STAFF_NAME")
+		
+	@Column(name="STAFF_NAME", comment="직원명")
 	String name;	
-		
-	@Comment("직원명(영문)")
-	@Column(name="STAFF_NAME_ENG")
+			
+	@Column(name="STAFF_NAME_ENG", comment="직원명(영문)")
 	String nameEng;
-		
-	@Comment("직원명(한문)")
-	@Column(name="STAFF_NAME_CHI")
+			
+	@Column(name="STAFF_NAME_CHI", comment="직원명(한문)")
 	String nameChi;
 	
 	private StaffName(String name) {

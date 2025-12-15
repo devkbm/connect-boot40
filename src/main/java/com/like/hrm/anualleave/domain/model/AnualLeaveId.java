@@ -5,8 +5,6 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
@@ -24,13 +22,11 @@ public class AnualLeaveId implements Serializable {
 
 	@Column(name="ORG_CD")
 	String companyCode;
-	
-	@Comment("직원번호")
-	@Column(name="STAFF_NO")
+		
+	@Column(name="STAFF_NO", comment="직원번호")
 	String staffNo;
-	
-	@Comment("귀속년도")
-	@Column(name="YYYY")
+		
+	@Column(name="YYYY", comment="귀속년도")
 	Integer yyyy;			
 	
 	public AnualLeaveId(Staff staff, Integer yyyy) {

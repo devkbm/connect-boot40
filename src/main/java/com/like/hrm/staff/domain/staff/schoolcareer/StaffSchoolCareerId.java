@@ -5,8 +5,6 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
@@ -27,9 +25,8 @@ public class StaffSchoolCareerId implements Serializable {
 		
 	@Column(name="STAFF_NO")
 	String staffNo;
-		
-	@Comment("등록순번")
-	@Column(name="SEQ")
+			
+	@Column(name="SEQ", comment="등록순번")
 	Long seq;
 	
 	public StaffSchoolCareerId(Staff staff, Long seq) {

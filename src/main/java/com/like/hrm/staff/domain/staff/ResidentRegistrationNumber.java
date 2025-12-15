@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import org.hibernate.annotations.Comment;
-
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,9 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 public class ResidentRegistrationNumber {
-
-	@Comment("주민등록번호")
-	@Column(name="RREGNO")
+	
+	@Column(name="RREGNO", comment="주민등록번호")
 	String number;
 	
 	private ResidentRegistrationNumber(String number) {

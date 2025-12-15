@@ -11,8 +11,6 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import lombok.AccessLevel;
@@ -39,60 +37,54 @@ public class AnualLeave extends AbstractAuditEntity {
 	
 	@EmbeddedId
 	AnualLeaveId id;
-			
-	@Comment("연차기준일(입사일)")
-	@Column(name="BASE_DT")
+				
+	@Column(name="BASE_DT", comment="연차기준일(입사일)")
 	LocalDate base;
-	
-	@Comment("연차사용 시작일자")
-	@Column(name="FROM_DT")
+		
+	@Column(name="FROM_DT", comment="연차사용 시작일자")
 	LocalDate from;
-	
-	@Comment("연차사용 종료일자")
-	@Column(name="TO_DT")
+		
+	@Column(name="TO_DT", comment="연차사용 종료일자")
 	LocalDate to;
-	
-	@Comment("발생갯수")
-	@Column(name="CNT")
+		
+	@Column(name="CNT", comment="발생갯수")
 	double cnt;
-	
-	@Comment("가산갯수")
-	@Column(name="ADD_CNT")
+		
+	@Column(name="ADD_CNT", comment="가산갯수")
 	double add_cnt;
-	
-	@Comment("사용갯수")
-	@Column(name="USE_CNT")
+		
+	@Column(name="USE_CNT", comment="사용갯수")
 	double use_cnt;
-	
-	@Comment("총근무일수")
-	@Column(name="TOTAL_WORK_DAYS")
+		
+	@Column(name="TOTAL_WORK_DAYS", comment="총근무일수")
 	long total_work_days;
-	
-	@Comment("제외근무일수")
-	@Column(name="EXCEPT_DAYS")
+		
+	@Column(name="EXCEPT_DAYS", comment="제외근무일수")
 	long except_days;
-
-	@Comment("1년 미만 여부")
-	@Column(name="INTRA_ANUAL")
-	Boolean isIntraAnual;
 	
-	@Comment("비고")
-	@Column(name="CMT")
+	@Column(name="INTRA_ANUAL", comment="1년 미만 여부")
+	Boolean isIntraAnual;
+		
+	@Column(name="CMT", comment="비고")
 	String comment;
 	
-	public AnualLeave(AnualLeaveId id
-					 ,LocalDate base 					 
-					 ,LocalDate from
-					 ,LocalDate to) {
+	public AnualLeave(
+			AnualLeaveId id,
+			LocalDate base,
+			LocalDate from,
+			LocalDate to
+			) {
 		this.id = id;
 		this.base = base;		
 		this.from = from;
 		this.to = to;			
 	}
 	
-	public void modify(LocalDate base 					 
-					  ,LocalDate from
-					  ,LocalDate to) {
+	public void modify(
+			LocalDate base,
+			LocalDate from,
+			LocalDate to
+			) {
 		this.base = base;
 		this.from = from;
 		this.to = to;

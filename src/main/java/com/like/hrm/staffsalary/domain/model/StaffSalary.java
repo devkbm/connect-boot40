@@ -11,8 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import lombok.AccessLevel;
@@ -29,21 +27,17 @@ public class StaffSalary extends AbstractAuditEntity implements Serializable {
 
 	private static final long serialVersionUID = -4083229804219573611L;
 
-	@Id
-	@Comment("실별자")
-	@Column(name="ID")
+	@Id	
+	@Column(name="ID", comment="실별자")
 	String id;
-	
-	@Comment("직원번호")
-	@Column(name="STAFF_ID")
-	String staffId;
 		
-	@Comment("지급일")
-	@Column(name="PAY_DT")
+	@Column(name="STAFF_ID", comment="직원번호")
+	String staffId;
+			
+	@Column(name="PAY_DT", comment="지급일")
 	LocalDate payDate;
-	
-	@Comment("급여구분")
-	@Column(name="SALARY_TYPE")
+		
+	@Column(name="SALARY_TYPE", comment="급여구분")
 	String salaryType;
 	
 	// 급여계산 기준 인사정보

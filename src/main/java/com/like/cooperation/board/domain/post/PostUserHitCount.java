@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 
 import lombok.Getter;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -31,9 +30,8 @@ public class PostUserHitCount extends AbstractAuditEntity implements Serializabl
 	
 	@EmbeddedId
 	PostUserHitCountId id;	
-		
-	@Comment("조회수")
-	@Column(name="hit_cnt")
+			
+	@Column(name="hit_cnt", comment="조회수")
 	Integer hitCount;
         
 	/**

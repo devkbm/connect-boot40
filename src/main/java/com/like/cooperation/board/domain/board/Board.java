@@ -4,9 +4,8 @@ import java.util.*;
 
 import jakarta.persistence.*;
 
-import org.hibernate.annotations.Comment;
+import org.jspecify.annotations.Nullable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.lang.Nullable;
 
 import com.like.cooperation.board.domain.post.Post;
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -38,32 +37,26 @@ import lombok.ToString;
 public class Board extends AbstractAuditEntity {		
 		
 	@Id	
-	@Tsid
-	@Comment("게시판 ID")
-	@Column(name="BOARD_ID")
+	@Tsid	
+	@Column(name="BOARD_ID", comment="게시판 ID")
 	Long boardId;
-	    	
-	@Comment("상위게시판 ID")
+	    		
 	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE}, optional = true)
-	@JoinColumn(name="BOARD_P_ID")
+	@JoinColumn(name="BOARD_P_ID", comment="상위게시판 ID")
 	Board parent;
 				
 	//@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-	@Enumerated(EnumType.STRING)
-	@Comment("게시판_타입")
-	@Column(name="BOARD_TYPE")
+	@Enumerated(EnumType.STRING)	
+	@Column(name="BOARD_TYPE", comment="게시판_타입")
     BoardType boardType;
-		
-	@Comment("게시판 명")
-	@Column(name="BOARD_NAME")
+			
+	@Column(name="BOARD_NAME", comment="게시판 명")
     String boardName;             
-        
-	@Comment("게시판_설명")
-	@Column(name="BOARD_DESC")
+        	
+	@Column(name="BOARD_DESC", comment="게시판_설명")
 	String description;    	
-	    		
-	@Comment("사용여부")
-	@Column(name="USE_YN")
+	    			
+	@Column(name="USE_YN", comment="사용여부")
 	Boolean useYn;        		      		
 			
 	/**

@@ -16,7 +16,6 @@ import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -41,30 +40,25 @@ public class Menu extends AbstractAuditEntity implements Serializable {
 	
 	@EmbeddedId
 	MenuId id;
-	
-	@Comment("메뉴명")
-	@Column(name="MENU_NM")
+		
+	@Column(name="MENU_NM", comment="메뉴명")
 	String name; 		
 				
 	@Enumerated(EnumType.STRING)
-	@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-	@Comment("메뉴분류")
-	@Column(name="MENU_TYPE")
+	@JsonFormat(shape = JsonFormat.Shape.OBJECT)	
+	@Column(name="MENU_TYPE", comment="메뉴분류")
 	MenuType type;
-	
-	@Comment("APP URL")
-	@Column(name="APP_URL")
+		
+	@Column(name="APP_URL", comment="APP URL")
 	String appUrl;
 	
 	@Embedded
 	MenuAppIcon appIcon;	
-	
-	@Comment("순번")
-	@Column(name="SEQ")
+		
+	@Column(name="SEQ", comment="순번")
 	long sequence;
-	
-	@Comment("계층")
-	@Column(name="LVL")
+		
+	@Column(name="LVL", comment="계층")
 	long level;
 	
 	

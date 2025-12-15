@@ -2,8 +2,6 @@ package com.like.system.menu_role.domain.menu_role;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Comment;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
@@ -22,9 +20,8 @@ public class MenuRoleMappingId implements Serializable {
 	
 	@Column(name="MENU_CD")
 	String menuCode;
-	
-	@Comment("메뉴코드")
-	@Column(name="ROLE_CD")
+		
+	@Column(name="ROLE_CD", comment="ROLE 코드")
 	String roleCode;
 	
 	protected MenuRoleMappingId() {}

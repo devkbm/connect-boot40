@@ -2,7 +2,6 @@ package com.like.hrm.staff.domain.partner;
 
 import java.time.LocalDate;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.hrm.staff.domain.AbstractStaff;
@@ -39,41 +38,32 @@ public class PartnerCompanyStaff extends AbstractStaff {
 	
 	@Column(name="STAFF_YN")
 	Boolean isStaff = false;
-	
-	@Comment("성별")
-	@Column(name="GENDER")
-	String gender;
-				
-	@Comment("생일")
-	@Column(name="BIRTHDAY")
-	LocalDate birthday;	
-	
-	@Comment("이미지경로")
-	@Column(name="IMG_PATH")
-	String imagePath;
-			
-	@Comment("소속부서코드")
-	@Column(name="PARTNER_COMP_CODE")
-	String partnerCompanyCode;
-	
-	@Comment("근무상태")
-	@Column(name="WORK_STATE_CODE")
-	String workStateCode;
-	
-	@Comment("입사일")
-	@Column(name="JOIN_COMP_DT")
-	LocalDate joinDate;
-	
-	@Comment("퇴사일")
-	@Column(name="RETIRE_COMP_DT")
-	LocalDate retireDate;
-						
-	@Comment("소속부서코드")
-	@Column(name="BLNG_DEPT_CODE")
-	String blngDeptCode;
 		
-	@Comment("근무부서코드")
-	@Column(name="WORK_DEPT_CODE")
+	@Column(name="GENDER", comment="성별")
+	String gender;
+					
+	@Column(name="BIRTHDAY", comment="생일")
+	LocalDate birthday;	
+		
+	@Column(name="IMG_PATH", comment="이미지경로")
+	String imagePath;
+				
+	@Column(name="PARTNER_COMP_CODE", comment="소속부서코드")
+	String partnerCompanyCode;
+		
+	@Column(name="WORK_STATE_CODE", comment="근무상태")
+	String workStateCode;
+		
+	@Column(name="JOIN_COMP_DT", comment="입사일")
+	LocalDate joinDate;
+		
+	@Column(name="RETIRE_COMP_DT", comment="퇴사일")
+	LocalDate retireDate;
+							
+	@Column(name="BLNG_DEPT_CODE", comment="소속부서코드")
+	String blngDeptCode;
+			
+	@Column(name="WORK_DEPT_CODE", comment="근무부서코드")
 	String workDeptCode;
 	
 	public PartnerCompanyStaff(

@@ -14,7 +14,6 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -49,33 +48,27 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 	
 	@EmbeddedId
 	AppointmentRecordId id;
-		
-	@Comment("발령분류코드")
-	@Column(name="APPOINTMENT_TYPE_CODE")
+			
+	@Column(name="APPOINTMENT_TYPE_CODE", comment="발령분류코드")
 	String appointmentTypeCode;
-	
-	@Comment("발령일자")
-	@Column(name="APPOINTMENT_DT")
+		
+	@Column(name="APPOINTMENT_DT", comment="발령일자")
 	LocalDate appointmentDate;
 	
-	@Comment("발령종료일자")
-	@Column(name="APPOINTMENT_END_DT")
+	@Column(name="APPOINTMENT_END_DT", comment="발령종료일자")
 	LocalDate appointmentEndDate;
-	
-	@Comment("발령명")
-	@Column(name="RECORD_NAME")
+		
+	@Column(name="RECORD_NAME", comment="발령명")
 	String recordName;
-
-	@Comment("비고")
-	@Column(name="CMT")
+	
+	@Column(name="CMT", comment="비고")
 	String comment;
 			
 	@Column(name="APPLY_TYPE_CD")
 	//@Convert(converter = AppointmentApplyTypeConverter.class)
 	AppointmentApplyType applyType;
-	
-	@Comment("완료여부")
-	@Column(name="COMPLETE_YN")
+		
+	@Column(name="COMPLETE_YN", comment="완료여부")
 	Boolean isCompleted;			
 	
 	@Embedded

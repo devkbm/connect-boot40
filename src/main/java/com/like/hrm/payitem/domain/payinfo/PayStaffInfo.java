@@ -1,6 +1,5 @@
 package com.like.hrm.payitem.domain.payinfo;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -39,9 +38,8 @@ public class PayStaffInfo extends AbstractAuditEntity {
 	
 	@Column(name="STAFF_NO")
 	String staffNo;
-	
-	@Comment("마감여부")
-	@Column(name="CLOSE_YN")
+		
+	@Column(name="CLOSE_YN", comment="마감여부")
 	Boolean isClose;
 	
 	@Embedded

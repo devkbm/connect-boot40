@@ -1,8 +1,7 @@
 package com.like.system.company.application.port.in.select;
 
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
-
-import jakarta.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 @PrimaryPort
 public interface CompanySelectUseCase {

@@ -3,8 +3,6 @@ package com.like.hrm.staff.domain.staff;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.hrm.staff.domain.staff.appointment.AppointmentInformation;
 
 import lombok.AccessLevel;
@@ -23,37 +21,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 public class CurrentAppointmentInformation {
-		
-	@Comment("소속부서코드")
-	@Column(name="BLNG_DEPT_CODE")
+			
+	@Column(name="BLNG_DEPT_CODE", comment="소속부서코드")
 	String blngDeptCode;
-		
-	@Comment("근무부서코드")
-	@Column(name="WORK_DEPT_CODE")
+			
+	@Column(name="WORK_DEPT_CODE", comment="근무부서코드")
 	String workDeptCode;
-		
-	@Comment("직군코드")
-	@Column(name="JOB_GROUP_CODE")
+			
+	@Column(name="JOB_GROUP_CODE", comment="직군코드")
 	String jobGroupCode;
-		
-	@Comment("직위코드")
-	@Column(name="JOB_POSITION_CODE")
+			
+	@Column(name="JOB_POSITION_CODE", comment="직위코드")
 	String jobPositionCode;
-		
-	@Comment("직종코드")
-	@Column(name="OCCUPATION_CODE")
+			
+	@Column(name="OCCUPATION_CODE", comment="직종코드")
 	String occupationCode;
-		
-	@Comment("직급코드")
-	@Column(name="JOB_GRADE_CODE")
+			
+	@Column(name="JOB_GRADE_CODE", comment="직급코드")
 	String jobGradeCode;
-		
-	@Comment("호봉코드")
-	@Column(name="PAY_STEP_CODE")
+			
+	@Column(name="PAY_STEP_CODE", comment="호봉코드")
 	String payStepCode;
-		
-	@Comment("직무코드")
-	@Column(name="JOB_CODE")
+			
+	@Column(name="JOB_CODE", comment="직무코드")
 	String jobCode;
 		
 	public CurrentAppointmentInformation(AppointmentInformation info) {

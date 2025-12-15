@@ -1,7 +1,5 @@
 package com.like.hrm.staff.domain.staff.contact;
 
-import org.hibernate.annotations.Comment;
-
 import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.Column;
@@ -22,9 +20,8 @@ public class ContactInfoId {
 		
 	@Column(name="STAFF_NO")
 	String staffNo;
-		
-	@Comment("유형")
-	@Column(name="CONTACT_TYPE")
+			
+	@Column(name="CONTACT_TYPE", comment="유형")
 	String type;	
 	
 	public ContactInfoId(Staff staff, String type) {

@@ -8,7 +8,6 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -27,24 +26,20 @@ public class WebResource extends AbstractAuditEntity implements Serializable{
 	
 	private static final long serialVersionUID = 4402275274864737663L;
 
-	@Id
-	@Comment("리소스ID")
-	@Column(name="RESOURCE_ID")
+	@Id	
+	@Column(name="RESOURCE_ID", comment="리소스ID")
 	String id;
-	
-	@Comment("리소스명")
-	@Column(name="RESOURCE_NAME")
-	String name; 
 		
-	@Comment("리소스분류")
-	@Column(name="RESOURCE_TYPE")
+	@Column(name="RESOURCE_NAME", comment="리소스명")
+	String name; 
+			
+	@Column(name="RESOURCE_TYPE", comment="리소스분류")
 	String type; 
 		
 	@Column(name="URL")
 	String url;
-	
-	@Comment("설명")
-	@Column(name="DESCRIPTION")
+		
+	@Column(name="DESCRIPTION", comment="설명")
 	String description;	
 		
 	@Builder

@@ -2,8 +2,6 @@ package com.like.system.menu_role.domain.menu;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Comment;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
@@ -15,9 +13,8 @@ public class MenuId implements Serializable {
 	private static final long serialVersionUID = 1466162239881162136L;
 
 	MenuGroupId menuGroupId;
-	
-	@Comment("메뉴코드")
-	@Column(name="MENU_CD")
+		
+	@Column(name="MENU_CD", comment="메뉴코드")
 	String menuCode;
 	
 	protected MenuId() {}
