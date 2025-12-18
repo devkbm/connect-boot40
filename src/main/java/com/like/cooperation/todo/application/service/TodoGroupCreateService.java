@@ -3,6 +3,7 @@ package com.like.cooperation.todo.application.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.like.cooperation.todo.application.port.in.group.TodoGroupCreateResultDTO;
 import com.like.cooperation.todo.application.port.in.group.TodoGroupCreateUseCase;
 import com.like.cooperation.todo.application.port.out.TodoGroupCommandDbPort;
 import com.like.cooperation.todo.domain.TodoGroup;
@@ -18,11 +19,11 @@ public class TodoGroupCreateService implements TodoGroupCreateUseCase {
 	}
 	
 	@Override
-	public TodoGroup create(String userId) {
-		TodoGroup taskGroup = new TodoGroup(userId);
-		dbPort.save(taskGroup);
+	public TodoGroupCreateResultDTO create(String userId) {
+		TodoGroup todoGroup = new TodoGroup(userId);
+		dbPort.save(todoGroup);
 		
-		return taskGroup;
+		return TodoGroupCreateResultDTO.toDTO(todoGroup);
 	}
 
 }
