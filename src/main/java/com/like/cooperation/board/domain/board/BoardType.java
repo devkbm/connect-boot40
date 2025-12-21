@@ -1,13 +1,16 @@
 package com.like.cooperation.board.domain.board;
 
+import jakarta.persistence.EnumeratedValue;
+
 public enum BoardType {
+	BOARD("BRD","일반게시판"),
 	/**
 	 * 관리자만 등록가능 
 	 */
-	NOTICE("NOTICE","공지사항"),
+	NOTICE("NOT","공지사항")
+	;
 	
-	BOARD("BOARD","일반게시판");
-	
+	@EnumeratedValue
 	private String code;
 	private String name;
 	

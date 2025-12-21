@@ -3,6 +3,8 @@ package com.like.system.term.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.like.common.dto.HtmlSelectOptionable;
 
+import jakarta.persistence.EnumeratedValue;
+
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Database implements HtmlSelectOptionable {
 	
@@ -10,6 +12,7 @@ public enum Database implements HtmlSelectOptionable {
 	MYSQL("MYSQL")
 	;
 	
+	@EnumeratedValue
 	private String name;
 	
 	private Database(final String name) {
@@ -24,5 +27,11 @@ public enum Database implements HtmlSelectOptionable {
 	@Override
 	public String getValue() {
 		return this.toString();
+	}
+
+	@Override
+	public Long getSequence() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

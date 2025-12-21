@@ -8,6 +8,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
@@ -64,8 +66,8 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 	@Column(name="CMT", comment="비고")
 	String comment;
 			
-	@Column(name="APPLY_TYPE_CD")
-	//@Convert(converter = AppointmentApplyTypeConverter.class)
+	@Enumerated(EnumType.STRING)
+	@Column(name="APPLY_TYPE_CD")	
 	AppointmentApplyType applyType;
 		
 	@Column(name="COMPLETE_YN", comment="완료여부")

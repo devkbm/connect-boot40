@@ -3,6 +3,8 @@ package com.like.system.term.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.like.common.dto.HtmlSelectOptionable;
 
+import jakarta.persistence.EnumeratedValue;
+
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum SystemType implements HtmlSelectOptionable {
 	HRM("인사관리"),
@@ -10,6 +12,7 @@ public enum SystemType implements HtmlSelectOptionable {
 	SYSTEM("시스템")
 	;
 
+	@EnumeratedValue
 	private String name;
 	
 	private SystemType(final String name) {
@@ -24,5 +27,11 @@ public enum SystemType implements HtmlSelectOptionable {
 	@Override
 	public String getValue() {
 		return this.toString();
+	}
+
+	@Override
+	public Long getSequence() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -25,5 +25,11 @@ public enum JpaBizTypeEnum implements HtmlSelectOptionable {
 	public String getValue() {
 		return this.toString();
 	}
+
+	@Override
+	public Long getSequence() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
