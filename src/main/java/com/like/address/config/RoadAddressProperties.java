@@ -1,4 +1,4 @@
-package com.like.system.address.config;
+package com.like.address.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

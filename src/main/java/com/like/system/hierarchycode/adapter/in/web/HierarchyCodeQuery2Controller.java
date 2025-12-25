@@ -17,11 +17,11 @@ import com.like.system.hierarchycode.application.service.HierarchyCodeSelectServ
 
 @PrimaryAdapter
 @RestController
-public class HierarchyCodeSelectController {
+public class HierarchyCodeQuery2Controller {
 
 	private HierarchyCodeSelectService service;
 	
-	HierarchyCodeSelectController(HierarchyCodeSelectService service) {
+	HierarchyCodeQuery2Controller(HierarchyCodeSelectService service) {
 		this.service = service;
 	}
 	

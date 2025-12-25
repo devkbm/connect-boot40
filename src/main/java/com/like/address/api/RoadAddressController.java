@@ -1,4 +1,4 @@
-package com.like.system.address.adapter.in.web;
+package com.like.address.api;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.like.system.address.config.RoadAddressProperties;
+import com.like.address.config.RoadAddressProperties;
 
 import reactor.core.publisher.Mono;
 

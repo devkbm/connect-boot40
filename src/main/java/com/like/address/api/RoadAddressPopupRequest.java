@@ -1,4 +1,4 @@
-package com.like.system.address.adapter.in.web;
+package com.like.address.api;
 
 import org.springframework.util.StringUtils;
 
