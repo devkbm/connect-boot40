@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-import com.like.system.hierarchycode.application.dto.CodeHierarchy;
-import com.like.system.hierarchycode.application.dto.HierarchyCodeQueryDTO;
 import com.like.system.hierarchycode.application.dto.QCodeHierarchy;
-import com.like.system.hierarchycode.domain.HierarchyCodeSelectRepository;
+import com.like.system.hierarchycode.application.port.in.treequery.HierarchyCodeTreeQueryDTO;
+import com.like.system.hierarchycode.application.port.in.treequery.HierarchyCodeTreeQueryResultDTO;
 import com.like.system.hierarchycode.domain.QCode;
 
 import com.querydsl.core.BooleanBuilder;
@@ -16,17 +15,16 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Primary
 @Repository
-public class HieraryCodeSelectJpaRepository implements HierarchyCodeSelectRepository {
+public class HieraryCodeTreeQuerydsl {
 
 	JPAQueryFactory	queryFactory;
 	final QCode qCode = QCode.code1;				
 	
-	HieraryCodeSelectJpaRepository(JPAQueryFactory queryFactory) {
+	HieraryCodeTreeQuerydsl(JPAQueryFactory queryFactory) {
 		this.queryFactory = queryFactory;
 	}
-	
-	@Override
-	public List<CodeHierarchy> getCodeHierarchyList(HierarchyCodeQueryDTO dto) { 							
+		
+	public List<HierarchyCodeTreeQueryResultDTO> getCodeHierarchyList(HierarchyCodeTreeQueryDTO dto) { 							
 		BooleanBuilder builder = new BooleanBuilder();
 		
 		builder.and(qCode.id.companyCode.eq(dto.companyCode()))

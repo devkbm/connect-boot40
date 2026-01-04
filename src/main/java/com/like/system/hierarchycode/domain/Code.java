@@ -75,7 +75,7 @@ public class Code extends AbstractAuditEntity  {
 
 	@Builder
 	public Code(
-			String systemTypeCode,
+			String companyCode,
 			String code,
 			String codeName,
 			String codeNameAbbreviation,
@@ -87,7 +87,7 @@ public class Code extends AbstractAuditEntity  {
 			Code parentCode
 			) {
 		
-		this.id = new CodeId(systemTypeCode, parentCode, code);
+		this.id = new CodeId(companyCode, parentCode, code);
 		this.code = code;
 		this.codeName = codeName;
 		this.codeNameAbbreviation = codeNameAbbreviation;		

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.core.message.MessageUtil;
 import com.like.system.hierarchycode.application.dto.HierarchyCodeQueryDTO;
-import com.like.system.hierarchycode.application.dto.HierarchySaveDTO;
 import com.like.system.hierarchycode.application.service.HierarchyCodeQueryService;
 import com.like.system.hierarchycode.domain.Code;
 import com.like.system.hierarchycode.domain.SystemType;
@@ -41,6 +40,7 @@ public class HierarchyCodeQueryController {
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}	
 	
+	/*
 	@GetMapping("/api/system/code") 
 	public ResponseEntity<?> getCodeList(@ModelAttribute HierarchyCodeQueryDTO searchCondition) {
 							
@@ -52,4 +52,5 @@ public class HierarchyCodeQueryController {
 		
 		return toList(dtoList, MessageUtil.getQueryMessage(dtoList.size()));
 	}
+	*/
 }

@@ -1,4 +1,4 @@
-package com.like.system.hierarchycode.application.dto;
+package com.like.system.hierarchycode.application.port.in.treequery;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 @Data	
 @NoArgsConstructor(access = AccessLevel.PROTECTED)	
-public class CodeHierarchy implements Serializable {	
+public class HierarchyCodeTreeQueryResultDTO implements Serializable {	
 		
 	private static final long serialVersionUID = -6718790962885573030L;
 
@@ -38,7 +38,7 @@ public class CodeHierarchy implements Serializable {
 			
 	String cmt;
 	
-	List<CodeHierarchy> children = new ArrayList<>();
+	List<HierarchyCodeTreeQueryResultDTO> children = new ArrayList<>();
 	
 	
 	/**
@@ -52,16 +52,18 @@ public class CodeHierarchy implements Serializable {
 	boolean isLeaf;
 	
 	@QueryProjection
-	public CodeHierarchy(String codeId
-						,String companyCode
-						,String code
-						,String codeName
-						,String codeNameAbbreviation
-						,String parentId
-						,LocalDateTime fromDate
-						,LocalDateTime toDate
-						,int seq
-						,String cmt) {	
+	public HierarchyCodeTreeQueryResultDTO(
+			String codeId,
+			String companyCode,
+			String code,
+			String codeName,
+			String codeNameAbbreviation,
+			String parentId,
+			LocalDateTime fromDate,
+			LocalDateTime toDate,
+			int seq,
+			String cmt
+			) {	
 	this.id = codeId;
 	this.companyCode = companyCode;
 	this.parentId = parentId;
@@ -78,7 +80,7 @@ public class CodeHierarchy implements Serializable {
 	//this.isLeaf	= this.children.isEmpty() ? true : false;			
 	}
 	
-	public void addChilren(List<CodeHierarchy> children) {
+	public void addChilren(List<HierarchyCodeTreeQueryResultDTO> children) {
 		this.children = children;
 	}
 }

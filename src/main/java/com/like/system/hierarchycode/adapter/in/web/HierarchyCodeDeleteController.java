@@ -6,25 +6,26 @@ import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.hierarchycode.application.service.HierarchyCodeCommandService;
+import com.like.system.hierarchycode.application.port.in.delete.HierarchyCodeDeleteUseCase;
 
 @PrimaryAdapter
 @RestController
 public class HierarchyCodeDeleteController {
 	
-	private HierarchyCodeCommandService service;			
+	HierarchyCodeDeleteUseCase useCase;			
 		
-	public HierarchyCodeDeleteController(HierarchyCodeCommandService service) {
-		this.service = service;		
+	public HierarchyCodeDeleteController(HierarchyCodeDeleteUseCase useCase) {
+		this.useCase = useCase;		
 	}	
 		
-	@DeleteMapping("/api/system/code/{systemtype}/{codeId}")
-	public ResponseEntity<?> delCode(@PathVariable String systemtype, @PathVariable String codeId) {						
+	@DeleteMapping("/api/system/hierarchycode/{codeId}")
+	public ResponseEntity<?> delCode(@RequestParam String companyCode, @PathVariable String codeId) {						
 												
-		service.deleteCode(systemtype, codeId);
+		useCase.delete(companyCode, codeId);
 								 						
 		return toOne(null, MessageUtil.getDeleteMessage(1));
 	}

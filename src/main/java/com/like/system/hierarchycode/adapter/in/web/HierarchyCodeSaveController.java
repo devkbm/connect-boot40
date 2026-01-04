@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.hierarchycode.application.dto.HierarchySaveDTO;
-import com.like.system.hierarchycode.application.service.HierarchyCodeCommandService;
+import com.like.system.hierarchycode.application.port.in.save.HierarchyCodeSaveDTO;
+import com.like.system.hierarchycode.application.port.in.save.HierarchyCodeSaveUseCase;
 
 @PrimaryAdapter
 @RestController
 public class HierarchyCodeSaveController {
 	
-	private HierarchyCodeCommandService service;			
+	HierarchyCodeSaveUseCase useCase;			
 		
-	public HierarchyCodeSaveController(HierarchyCodeCommandService service) {
-		this.service = service;		
+	public HierarchyCodeSaveController(HierarchyCodeSaveUseCase useCase) {
+		this.useCase = useCase;
 	}	
 				
-	@PostMapping("/api/system/code")
-	public ResponseEntity<?> saveCode(@RequestBody HierarchySaveDTO dto) {					
+	@PostMapping("/api/system/hierarchycode")
+	public ResponseEntity<?> saveCode(@RequestBody HierarchyCodeSaveDTO dto) {					
 		
-		service.saveCode(dto);		
+		useCase.save(dto);		
 											 				
 		return toOne(null, MessageUtil.getSaveMessage(1));
 	}	
