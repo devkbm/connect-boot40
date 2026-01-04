@@ -61,8 +61,8 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 						.requestMatchers("/api/system/user/login").permitAll()			// 로그인 API
 						.requestMatchers("/test/**").permitAll()				// 테스트 API
 						.requestMatchers("/h2/**").permitAll()					// h2-console 
-						//.anyRequest().authenticated()
-						.anyRequest().permitAll()
+						.anyRequest().authenticated()
+						//.anyRequest().permitAll()
 						)								
 			.oauth2Login(customConfigurer -> customConfigurer
 				.successHandler(oAuth2AuthenticationSuccessHandler)

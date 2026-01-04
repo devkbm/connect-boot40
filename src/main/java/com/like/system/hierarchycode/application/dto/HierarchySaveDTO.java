@@ -69,7 +69,7 @@ public record HierarchySaveDTO(
 				   .createdBy(entity.getCreatedBy() == null ? null : entity.getCreatedBy().getLoggedUser())
 				   .modifiedDt(entity.getModifiedDt())
 				   .modifiedBy(entity.getModifiedBy() == null ? null : entity.getModifiedBy().getLoggedUser())					   
-				   .systemTypeCode(entity.getId().getSystemTypeCode())
+				   .systemTypeCode(entity.getId().getCompanyCode())
 				   .codeId(entity.getId().getCodeId())
 				   .parentId(parent == null ? null : parent.getId().getCodeId())
 				   .code(entity.getCode())

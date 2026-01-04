@@ -65,7 +65,7 @@ public class Code extends AbstractAuditEntity  {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns(value = {
-        @JoinColumn(name="system_type_code", referencedColumnName="system_type_code", insertable = false, updatable = false),
+        @JoinColumn(name="org_cd", referencedColumnName="org_cd", insertable = false, updatable = false),
         @JoinColumn(name="p_code_id", referencedColumnName="code_id", insertable = false, updatable = false)
     }, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))          
 	Code parentCode;

@@ -7,7 +7,7 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
 public record HierarchyCodeQueryDTO(			
-		String systemTypeCode,
+		String companyCode,
 		String parentId,
 		String code,
 		String codeName,
@@ -21,7 +21,7 @@ public record HierarchyCodeQueryDTO(
 		BooleanBuilder builder = new BooleanBuilder();
 				
 		builder				
-			.and(eqSystemTypeCode(this.systemTypeCode))
+			.and(eqSystemTypeCode(this.companyCode))
 			.and(eqParentCode(this.parentId))	 	// 특정 아이디의 하위 코드 검색
 			.and(likeCode(this.code))
 			.and(likeCodeName(this.codeName))
@@ -36,8 +36,8 @@ public record HierarchyCodeQueryDTO(
 		return builder;
 	}
 				
-	private BooleanExpression eqSystemTypeCode(String systemTypeCode) {
-		return hasText(systemTypeCode) ? qType.id.systemTypeCode.eq(systemTypeCode) : null;					
+	private BooleanExpression eqSystemTypeCode(String companyCode) {
+		return hasText(companyCode) ? qType.id.companyCode.eq(companyCode) : null;					
 	}
 			
 	private BooleanExpression eqParentCode(String parentId) {

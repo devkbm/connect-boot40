@@ -20,7 +20,7 @@ public class CodeHierarchy implements Serializable {
 
 	String id;
 	
-	String systemTypeCode;
+	String companyCode;
 	
 	String parentId;
 				
@@ -53,7 +53,7 @@ public class CodeHierarchy implements Serializable {
 	
 	@QueryProjection
 	public CodeHierarchy(String codeId
-						,String systemTypeCode
+						,String companyCode
 						,String code
 						,String codeName
 						,String codeNameAbbreviation
@@ -63,7 +63,7 @@ public class CodeHierarchy implements Serializable {
 						,int seq
 						,String cmt) {	
 	this.id = codeId;
-	this.systemTypeCode = systemTypeCode;
+	this.companyCode = companyCode;
 	this.parentId = parentId;
 	this.code = code;
 	this.codeName = codeName;

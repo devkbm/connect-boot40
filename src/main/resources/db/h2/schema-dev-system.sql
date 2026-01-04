@@ -102,7 +102,7 @@ CREATE TABLE COMCODE (
 	MODIFIED_USER_ID		    VARCHAR(50)			NULL		,
 	MODIFIED_HOST_IP		    VARCHAR(50)			NULL		,
 	MODIFIED_APP_URL		    VARCHAR(500)		NULL    	,
-	SYSTEM_TYPE_CODE		    VARCHAR(3)			NOT NULL	,
+	ORG_CD				    	VARCHAR(50)			NOT NULL	,
 	CODE_ID	  	      	    	VARCHAR(255) 		NOT NULL	,
   	CODE				        VARCHAR(255) 		NOT NULL	,
 	CODE_NAME			        VARCHAR(255) 		NOT NULL	,
@@ -114,7 +114,7 @@ CREATE TABLE COMCODE (
 	PRT_SEQ				        INT				    NULL		,
   	LOW_LEVEL_CODE_LENGTH 		INT				    NULL		,
 	CMT					            VARCHAR(2000) 	NULL 		,
-	constraint pk_comcode primary key(SYSTEM_TYPE_CODE, CODE_ID)	
+	constraint pk_comcode primary key(ORG_CD, CODE_ID)	
 );
 
 CREATE TABLE COMDEPT (

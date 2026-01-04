@@ -29,7 +29,7 @@ public class HieraryCodeSelectJpaRepository implements HierarchyCodeSelectReposi
 	public List<CodeHierarchy> getCodeHierarchyList(HierarchyCodeQueryDTO dto) { 							
 		BooleanBuilder builder = new BooleanBuilder();
 		
-		builder.and(qCode.id.systemTypeCode.eq(dto.systemTypeCode()))
+		builder.and(qCode.id.companyCode.eq(dto.companyCode()))
 			   .and(qCode.enabled());
 		
 		return queryFactory
@@ -43,7 +43,7 @@ public class HieraryCodeSelectJpaRepository implements HierarchyCodeSelectReposi
 	private QCodeHierarchy projection(QCode qCode) {		
 		return new QCodeHierarchy(				
 				qCode.id.codeId,
-				qCode.id.systemTypeCode,				
+				qCode.id.companyCode,				
 				qCode.code, 
 				qCode.codeName, 
 				qCode.codeNameAbbreviation,
