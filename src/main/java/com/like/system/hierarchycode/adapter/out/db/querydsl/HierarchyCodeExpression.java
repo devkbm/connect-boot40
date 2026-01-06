@@ -1,12 +1,14 @@
-package com.like.system.hierarchycode.domain;
+package com.like.system.hierarchycode.adapter.out.db.querydsl;
 
 import java.time.LocalDateTime;
 
+import com.like.system.hierarchycode.domain.Code;
+import com.like.system.hierarchycode.domain.QCode;
 import com.querydsl.core.annotations.QueryDelegate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 
-public class CodeExpression {
+public class HierarchyCodeExpression {
 
 	/**
 	 * 사용여부 true, 시작일 <= 현재일 <= 종료일인 코드 검색

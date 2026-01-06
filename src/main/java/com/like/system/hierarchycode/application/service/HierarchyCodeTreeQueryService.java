@@ -16,17 +16,17 @@ import com.like.system.hierarchycode.application.port.out.HierarchyCodeTreeQuery
 @Service
 public class HierarchyCodeTreeQueryService implements HierarchyCodeTreeQueryUseCase {
 
-	HierarchyCodeTreeQueryDbPort repository;
+	HierarchyCodeTreeQueryDbPort dbPort;
 	
 	private List<HierarchyCodeTreeQueryResultDTO> allList;
 	
-	HierarchyCodeTreeQueryService(HierarchyCodeTreeQueryDbPort repository) {
-		this.repository = repository;
+	HierarchyCodeTreeQueryService(HierarchyCodeTreeQueryDbPort dbPort) {
+		this.dbPort = dbPort;
 	}
 	
 	public List<HierarchyCodeTreeQueryResultDTO> getCodeHierarchyList(HierarchyCodeTreeQueryDTO dto) {		
 						
-		allList = repository.getCodeHierarchyList(dto);
+		allList = dbPort.getCodeHierarchyList(dto);
 		
 		List<HierarchyCodeTreeQueryResultDTO> rootList = getRootList(); 					
 		
@@ -56,7 +56,7 @@ public class HierarchyCodeTreeQueryService implements HierarchyCodeTreeQueryUseC
 				node.setChildren(children);
 				
 				addChildren(children);
-			} 				
+			}
 		}
 		
 		return nodeList;		

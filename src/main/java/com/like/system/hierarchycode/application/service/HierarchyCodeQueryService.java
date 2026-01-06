@@ -2,33 +2,27 @@ package com.like.system.hierarchycode.application.service;
 
 import java.util.List;
 
+import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.hierarchycode.application.dto.CodeComboDTO;
-import com.like.system.hierarchycode.application.dto.HierarchyCodeQueryDTO;
-import com.like.system.hierarchycode.domain.Code;
-import com.like.system.hierarchycode.domain.CommonCodeQueryRepository;
+import com.like.system.hierarchycode.application.port.in.query.HierarchyCodeQueryResultDTO;
+import com.like.system.hierarchycode.application.port.in.query.HierarchyCodeQueryUseCase;
+import com.like.system.hierarchycode.application.port.out.HierarchyCodeQueryDbPort;
 
+@Application
 @Service
-@Transactional(readOnly=true)
-public class HierarchyCodeQueryService {
+public class HierarchyCodeQueryService implements HierarchyCodeQueryUseCase {
 
-	private CommonCodeQueryRepository codeRepository;
-			
-	public HierarchyCodeQueryService(CommonCodeQueryRepository codeRepository) {
-		this.codeRepository = codeRepository;
+	HierarchyCodeQueryDbPort dbPort;
+	
+	HierarchyCodeQueryService(HierarchyCodeQueryDbPort dbPort) {
+		this.dbPort = dbPort;
 	}
-		
-	public List<Code> getCodeList(String parentCodeId) {		
-		return codeRepository.getCodeList(parentCodeId);
+
+	@Override
+	public List<HierarchyCodeQueryResultDTO> query() {
+		return this.dbPort.query();
 	}
 	
-	public List<Code> getCodeList(HierarchyCodeQueryDTO searchCondition) {		
-		return codeRepository.getCodeList(searchCondition.getCondition());
-	}	
 	
-	public List<CodeComboDTO> getCodeListByComboBox(String codeGroup) {
-		return codeRepository.getCodeListByComboBox(codeGroup);
-	}	
 }
