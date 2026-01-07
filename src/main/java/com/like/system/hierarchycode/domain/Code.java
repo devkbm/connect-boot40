@@ -42,6 +42,12 @@ public class Code extends AbstractAuditEntity  {
 	@Column(name="CODE_NAME_ABBR")
 	String codeNameAbbreviation;		
 	
+	@Column(name="ADD_INFO")
+	String additionalInfo;
+
+	@Column(name="CMT")
+	String cmt;
+	
 	@Column(name="FROM_DT")
 	LocalDateTime fromDate;
 	
@@ -50,15 +56,9 @@ public class Code extends AbstractAuditEntity  {
 	
 	@Column(name="HIERARCHY_LEVEL")
 	int hierarchyLevel = 1;
-	
-	@Column(name="LOW_LEVEL_CODE_LENGTH")
-	Integer lowLevelCodeLength;
-	
+			
 	@Column(name="PRT_SEQ")
-	int seq = 0;				
-	
-	@Column(name="cmt")
-	String cmt;
+	int seq = 0;
 			
 	/**
 	 * 상위 코드 참조용 컬럼
@@ -79,23 +79,24 @@ public class Code extends AbstractAuditEntity  {
 			String code,
 			String codeName,
 			String codeNameAbbreviation,
+			String additionalInfo,
+			String cmt,
 			LocalDateTime fromDate,
 			LocalDateTime toDate,
-			int seq,			   
-			Integer lowLevelCodeLength,
-			String cmt,
+			int seq,			   						
 			Code parentCode
 			) {
 		
 		this.id = new CodeId(companyCode, parentCode, code);
 		this.code = code;
 		this.codeName = codeName;
-		this.codeNameAbbreviation = codeNameAbbreviation;		
+		this.codeNameAbbreviation = codeNameAbbreviation;
+		this.additionalInfo = additionalInfo;
+		this.cmt = cmt;
 		this.fromDate = fromDate;
 		this.toDate = toDate;		
-		this.seq = seq;		
-		this.lowLevelCodeLength = lowLevelCodeLength;
-		this.cmt = cmt;
+		this.seq = seq;				
+		
 		this.parentCode = parentCode;
 		this._parentCode = parentCode == null ? null : parentCode.getId().getCodeId();
 				
@@ -106,19 +107,19 @@ public class Code extends AbstractAuditEntity  {
 	public void modifyEntity(
 			String codeName,
 			String codeNameAbbreviation,
+			String additionalInfo,
+			String cmt,
 			LocalDateTime fromDate,
 			LocalDateTime toDate,
-			int seq,
-			Integer lowLevelCodeLength,
-			String cmt
+			int seq						
 			) {
 		this.codeName = codeName;
 		this.codeNameAbbreviation = codeNameAbbreviation;
+		this.additionalInfo = additionalInfo;
+		this.cmt = cmt;
 		this.fromDate = fromDate;
 		this.toDate = toDate;
-		this.seq = seq;		
-		this.lowLevelCodeLength = lowLevelCodeLength;
-		this.cmt = cmt;
+		this.seq = seq;						
 	}
 
 	public Code getParentCode() {

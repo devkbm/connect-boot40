@@ -26,8 +26,7 @@ public class HierarchyCodeSelectDTOMapper {
 				   .fromDate(entity.getFromDate())
 				   .toDate(entity.getToDate())
 				   .hierarchyLevel(entity.getHierarchyLevel())
-				   .seq(entity.getSeq())					   
-				   .lowLevelCodeLength(entity.getLowLevelCodeLength())
+				   .seq(entity.getSeq())					   				   
 				   .cmt(entity.getCmt())
 				   .build();	
 	}

@@ -13,10 +13,11 @@ public class HierarchyCodeQueryResultDTO {
 	String code;
 	String codeName;
 	String codeNameAbbreviation;
+	String additionalInfo;
+	String cmt;
 	LocalDateTime fromDate;
 	LocalDateTime toDate;
-	Integer hierarchyLevel;
-	Integer lowLevelCodeLength;
+	Integer hierarchyLevel;	
 	Integer seq;
-	String cmt;
+	
 }

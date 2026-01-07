@@ -11,12 +11,12 @@ public class HierarchyCodeSaveDTOMapper {
 						  .parentCode(parentCode)
 						  .code(dto.code())
 						  .codeName(dto.codeName())
-						  .codeNameAbbreviation(dto.codeNameAbbreviation())				
+						  .codeNameAbbreviation(dto.codeNameAbbreviation())
+						  .additionalInfo(dto.additionalInfo())
+						  .cmt(dto.cmt())
 						  .fromDate(dto.fromDate())
 						  .toDate(dto.toDate())
-						  .seq(dto.seq())							  
-						  .lowLevelCodeLength(dto.lowLevelCodeLength())
-						  .cmt(dto.cmt())
+						  .seq(dto.seq())							  						  						  
 						  .build();
 		
 		entity.createdAppUrl(dto.clientAppUrl());
@@ -25,17 +25,18 @@ public class HierarchyCodeSaveDTOMapper {
 	}
 	
 	public static void modifyEntity(Code entity, HierarchyCodeSaveDTO dto) {
-		entity.modifyEntity(
-				dto.codeName(),
-				dto.codeNameAbbreviation(),
-				dto.fromDate(),
-				dto.toDate(),
-				dto.seq(),
-				dto.lowLevelCodeLength(),
-				dto.cmt()
-				);
 		
-		entity.createdAppUrl(dto.clientAppUrl());
+		entity.modifyBuilder()
+			  .codeName(dto.codeName())
+			  .codeNameAbbreviation(dto.codeNameAbbreviation())
+			  .additionalInfo(dto.additionalInfo())
+			  .fromDate(dto.fromDate())
+			  .toDate(dto.toDate())
+			  .seq(dto.seq())
+			  .cmt(dto.cmt())
+			  .modify();			
+		
+		entity.modifiedAppUrl(dto.clientAppUrl());
 	}
 	
 }

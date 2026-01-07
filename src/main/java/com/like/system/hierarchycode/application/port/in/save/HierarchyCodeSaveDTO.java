@@ -17,12 +17,12 @@ public record HierarchyCodeSaveDTO(
 		String code,
 		String codeName,
 		String codeNameAbbreviation,
+		String additionalInfo,
+		String cmt,
 		LocalDateTime fromDate,
 		LocalDateTime toDate,
 		Integer hierarchyLevel,
-		Integer seq,			
-		Integer lowLevelCodeLength,
-		String cmt
+		Integer seq						
 		) {
 	
 }

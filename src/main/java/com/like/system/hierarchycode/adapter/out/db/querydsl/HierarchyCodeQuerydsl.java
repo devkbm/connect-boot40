@@ -29,12 +29,12 @@ public class HierarchyCodeQuerydsl {
 						qCode.code,
 						qCode.codeName,
 						qCode.codeNameAbbreviation,
+						qCode.cmt,
+						qCode.cmt,
 						qCode.fromDate,
 						qCode.toDate,
-						qCode.hierarchyLevel,
-						qCode.lowLevelCodeLength,
-						qCode.seq,
-						qCode.cmt
+						qCode.hierarchyLevel,						
+						qCode.seq						
 						)
 				)
 				.from(qCode)							

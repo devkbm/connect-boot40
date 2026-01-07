@@ -1,19 +1,19 @@
 package com.like.system.hierarchycode.adapter.out.db.querydsl;
 
+import static org.springframework.util.StringUtils.hasText;
+
 import java.util.List;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-import com.like.system.hierarchycode.application.dto.QCodeHierarchy;
 import com.like.system.hierarchycode.application.port.in.treequery.HierarchyCodeTreeQueryDTO;
 import com.like.system.hierarchycode.application.port.in.treequery.HierarchyCodeTreeQueryResultDTO;
 import com.like.system.hierarchycode.domain.QCode;
 
-import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
-@Primary
 @Repository
 public class HieraryCodeTreeQuerydsl {
 
@@ -25,31 +25,34 @@ public class HieraryCodeTreeQuerydsl {
 	}
 		
 	public List<HierarchyCodeTreeQueryResultDTO> getCodeHierarchyList(HierarchyCodeTreeQueryDTO dto) { 							
-		BooleanBuilder builder = new BooleanBuilder();
-		
-		builder.and(qCode.id.companyCode.eq(dto.companyCode()))
-			   .and(qCode.enabled());
-		
+					
 		return queryFactory
-				.select(this.projection(qCode))
+				.select(Projections.fields(HierarchyCodeTreeQueryResultDTO.class,
+						qCode._parentCode.as("parentId"),
+						qCode.id.codeId.as("id"),
+						qCode.id.companyCode,
+						qCode.code,
+						qCode.codeName,
+						qCode.codeNameAbbreviation,						
+						qCode.cmt,
+						qCode.fromDate,
+						qCode.toDate,
+						qCode.seq,						
+						qCode.codeName.concat(" - ").concat(qCode.code).as("title"),
+						qCode.id.codeId.as("key")
+						)
+				)
 				.from(qCode)
-				.where(builder)			
+				.where(	
+						qCode.enabled(),
+						eqCompanyCode(dto.companyCode())						
+				)
 				.orderBy(qCode.hierarchyLevel.asc(), qCode.seq.asc())
 				.fetch();
 	}	
 	
-	private QCodeHierarchy projection(QCode qCode) {		
-		return new QCodeHierarchy(				
-				qCode.id.codeId,
-				qCode.id.companyCode,				
-				qCode.code, 
-				qCode.codeName, 
-				qCode.codeNameAbbreviation,
-				qCode.parentCode.id.codeId,
-				qCode.fromDate, 
-				qCode.toDate, 
-				qCode.seq, 
-				qCode.cmt);		
-	}
-
+	private BooleanExpression eqCompanyCode(String companyCode) {
+		return hasText(companyCode) ? qCode.id.companyCode.eq(companyCode) : null;					
+	}	
+		
 }

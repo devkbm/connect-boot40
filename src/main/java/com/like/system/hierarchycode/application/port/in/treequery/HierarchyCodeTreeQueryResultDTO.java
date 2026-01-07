@@ -6,41 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.querydsl.core.annotations.QueryProjection;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data	
-@NoArgsConstructor(access = AccessLevel.PROTECTED)	
+@Data		
 public class HierarchyCodeTreeQueryResultDTO implements Serializable {	
 		
 	private static final long serialVersionUID = -6718790962885573030L;
 
-	String id;
-	
-	String companyCode;
-	
 	String parentId;
-				
-	String code;
-	
-	String codeName;
-	
-	String codeNameAbbreviation;					
-	
-	LocalDateTime fromDate;
-	
-	LocalDateTime toDate;			
-	
-	int seq;
-			
+	String id;	
+	String companyCode;						
+	String code;	
+	String codeName;	
+	String codeNameAbbreviation;
 	String cmt;
-	
+	LocalDateTime fromDate;	
+	LocalDateTime toDate;				
+	int seq;			
+		
 	List<HierarchyCodeTreeQueryResultDTO> children = new ArrayList<>();
 	
-	
+	public void addChilren(List<HierarchyCodeTreeQueryResultDTO> children) {
+		this.children = children;
+	}
+		
 	/**
 	* NzTreeNode property 
 	*/
@@ -50,37 +40,5 @@ public class HierarchyCodeTreeQueryResultDTO implements Serializable {
 		
 	@JsonProperty(value="isLeaf") 
 	boolean isLeaf;
-	
-	@QueryProjection
-	public HierarchyCodeTreeQueryResultDTO(
-			String codeId,
-			String companyCode,
-			String code,
-			String codeName,
-			String codeNameAbbreviation,
-			String parentId,
-			LocalDateTime fromDate,
-			LocalDateTime toDate,
-			int seq,
-			String cmt
-			) {	
-	this.id = codeId;
-	this.companyCode = companyCode;
-	this.parentId = parentId;
-	this.code = code;
-	this.codeName = codeName;
-	this.codeNameAbbreviation = codeNameAbbreviation;
-	this.fromDate = fromDate;
-	this.toDate = toDate;
-	this.seq = seq;
-	this.cmt = cmt;
-	
-	this.title 	= this.codeName + " - " + this.code;
-	this.key  	= this.id;
-	//this.isLeaf	= this.children.isEmpty() ? true : false;			
-	}
-	
-	public void addChilren(List<HierarchyCodeTreeQueryResultDTO> children) {
-		this.children = children;
-	}
+		
 }
