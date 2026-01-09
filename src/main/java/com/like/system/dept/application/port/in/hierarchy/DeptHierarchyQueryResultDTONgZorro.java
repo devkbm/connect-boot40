@@ -19,7 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class DeptHierarchyNgZorro {
+public class DeptHierarchyQueryResultDTONgZorro {
 	
 	/* DeptHierarchy Property */
 	String parentDeptCode;
@@ -46,7 +46,7 @@ public class DeptHierarchyNgZorro {
 	/* DeptHierarchy Property */
 	
 		
-	List<DeptHierarchyNgZorro> children;
+	List<DeptHierarchyQueryResultDTONgZorro> children;
 	
 	/**
 	 * NzTreeNode property 
@@ -58,8 +58,8 @@ public class DeptHierarchyNgZorro {
 	@JsonProperty(value="isLeaf") 
 	boolean isLeaf;
 	
-	public static DeptHierarchyNgZorro build(DeptHierarchy dto) {
-		DeptHierarchyNgZorro rec = new DeptHierarchyNgZorro();
+	public static DeptHierarchyQueryResultDTONgZorro build(DeptHierarchy dto) {
+		DeptHierarchyQueryResultDTONgZorro rec = new DeptHierarchyQueryResultDTONgZorro();
 		
 		Optional<LocalDatePeriod> period = Optional.ofNullable(dto.getPeriod());
 		
@@ -82,7 +82,7 @@ public class DeptHierarchyNgZorro {
 		return rec;
 	}
 
-	public void setChildren(List<DeptHierarchyNgZorro> children) {
+	public void setChildren(List<DeptHierarchyQueryResultDTONgZorro> children) {
 		this.children = children;
 	}
 

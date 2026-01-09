@@ -101,8 +101,7 @@ public abstract class SXSSFExcelFile<T> implements ExcelFile<T> {
 
 	public void write(OutputStream stream) throws IOException {
 		wb.write(stream);
-		wb.close();
-		wb.dispose();
+		wb.close();		
 		stream.close();
 	}
 

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.dept.application.port.in.hierarchy.DeptHierarchyNgZorro;
+import com.like.system.dept.application.port.in.hierarchy.DeptHierarchyQueryResultDTONgZorro;
 import com.like.system.dept.application.port.in.hierarchy.DeptHierarchyQueryDTO;
 import com.like.system.dept.application.port.in.hierarchy.DeptHierarchyQueryUseCase;
 import com.like.system.dept.application.port.out.DeptHierarchySelectDbPort;
@@ -15,11 +15,11 @@ import com.like.system.dept.domain.DeptHierarchyGenerator;
 
 @Transactional(readOnly = true)
 @Service
-public class DeptHierarchySelectService implements DeptHierarchyQueryUseCase {
+public class DeptHierarchyQueryService implements DeptHierarchyQueryUseCase {
 
 	DeptHierarchySelectDbPort repository;
 			
-	public DeptHierarchySelectService(DeptHierarchySelectDbPort repository) {
+	public DeptHierarchyQueryService(DeptHierarchySelectDbPort repository) {
 		this.repository = repository;
 	}		
 
@@ -32,15 +32,15 @@ public class DeptHierarchySelectService implements DeptHierarchyQueryUseCase {
 		
 		List<DeptHierarchy> list = generator.getTreeNodes();		
 		
-		List<DeptHierarchyNgZorro> after_list = new ArrayList<>();
+		List<DeptHierarchyQueryResultDTONgZorro> after_list = new ArrayList<>();
 		
 		copyTreeNodes(list, after_list);
 		
 		return after_list;		
 	}
 	
-	private void copyTreeNodes(List<DeptHierarchy> original_list, List<DeptHierarchyNgZorro> copy_list) {
-		DeptHierarchyNgZorro newNode = null;
+	private void copyTreeNodes(List<DeptHierarchy> original_list, List<DeptHierarchyQueryResultDTONgZorro> copy_list) {
+		DeptHierarchyQueryResultDTONgZorro newNode = null;
 		
 		for (DeptHierarchy node: original_list) {
 			newNode = convert(node);
@@ -49,8 +49,8 @@ public class DeptHierarchySelectService implements DeptHierarchyQueryUseCase {
 		}
 	}
 	
-	private void copyChildren(DeptHierarchyNgZorro parent, DeptHierarchy orignal) {			
-		DeptHierarchyNgZorro newNode = null;
+	private void copyChildren(DeptHierarchyQueryResultDTONgZorro parent, DeptHierarchy orignal) {			
+		DeptHierarchyQueryResultDTONgZorro newNode = null;
 		
 		if (orignal.getChildren() == null) return;
 		
@@ -63,8 +63,8 @@ public class DeptHierarchySelectService implements DeptHierarchyQueryUseCase {
 		}
 	}
 	
-	private DeptHierarchyNgZorro convert(DeptHierarchy dto) {
-		return DeptHierarchyNgZorro.build(dto);
+	private DeptHierarchyQueryResultDTONgZorro convert(DeptHierarchy dto) {
+		return DeptHierarchyQueryResultDTONgZorro.build(dto);
 	}	
 	
 }
