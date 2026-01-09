@@ -1,0 +1,27 @@
+package com.like.system.bizcode.adapter.out.db;
+
+import java.util.List;
+
+import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
+import org.springframework.stereotype.Repository;
+
+import com.like.system.bizcode.adapter.out.db.querydsl.BizCodeTypeQuerydsl;
+import com.like.system.bizcode.application.port.in.type.query.BizCodeTypeQueryResultDTO;
+import com.like.system.bizcode.application.port.out.BizCodeTypeQueryDbPort;
+
+@SecondaryAdapter
+@Repository
+public class BizCodeTypeQueryDbAdapter implements BizCodeTypeQueryDbPort {
+
+	BizCodeTypeQuerydsl repository;
+	
+	BizCodeTypeQueryDbAdapter(BizCodeTypeQuerydsl repository) {
+		this.repository = repository;
+	}
+	
+	@Override
+	public List<BizCodeTypeQueryResultDTO> select(String companyCode) {
+		
+		return this.repository.getList(companyCode);
+	}
+}
