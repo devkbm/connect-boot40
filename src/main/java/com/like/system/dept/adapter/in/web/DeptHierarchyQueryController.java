@@ -19,11 +19,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @PrimaryAdapter
 @RestController
-public class DeptHierarchySelectController {
+public class DeptHierarchyQueryController {
 
 	DeptHierarchyQueryUseCase useCase;
 	
-	DeptHierarchySelectController(DeptHierarchyQueryUseCase useCase) {
+	DeptHierarchyQueryController(DeptHierarchyQueryUseCase useCase) {
 		this.useCase = useCase;
 	}
 
