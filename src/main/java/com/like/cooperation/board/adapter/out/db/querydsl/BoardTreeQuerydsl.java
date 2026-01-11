@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.application.port.in.board.query.BoardHierarchy;
-import com.like.cooperation.board.application.port.in.board.query.QBoardHierarchy;
+import com.like.cooperation.board.application.port.in.board.query.BoardHierarchyQueryResultDTO;
 import com.like.cooperation.board.domain.board.QBoard;
+import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
@@ -20,18 +21,18 @@ public class BoardTreeQuerydsl {
 		this.queryFactory = queryFactory;
 	}
 	
-	public List<BoardHierarchy> selectHierarchy() {
-		List<BoardHierarchy> rootList = getBoardHierarchyRootList();
+	public List<BoardHierarchyQueryResultDTO> selectHierarchy() {
+		List<BoardHierarchyQueryResultDTO> rootList = getBoardHierarchyRootList();
 		
-		List<BoardHierarchy> rtn =  setLinkBoardHierarchy(rootList);
+		List<BoardHierarchyQueryResultDTO> rtn =  setLinkBoardHierarchy(rootList);
 		
 		return rtn;
 	}
 	
-	List<BoardHierarchy> setLinkBoardHierarchy(List<BoardHierarchy> list) {
-		List<BoardHierarchy> children = null;
+	List<BoardHierarchyQueryResultDTO> setLinkBoardHierarchy(List<BoardHierarchyQueryResultDTO> list) {
+		List<BoardHierarchyQueryResultDTO> children = null;
 		
-		for ( BoardHierarchy dto : list) {
+		for ( BoardHierarchyQueryResultDTO dto : list) {
 			
 			children = getBoardHierarchyChildrenList(Long.parseLong(dto.getKey()));
 			
@@ -51,39 +52,48 @@ public class BoardTreeQuerydsl {
 	}
 	
 	
-	List<BoardHierarchy> getBoardHierarchyRootList() {									
+	List<BoardHierarchyQueryResultDTO> getBoardHierarchyRootList() {									
+						
+		//Expression<String> boardParentId = new CaseBuilder().when(qBoard.parent.boardId.isNull()).then("").otherwise(qBoard.parent.boardId.stringValue()).as("boardParentId");			
 		
-		/*Expression<Boolean> isLeaf = new CaseBuilder()
-										.when(qBoard.ppkBoard.isNotNull()).then(true)
-										.otherwise(false).as("leaf");*/	
-		
-		JPAQuery<BoardHierarchy> query = queryFactory
-				.select(projections(qBoard))
+		JPAQuery<BoardHierarchyQueryResultDTO> query = queryFactory
+				//.select(projections(qBoard))
+				.select(Projections.fields(BoardHierarchyQueryResultDTO.class,
+						qBoard.boardId.stringValue().as("key"),
+						qBoard.parent.boardId.stringValue().as("boardParentId"),						
+						qBoard.boardType,
+						qBoard.boardName.as("title"),
+						qBoard.description.as("boardDescription"),
+						Expressions.FALSE.as("expanded"),
+						Expressions.FALSE.as("selected"),
+						Expressions.FALSE.as("active")
+						)
+				)
 				.from(qBoard)
 				.where(qBoard.isRootNode());
-													
-						
+																			
 		return query.fetch();	
 	}
 	
-	List<BoardHierarchy> getBoardHierarchyChildrenList(Long boardParentId) {
+	List<BoardHierarchyQueryResultDTO> getBoardHierarchyChildrenList(Long boardParentId) {
 		
-		JPAQuery<BoardHierarchy> query = queryFactory
-				.select(projections(qBoard))
+		JPAQuery<BoardHierarchyQueryResultDTO> query = queryFactory
+				//.select(projections(qBoard))
+				.select(Projections.fields(BoardHierarchyQueryResultDTO.class,
+						qBoard.boardId.stringValue().as("key"),
+						qBoard.parent.boardId.stringValue().as("boardParentId"),						
+						qBoard.boardType,
+						qBoard.boardName.as("title"),
+						qBoard.description.as("boardDescription"),
+						Expressions.FALSE.as("expanded"),
+						Expressions.FALSE.as("selected"),
+						Expressions.FALSE.as("active")
+						)
+				)
 				.from(qBoard)
 				.where(qBoard.parent.boardId.eq(boardParentId));								
 		
-		return query.fetch();
-		
+		return query.fetch();	
 	}
-
-	private QBoardHierarchy projections(QBoard qBoard) {
-		return new QBoardHierarchy(
-				qBoard.boardId, 
-				qBoard.parent.boardId, 
-				qBoard.boardType,
-				qBoard.boardName, 
-				qBoard.description
-				);
-	}
+	
 }

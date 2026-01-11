@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.system.bizcode.adapter.out.db.entity.QJpaBizCode;
 import com.like.system.bizcode.application.port.in.code.query.BizCodeQueryResultDTO;
-import com.like.system.systemcode.adapter.out.db.entity.QJpaBizCode;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

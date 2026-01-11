@@ -9,5 +9,5 @@ public interface BoardQueryUseCase {
 	
 	List<BoardQueryResultDTO> selectList(BoardQueryDTO dto);
 	
-	List<BoardHierarchy> selectHierarchy();
+	List<BoardHierarchyQueryResultDTO> selectHierarchy();
 }

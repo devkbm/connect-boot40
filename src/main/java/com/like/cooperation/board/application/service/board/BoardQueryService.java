@@ -6,7 +6,7 @@ import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.cooperation.board.application.port.in.board.query.BoardHierarchy;
+import com.like.cooperation.board.application.port.in.board.query.BoardHierarchyQueryResultDTO;
 import com.like.cooperation.board.application.port.in.board.query.BoardQueryDTO;
 import com.like.cooperation.board.application.port.in.board.query.BoardQueryResultDTO;
 import com.like.cooperation.board.application.port.in.board.query.BoardQueryUseCase;
@@ -29,7 +29,7 @@ public class BoardQueryService implements BoardQueryUseCase {
 	}
 
 	@Override
-	public List<BoardHierarchy> selectHierarchy() {
+	public List<BoardHierarchyQueryResultDTO> selectHierarchy() {
 		return this.port.selectHierarchy();
 	}
 
