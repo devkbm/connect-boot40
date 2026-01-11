@@ -13,7 +13,7 @@ import com.like.cooperation.workcalendar.application.port.in.event.query.WorkCal
 import com.like.cooperation.workcalendar.application.port.in.event.query.WorkCalendarEventQueryResultDTO;
 import com.like.cooperation.workcalendar.domain.QWorkCalendar;
 import com.like.cooperation.workcalendar.domain.QWorkCalendarEvent;
-import com.querydsl.core.BooleanBuilder;
+
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.DateTimeExpression;
@@ -32,7 +32,10 @@ public class WorkCalendarEventQuerydsl {
 	QWorkCalendarEvent qWorkCalendarEvent = QWorkCalendarEvent.workCalendarEvent;
 	QWorkCalendar qWorkCalendar = QWorkCalendar.workCalendar;
 	
-	public List<WorkCalendarEventQueryResultDTO> getScheduleList(WorkCalendarEventQueryDTO searchCondition) {
+	public List<WorkCalendarEventQueryResultDTO> getScheduleList(WorkCalendarEventQueryDTO dto) {
+					
+		List<Long> idList = this.changeIdType(dto.fkWorkCalendar());
+		
 		return queryFactory
 				.select(Projections.fields(WorkCalendarEventQueryResultDTO.class, 
 						qWorkCalendarEvent.id.stringValue().as("id"),
@@ -46,39 +49,38 @@ public class WorkCalendarEventQuerydsl {
 				.from(qWorkCalendarEvent)
 				.join(qWorkCalendar)
 				.on(qWorkCalendarEvent.workCalendar.eq(qWorkCalendar))
-				.where(getBooleanBuilder(searchCondition))
+				.where(
+						inWorkgroupIds(idList),
+						likeTitle(dto.title()),
+						between(dto.fromDate(), dto.toDate())						
+				)
 				.fetch();
 	}
 	
-	public BooleanBuilder getBooleanBuilder(WorkCalendarEventQueryDTO dto) {
-		BooleanBuilder builder = new BooleanBuilder();
-																								
-		LocalDateTime fromDateTime = getFromDate(dto.fromDate());			
-		LocalDateTime toDateTime = getToDate(dto.toDate());			
+	private BooleanExpression between(String fromDate, String toDate) {
+		
+		LocalDateTime fromDateTime = LocalDateTime.of(
+				Integer.parseInt(fromDate.substring(0, 4)),Integer.parseInt(fromDate.substring(4, 6)),Integer.parseInt(fromDate.substring(6, 8))
+				,0,0,0,0
+				);
+		
+		LocalDateTime toDateTime = LocalDateTime.of(
+				Integer.parseInt(toDate.substring(0, 4)),Integer.parseInt(toDate.substring(4, 6)),Integer.parseInt(toDate.substring(6, 8))
+				,23,59,59,59
+				);
 		
 		DateTimeExpression<LocalDateTime> fromExpression = Expressions.asDateTime(fromDateTime);
 		DateTimeExpression<LocalDateTime> toExpression = Expressions.asDateTime(toDateTime);
 		
-		//DateTimeExpression<LocalDateTime> monthEndDay = Expressions.asDateTime(param.with(TemporalAdjusters.lastDayOfMonth()));					
-		// LocalDateTime firstDay = param.with(TemporalAdjusters.firstDayOfMonth());																					
+		return fromExpression.between(qWorkCalendarEvent.start, qWorkCalendarEvent.end)
+				.or(toExpression.between(qWorkCalendarEvent.start, qWorkCalendarEvent.end))
+				.or(qWorkCalendarEvent.start.between(fromExpression, toExpression))
+				.or(qWorkCalendarEvent.end.between(fromExpression, toExpression));
+	}
 		
-		builder.and(fromExpression.between(qWorkCalendarEvent.start, qWorkCalendarEvent.end)
-					.or(toExpression.between(qWorkCalendarEvent.start, qWorkCalendarEvent.end))
-					.or(qWorkCalendarEvent.start.between(fromExpression, toExpression))
-					.or(qWorkCalendarEvent.end.between(fromExpression, toExpression)));
-			
-		builder.and(inWorkgroupIds(this.changeIdType(dto.fkWorkCalendar())))
-		       .and(likeTitle(dto.title()));
-										
-		return builder;
-	}					
 	
 	private BooleanExpression inWorkgroupIds(List<Long> ids) {
-		if ( CollectionUtils.isEmpty(ids) ) {
-			return null;
-		}
-		
-		return qWorkCalendarEvent.workCalendar.id.in(ids);
+		return CollectionUtils.isEmpty(ids) ? null : qWorkCalendarEvent.workCalendar.id.in(ids);
 	}
 	
 	private BooleanExpression likeTitle(String title) {
@@ -90,10 +92,8 @@ public class WorkCalendarEventQuerydsl {
 	 * @param params			ex) 1,2,3
 	 * @return List<Long>
 	 */
-	private List<Long> changeIdType(String params) {
-		
-		String idArray[] = params.split(","); 			
-	
+	private List<Long> changeIdType(String params) {		
+		String idArray[] = params.split(","); 				
 		List<Long> ids = new ArrayList<Long>(idArray.length);
 		
 		for (int i=0; i<idArray.length; i++) {
@@ -102,26 +102,5 @@ public class WorkCalendarEventQuerydsl {
 		
 		return ids;
 	}
-	
-	private LocalDateTime getFromDate(String fromDate) {
-		return LocalDateTime.of(
-				Integer.parseInt(fromDate.substring(0, 4)), 
-				Integer.parseInt(fromDate.substring(4, 6)), 
-				Integer.parseInt(fromDate.substring(6, 8)), 
-				0, 
-				0, 
-				0,
-				0);
-	}
-	
-	private LocalDateTime getToDate(String toDate) {
-		return LocalDateTime.of(
-				Integer.parseInt(toDate.substring(0, 4)), 
-				Integer.parseInt(toDate.substring(4, 6)), 
-				Integer.parseInt(toDate.substring(6, 8)), 
-				23, 
-				59, 
-				59,
-				59);		
-	}
+		
 }
