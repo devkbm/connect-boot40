@@ -12,14 +12,14 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository
 public class StaffDutyResponsibilityQuerydsl {
-
-	private final QStaffDuty qDuty = QStaffDuty.staffDuty;
 	
 	JPAQueryFactory queryFactory;
 	
 	StaffDutyResponsibilityQuerydsl(JPAQueryFactory queryFactory) {
 		this.queryFactory = queryFactory;
 	}
+	
+	private final QStaffDuty qDuty = QStaffDuty.staffDuty;
 	
 	public List<StaffDutyResponsibilityQueryResultDTO> select(String companyCode, String staffNo) {
 		QHrmCode hrmCode = QHrmCode.hrmCode;

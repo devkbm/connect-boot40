@@ -13,14 +13,14 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 @Repository
 public class StaffLicenseQuerydsl {
 	
-	private final QStaffLicense qLicense = QStaffLicense.staffLicense;
-	
 	JPAQueryFactory queryFactory;
 	
 	StaffLicenseQuerydsl(JPAQueryFactory queryFactory) {
 		this.queryFactory = queryFactory;
 	}
 		
+	private final QStaffLicense qLicense = QStaffLicense.staffLicense;
+	
 	public List<StaffLicenseQueryResultDTO> select(String companyCode, String staffNo) {
 	
 		QHrmCode hrmCode = QHrmCode.hrmCode;

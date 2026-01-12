@@ -14,15 +14,15 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository
 public class StaffAppointmentQuerydsl {
-
-	private final QStaff qStaff = QStaff.staff;
-	private final QAppointmentRecord qRecord = QAppointmentRecord.appointmentRecord;
 	
 	JPAQueryFactory queryFactory;
 	
 	StaffAppointmentQuerydsl(JPAQueryFactory queryFactory) {
 		this.queryFactory = queryFactory;
 	}
+	
+	private final QStaff qStaff = QStaff.staff;
+	private final QAppointmentRecord qRecord = QAppointmentRecord.appointmentRecord;	
 	
 	public List<StaffAppointmentQueryResultDTO> select(String companyCode, String staffNo) {
 		QHrmCode hrmCode = QHrmCode.hrmCode;

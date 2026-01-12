@@ -16,7 +16,7 @@ public class StaffAppointmentRecordDTOMapper {
 				.builder()
 				.staff(staff)
 				.appointmentTypeCode(dto.appointmentTypeCode())
-				.applyType(AppointmentApplyType.valueOf(dto.applyType()))
+				.applyType(AppointmentApplyType.of(dto.applyType()))
 				.appointmentDate(dto.appointmentDate())
 				.appointmentEndDate(dto.appointmentEndDate())
 				.recordName(dto.recordName())
@@ -31,7 +31,7 @@ public class StaffAppointmentRecordDTOMapper {
 		AppointmentInformation info = newAppointmentInformation(dto);
 				
 		entity.modifyBuilder()			
-			.applyType(AppointmentApplyType.valueOf(dto.applyType()))
+			.applyType(AppointmentApplyType.of(dto.applyType()))
 			.appointmentDate(dto.appointmentDate())
 			.appointmentEndDate(dto.appointmentEndDate())
 			.recordName(dto.recordName())

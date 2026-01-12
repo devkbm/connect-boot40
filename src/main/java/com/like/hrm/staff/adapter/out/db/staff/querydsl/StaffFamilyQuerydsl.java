@@ -12,14 +12,14 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository
 public class StaffFamilyQuerydsl {
-
-	private final QStaffFamily qFamily = QStaffFamily.staffFamily;
 		
 	JPAQueryFactory queryFactory;
 	
 	StaffFamilyQuerydsl(JPAQueryFactory queryFactory) {
 		this.queryFactory = queryFactory;
 	}
+	
+	private final QStaffFamily qFamily = QStaffFamily.staffFamily;
 		
 	public List<StaffFamilyQueryResultDTO> select(String companyCode, String staffNo) {
  
