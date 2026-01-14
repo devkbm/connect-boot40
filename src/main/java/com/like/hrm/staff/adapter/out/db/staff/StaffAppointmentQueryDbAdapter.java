@@ -6,6 +6,7 @@ import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.staff.adapter.out.db.staff.querydsl.StaffAppointmentQuerydsl;
+import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryResultDTO;
 import com.like.hrm.staff.application.port.out.staff.StaffAppointmentQueryDbPort;
 
@@ -22,6 +23,11 @@ public class StaffAppointmentQueryDbAdapter implements StaffAppointmentQueryDbPo
 	@Override
 	public List<StaffAppointmentQueryResultDTO> select(String companyCode, String staffNo) {
 		return this.repository.select(companyCode, staffNo);	
+	}
+
+	@Override
+	public List<StaffAppointmentQueryResultDTO> query(StaffAppointmentQueryDTO dto) {
+		return this.repository.query(dto);
 	}	
 
 }

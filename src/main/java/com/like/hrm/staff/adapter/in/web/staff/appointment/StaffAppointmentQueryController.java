@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
+import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryResultDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryUseCase;
 
@@ -29,6 +30,14 @@ public class StaffAppointmentQueryController {
 	public ResponseEntity<?> getAppointmentRecordList(@RequestParam String companyCode, @PathVariable String staffId) {
 										
 		List<StaffAppointmentQueryResultDTO> list = useCase.select(companyCode, staffId); 		
+		
+		return toList(list, MessageUtil.getQueryMessage(list.size()));
+	}
+	
+	@GetMapping("/api/hrm/staff/record")
+	public ResponseEntity<?> getAppointmentRecordList2(StaffAppointmentQueryDTO dto) {
+										
+		List<StaffAppointmentQueryResultDTO> list = useCase.query(dto); 		
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

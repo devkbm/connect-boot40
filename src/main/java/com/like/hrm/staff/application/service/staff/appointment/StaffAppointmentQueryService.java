@@ -6,6 +6,7 @@ import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryResultDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryUseCase;
 import com.like.hrm.staff.application.port.out.staff.StaffAppointmentQueryDbPort;
@@ -25,5 +26,10 @@ public class StaffAppointmentQueryService implements StaffAppointmentQueryUseCas
 	public List<StaffAppointmentQueryResultDTO> select(String companyCode, String staffNo) {
 		
 		return this.dbPort.select(companyCode, staffNo);
+	}
+
+	@Override
+	public List<StaffAppointmentQueryResultDTO> query(StaffAppointmentQueryDTO dto) {
+		return this.dbPort.query(dto);
 	}
 }

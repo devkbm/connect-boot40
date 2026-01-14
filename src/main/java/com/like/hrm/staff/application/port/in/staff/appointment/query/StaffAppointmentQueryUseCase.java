@@ -7,4 +7,6 @@ import org.jmolecules.architecture.hexagonal.PrimaryPort;
 @PrimaryPort
 public interface StaffAppointmentQueryUseCase {
 	List<StaffAppointmentQueryResultDTO> select(String companyCode, String staffNo);
+	
+	List<StaffAppointmentQueryResultDTO> query(StaffAppointmentQueryDTO dto);
 }
