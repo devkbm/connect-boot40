@@ -27,7 +27,7 @@ public class StaffAppointmentQueryController {
 	}
 	
 	@GetMapping("/api/hrm/staff/{staffId}/record")
-	public ResponseEntity<?> getAppointmentRecordList(@RequestParam String companyCode, @PathVariable String staffId) {
+	public ResponseEntity<?> getStaffAppointmentRecordList(@RequestParam String companyCode, @PathVariable String staffId) {
 										
 		List<StaffAppointmentQueryResultDTO> list = useCase.select(companyCode, staffId); 		
 		
@@ -35,7 +35,7 @@ public class StaffAppointmentQueryController {
 	}
 	
 	@GetMapping("/api/hrm/staff/record")
-	public ResponseEntity<?> getAppointmentRecordList2(StaffAppointmentQueryDTO dto) {
+	public ResponseEntity<?> getAllAppointmentRecordList(StaffAppointmentQueryDTO dto) {
 										
 		List<StaffAppointmentQueryResultDTO> list = useCase.query(dto); 		
 		
