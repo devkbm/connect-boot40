@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Table;
 
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.hrm.staff.domain.AbstractStaff;
@@ -35,6 +36,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@SQLRestriction("STAFF_YN = true")
 @Table(name = "HRMSTAFF")
 @EntityListeners(AuditingEntityListener.class)
 public class Staff extends AbstractStaff implements Serializable {

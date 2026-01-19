@@ -2,6 +2,7 @@ package com.like.hrm.staff.domain.partner;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.hrm.staff.domain.AbstractStaff;
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@SQLRestriction("STAFF_YN = false")
 @Table(name = "HRMSTAFF")
 @EntityListeners(AuditingEntityListener.class)
 public class PartnerCompanyStaff extends AbstractStaff {

@@ -3,7 +3,7 @@ package com.like.hrm.staff.application.service.partner;
 import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 
-import com.like.hrm.staff.application.port.in.partner.PartnerCompanyStaffDeleteUseCase;
+import com.like.hrm.staff.application.port.in.partner.delete.PartnerCompanyStaffDeleteUseCase;
 import com.like.hrm.staff.application.port.out.partner.PartnerCompanyStaffCommandDbPort;
 
 @Application

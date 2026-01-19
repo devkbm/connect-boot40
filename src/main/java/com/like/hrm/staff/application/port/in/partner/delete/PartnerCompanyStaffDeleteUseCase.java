@@ -1,4 +1,4 @@
-package com.like.hrm.staff.application.port.in.partner;
+package com.like.hrm.staff.application.port.in.partner.delete;
 
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
 
