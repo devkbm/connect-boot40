@@ -2,7 +2,7 @@ package com.like.common.hierarchy;
 
 import java.util.List;
 
-public class HierarchyDataGenerator<T extends AbstractHierarchy<T, ID>> {
+public class HierarchyDataGenerator<T extends AbstractHierarchy<T, ID>, ID> {
 
     List<T> allFlattenNodes;
 
@@ -20,7 +20,7 @@ public class HierarchyDataGenerator<T extends AbstractHierarchy<T, ID>> {
 		List<T> children = null;
 		
 		for ( T node : nodes ) {
-			children = getChildren(node.parentId());
+			children = getChildren(node.id());
 			
 			if (children.isEmpty()) {
 				node.setLeaf(true);
@@ -43,7 +43,7 @@ public class HierarchyDataGenerator<T extends AbstractHierarchy<T, ID>> {
 							.toList();
 	}	
 	
-	private List<T> getChildren(String parentId) {
+	private List<T> getChildren(ID parentId) {
 		return this.allFlattenNodes
 							.stream()
 							.filter(e -> parentId != null && parentId.equals(e.parentId()))

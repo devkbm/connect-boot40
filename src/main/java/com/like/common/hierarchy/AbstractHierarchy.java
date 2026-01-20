@@ -8,6 +8,8 @@ public abstract class AbstractHierarchy<T, ID> {
 	
 	boolean isLeaf;
 
+	public abstract ID id();
+	
 	public abstract ID parentId();
 
     public void setChildren(List<T> children) {
