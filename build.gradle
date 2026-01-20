@@ -102,3 +102,9 @@ sourceSets {
 clean {
     delete file(querydslDir)
 }
+
+tasks.register("printGradleUserHome") {
+    doLast {
+        println("Gradle user home: ${gradle.gradleUserHomeDir}")
+    }
+}
