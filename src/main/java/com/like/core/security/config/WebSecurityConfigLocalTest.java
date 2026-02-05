@@ -29,7 +29,7 @@ import com.like.core.security.oauth2.OAuth2AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
-@Profile("localtest")
+@Profile("local")
 public class WebSecurityConfigLocalTest<S extends Session> {
 
 	private final FindByIndexNameSessionRepository<S> sessionRepository;

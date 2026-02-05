@@ -11,7 +11,7 @@ import com.like.core.security.audit.SpringSecurityAuditorAwareTest;
 
 @Configuration
 @EnableJpaAuditing
-@Profile("localtest")
+@Profile("local")
 public class JpaRepositoryAuditConfigTest {
 
 	@Bean
