@@ -38,17 +38,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-restclient'
 	
 	implementation 'org.springframework.data:spring-data-envers'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.0'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.1'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:2.0.0'	
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	
-	implementation 'org.apache.poi:poi:5.5.0'	
-	implementation 'org.apache.poi:poi-ooxml:5.5.0'
-	implementation 'com.fasterxml.uuid:java-uuid-generator:5.1.1'
+	implementation 'org.apache.poi:poi:5.5.1'	
+	implementation 'org.apache.poi:poi-ooxml:5.5.1'
+	implementation 'com.fasterxml.uuid:java-uuid-generator:5.2.0'
 	implementation 'io.hypersistence:hypersistence-utils-hibernate-71:3.12.0'
-	implementation 'com.ezylang:EvalEx:3.5.0'
+	implementation 'com.ezylang:EvalEx:3.6.0'
 	
 	implementation 'com.oracle.database.jdbc:ojdbc17'
 	implementation 'com.oracle.database.security:osdt_core:21.19.0.0'
