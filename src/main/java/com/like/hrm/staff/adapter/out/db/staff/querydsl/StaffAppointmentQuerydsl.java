@@ -72,8 +72,9 @@ public class StaffAppointmentQuerydsl {
 						payStepCode.codeName.as("payStepName"),
 						qRecord.info.jobCode,
 						jobCode.codeName.as("jobName"),
-						qRecord.info.dutyResponsibilityCode,
-						dutyResponsibilityCode.codeName.as("dutyResponsibilityName")
+						qRecord.info.dutyResponsibilityCode2.as("dutyResponsibilityCode"),
+						qRecord.info.dutyResponsibilityCode2.as("dutyResponsibilityName")
+						//dutyResponsibilityCode.codeName.as("dutyResponsibilityName")
 						)
 				)
 				.from(qStaff)
@@ -106,9 +107,9 @@ public class StaffAppointmentQuerydsl {
 			   	.leftJoin(jobCode)
 			   		.on(jobCode.id.typeId.eq("HR0006")
 			   		.and(qRecord.info.jobCode.eq(jobCode.id.code)))
-			   	.leftJoin(dutyResponsibilityCode)
-			   		.on(dutyResponsibilityCode.id.typeId.eq("HR0007")
-			   		.and(qRecord.info.dutyResponsibilityCode.eq(dutyResponsibilityCode.id.code)))					
+			   	//.leftJoin(dutyResponsibilityCode)
+			   		//.on(dutyResponsibilityCode.id.typeId.eq("HR0007")
+			   		//.and(qRecord.info.dutyResponsibilityCode.eq(dutyResponsibilityCode.id.code)))					
 				.where(qStaff.id.companyCode.eq(companyCode)
 						 .and(qStaff.id.staffNo.eq(staffNo)))
 				.fetch();
@@ -158,8 +159,9 @@ public class StaffAppointmentQuerydsl {
 						payStepCode.codeName.as("payStepName"),
 						qRecord.info.jobCode,
 						jobCode.codeName.as("jobName"),
-						qRecord.info.dutyResponsibilityCode,
-						dutyResponsibilityCode.codeName.as("dutyResponsibilityName")
+						qRecord.info.dutyResponsibilityCode2.as("dutyResponsibilityCode"),
+						qRecord.info.dutyResponsibilityCode2.as("dutyResponsibilityName")
+						//dutyResponsibilityCode.codeName.as("dutyResponsibilityName")
 						)
 				)
 				.from(qStaff)
@@ -192,9 +194,9 @@ public class StaffAppointmentQuerydsl {
 			   	.leftJoin(jobCode)
 			   		.on(jobCode.id.typeId.eq("HR0006")
 			   		.and(qRecord.info.jobCode.eq(jobCode.id.code)))
-			   	.leftJoin(dutyResponsibilityCode)
-			   		.on(dutyResponsibilityCode.id.typeId.eq("HR0007")
-			   		.and(qRecord.info.dutyResponsibilityCode.eq(dutyResponsibilityCode.id.code)))					
+			   	//.leftJoin(dutyResponsibilityCode)
+			   		//.on(dutyResponsibilityCode.id.typeId.eq("HR0007")
+			   		//.and(qRecord.info.dutyResponsibilityCode.eq(dutyResponsibilityCode.id.code)))					
 				.where(
 						eqCompanyCode(dto.companyCode()),
 						eqStaffNo(dto.staffNo()),

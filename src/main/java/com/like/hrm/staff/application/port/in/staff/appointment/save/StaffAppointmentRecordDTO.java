@@ -1,6 +1,7 @@
 package com.like.hrm.staff.application.port.in.staff.appointment.save;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
@@ -29,7 +30,7 @@ public record StaffAppointmentRecordDTO(
 		String jobGradeCode,
 		String payStepCode,			
 		String jobCode,			
-		String dutyResponsibilityCode
+		List<String> dutyResponsibilityCode
 		) {
 	/*
 	public AppointmentRecord newEntity(Staff staff) {		

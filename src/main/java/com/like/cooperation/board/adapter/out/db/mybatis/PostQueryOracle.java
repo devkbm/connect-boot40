@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import com.like.cooperation.board.application.port.in.post.query.PostQueryResultDTO;
 
 @Mapper
-public interface BoardMapper {
+public interface PostQueryOracle {
 					
 	/**
 	 * 게시글 리스트 조회
@@ -17,8 +17,9 @@ public interface BoardMapper {
 	 * @return
 	 * @throws Exception
 	 */		
-	//@Options()
-	@Select("""
+	@Select(//databaseId = "oracle", 
+			//value =  
+			"""
 <script>
 
 SELECT TO_CHAR(A.BOARD_ID)	boardId
@@ -69,7 +70,10 @@ FETCH NEXT #{pagesize} + 1 ROWS ONLY
  limit #{pagesize} + 1 offset #{pagenumber} * #{pagesize}      	
 </if>	
 </script>
-	""")		
-	List<PostQueryResultDTO> getArticleList(Map<String, Object> params);
+	""")	
+	List<PostQueryResultDTO> getPostSlice(Map<String, Object> params);
+	
+	
+	
 			
 }

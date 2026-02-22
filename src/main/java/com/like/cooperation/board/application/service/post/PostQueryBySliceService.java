@@ -24,7 +24,7 @@ public class PostQueryBySliceService implements PostQueryBySliceUseCase {
 		
 	@Override
 	public Slice<PostQueryResultDTO> getAritlceSlice(String userId, PostQueryDTO dto, Pageable pageable) {
-		return this.dbPort.getAritlceSlice(userId, dto, pageable);
+		return this.dbPort.getPostSlice(userId, dto, pageable);
 	}
 
 	

@@ -10,5 +10,5 @@ import com.like.cooperation.board.application.port.in.post.query.PostQueryDTO;
 @SecondaryPort
 public interface PostQueryBySliceDbPort {
 	
-	Slice<PostQueryResultDTO> getAritlceSlice(String userId, PostQueryDTO dto, Pageable pageable);
+	Slice<PostQueryResultDTO> getPostSlice(String userId, PostQueryDTO dto, Pageable pageable);
 }

@@ -1,6 +1,11 @@
 package com.like.hrm.staff.domain.staff.appointment;
 
+import java.util.List;
+
+import com.like.core.jpa.converter.StringListConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 
 import lombok.AccessLevel;
@@ -15,7 +20,6 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Embeddable
 public class AppointmentInformation {
 	
@@ -43,7 +47,27 @@ public class AppointmentInformation {
 	@Column(name="JOB_CODE", comment="직무코드")
 	private String jobCode;
 			
+	@Convert(converter = StringListConverter.class)
 	@Column(name="DUTY_RESPONSIBILITY_CODE", comment="직책코드")
-	private String dutyResponsibilityCode;
+	private List<String> dutyResponsibilityCode;
+		
+	@Column(name="DUTY_RESPONSIBILITY_CODE", comment="직책코드", insertable = false, updatable = false)
+	private String dutyResponsibilityCode2;
+
+	public AppointmentInformation(String blngDeptCode, String workDeptCode, String jobGroupCode, String jobPositionCode,
+			String occupationCode, String jobGradeCode, String payStepCode, String jobCode,
+			List<String> dutyResponsibilityCode) {		
+		this.blngDeptCode = blngDeptCode;
+		this.workDeptCode = workDeptCode;
+		this.jobGroupCode = jobGroupCode;
+		this.jobPositionCode = jobPositionCode;
+		this.occupationCode = occupationCode;
+		this.jobGradeCode = jobGradeCode;
+		this.payStepCode = payStepCode;
+		this.jobCode = jobCode;
+		this.dutyResponsibilityCode = dutyResponsibilityCode;
+	}
+	
+	
 	
 }
