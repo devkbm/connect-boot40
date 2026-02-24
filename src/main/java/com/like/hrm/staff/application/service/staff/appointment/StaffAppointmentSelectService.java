@@ -26,9 +26,7 @@ public class StaffAppointmentSelectService implements StaffAppointmentSelectUseC
 		
 		return StaffAppointmentRecordSelectDTOMapper.toDTO(entity);
 		
-		//return StaffAppointmentRecordDTO.convert(this.dbPort.select(companyCode, staffNo, seq).orElse(null));
 	}
 
 	
-
 }

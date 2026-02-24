@@ -52,7 +52,7 @@ public class AppointmentInformation {
 	private List<String> dutyResponsibilityCode;
 		
 	@Column(name="DUTY_RESPONSIBILITY_CODE", comment="직책코드", insertable = false, updatable = false)
-	private String dutyResponsibilityCode2;
+	private String dutyResponsibilityCodeList;
 
 	public AppointmentInformation(String blngDeptCode, String workDeptCode, String jobGroupCode, String jobPositionCode,
 			String occupationCode, String jobGradeCode, String payStepCode, String jobCode,

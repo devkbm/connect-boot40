@@ -1,11 +1,11 @@
 package com.like.hrm.staff.adapter.out.db.staff.mybatis;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryDTO;
 import com.like.hrm.staff.application.port.in.staff.appointment.query.StaffAppointmentQueryResultDTO;
 
 @Mapper
@@ -90,9 +90,17 @@ public interface StaffAppointmentQueryOracle {
         (
             s1_0.STAFF_YN = true
         ) 
-        and s1_0.org_cd  = #{companyCode} 
-        and s1_0.staff_no= #{staffNo}	         	
+        and s1_0.org_cd  = #{companyCode}
+    <if test="staff_no != null"><![CDATA[
+	   AND s1_0.staff_no= #{staffNo}
+	]]></if>         	       
+    <if test="appointmentTypeCode != null"><![CDATA[
+	   AND s1_0.appointment_type_code = #{appointmentTypeCode}
+	]]></if>
+	<if test="from != null"><![CDATA[
+	   AND s1_0.appointment_dt between #{from} and #{to} 
+	]]></if> 	
 	</script>
 	""")		
-	List<StaffAppointmentQueryResultDTO> getArticleList(Map<String, Object> params);
+	List<StaffAppointmentQueryResultDTO> query(StaffAppointmentQueryDTO dto);
 }
