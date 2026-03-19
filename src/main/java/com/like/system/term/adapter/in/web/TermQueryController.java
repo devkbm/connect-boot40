@@ -14,7 +14,7 @@ import com.like.common.dto.HtmlSelectOptionable;
 import com.like.core.message.MessageUtil;
 import com.like.system.term.application.port.in.term.TermQueryDTO;
 import com.like.system.term.application.port.in.term.TermQueryUseCase;
-import com.like.system.term.application.port.in.term.TermSaveDTO;
+import com.like.system.term.application.port.in.term.TermSelectDTO;
 import com.like.system.term.domain.SystemType;
 
 @PrimaryAdapter
@@ -30,7 +30,7 @@ public class TermQueryController {
 	@GetMapping("/api/system/terms")
 	public ResponseEntity<?> getTermList(TermQueryDTO dto) {
 				
-		List<TermSaveDTO> list = useCase.select(dto); 							
+		List<TermSelectDTO> list = useCase.select(dto); 							
 							
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

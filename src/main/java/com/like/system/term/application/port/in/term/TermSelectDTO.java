@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 
 @Builder
-public record TermSaveDTO(
+public record TermSelectDTO(
 		String companyCode,
 		String clientAppUrl,			
 		@NotEmpty(message = "용어는 필수 입력 값입니다.")

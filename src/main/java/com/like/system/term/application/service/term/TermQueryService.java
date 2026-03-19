@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.system.term.application.port.in.term.TermQueryDTO;
 import com.like.system.term.application.port.in.term.TermQueryUseCase;
-import com.like.system.term.application.port.in.term.TermSaveDTO;
-import com.like.system.term.application.port.in.term.TermSaveDTOMapper;
+import com.like.system.term.application.port.in.term.TermSelectDTO;
+import com.like.system.term.application.port.in.term.TermSelectDTOMapper;
 import com.like.system.term.application.port.out.TermQueryDbPort;
 
 
@@ -25,10 +25,10 @@ public class TermQueryService implements TermQueryUseCase {
 	}	
 
 	@Override
-	public List<TermSaveDTO> select(TermQueryDTO dto) {
+	public List<TermSelectDTO> select(TermQueryDTO dto) {
 		return this.dbPort.select(dto)
 						  .stream()
-						  .map(e -> TermSaveDTOMapper.toDTO(e))
+						  .map(e -> TermSelectDTOMapper.toDTO(e))
 						  .toList();
 	}
 }

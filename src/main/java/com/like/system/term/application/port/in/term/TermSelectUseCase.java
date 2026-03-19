@@ -4,5 +4,5 @@ import org.jmolecules.architecture.hexagonal.PrimaryPort;
 
 @PrimaryPort
 public interface TermSelectUseCase {
-	TermSaveDTO select(String id);
+	TermSelectDTO select(String id);
 }

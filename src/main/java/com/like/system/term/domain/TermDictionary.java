@@ -1,9 +1,8 @@
 package com.like.system.term.domain;
 
-import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Id;
@@ -11,8 +10,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+import java.util.List;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.like.core.jpa.converter.StringListConverter;
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
 import lombok.AccessLevel;
@@ -33,102 +35,78 @@ import lombok.NoArgsConstructor;
 @Table(name = "COMTERM")
 @EntityListeners(AuditingEntityListener.class)
 public class TermDictionary extends AbstractAuditEntity {	
-
+		
 	@Id	
-	@Column(name="TERM_ID")
-	String id;	
-	
-	@Column(name="SYSTEM")
-	String system;
-	
 	@Column(name="TERM", unique = true)
 	String term;		
 	
 	@Column(name="TERM_ENG")
 	String termEng;
+	
+	@Column(name="DEFINITION")
+	String definition;
 		
-	@Column(name="COMBI_YN")
-	Boolean isCombiningWords;
+	@Column(name="STATUS")
+	String status;
+					
+	@Convert(converter = StringListConverter.class)
+	@Column(name="SYSTEM")
+	List<String> system;
 	
 	@Column(name="COLUMN_NAME")
 	String columnName;
 	
-	@Column(name="TERM_DESCRIPTION")
-	String description;	
+	@Column(name="SIZE")
+	String size;
 	
 	@Column(name="CMT")
 	String comment;
-
+	
 	@OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}  )
     @JoinColumn(name = "domain_id", referencedColumnName = "domain_id")
 	DataDomainDictionary dataDomain;
 	
 	@Builder
-	public TermDictionary(
-			String system,
+	public TermDictionary(			
 			String term,
 			String termEng,
+			String definition,
+			String status,
+			List<String> system,
 			String columnName,
-			DataDomainDictionary dataDomain,
-			String description,
+			String size,
+			DataDomainDictionary dataDomain,					
 			String comment
-			) {
-		this.id = system + "_" + term;		
-		this.system = system;
+			) {		
+		
 		this.term = term;		
 		this.termEng = termEng;
-		this.dataDomain = dataDomain; 
+		this.definition = definition;
+		this.status = status;
+		this.system = system;
 		this.columnName = columnName;
-		this.description = description;
+		this.size = size;
+		this.dataDomain = dataDomain; 			
 		this.comment = comment;
 	}	
-	
-	public static TermDictionary of(String system, WordDictionary word, String termEng, DataDomainDictionary dataDomain, String description, String comment) {
 		
-		TermDictionary term = TermDictionary.builder()
-											.system(system)
-											.term(word.getLogicalName())											
-											.columnName(word.getPhysicalName())
-											.termEng(termEng)
-											.dataDomain(dataDomain)												
-											.description(description)
-											.comment(comment)
-											.build(); 
-		
-		term.isCombiningWords = false;
-		
-		return term;
-	}
-	
-	public static TermDictionary of(String system, List<WordDictionary> wordList, String termEng, DataDomainDictionary dataDomain, String description, String comment) {
-		String logicalName = String.join("_", wordList.stream().map(e -> e.getLogicalName()).toList());		
-		String physicalName = String.join("_", wordList.stream().map(e -> e.getPhysicalName()).toList());					
-		
-		TermDictionary term = TermDictionary.builder()
-											.system(system)
-											.term(logicalName)
-											.columnName(physicalName)
-											.termEng(termEng)																						
-											.dataDomain(dataDomain)
-											.description(description)
-											.comment(comment)
-											.build();;
-					
-		term.isCombiningWords = true;
-		
-		return term;
-	}
-	
-	
 	public void modifyEntity(
-			String termEng,
-			DataDomainDictionary dataDomain,
-			String description,
+			String termEng,			
+			String definition,
+			String status,
+			List<String> system,
+			String columnName,
+			String size,
+			DataDomainDictionary dataDomain,					
 			String comment
 			) {			
-		this.termEng = termEng;		
-		this.dataDomain = dataDomain;
-		this.description = description;
+		this.termEng = termEng;
+		this.definition = definition;
+		this.status = status;
+		this.system = system;
+		this.columnName = columnName;
+		this.size = size;
+		this.dataDomain = dataDomain; 			
 		this.comment = comment;
 	}
 	

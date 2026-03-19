@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.term.application.port.in.term.TermSaveDTO;
+import com.like.system.term.application.port.in.term.TermSelectDTO;
 import com.like.system.term.application.port.in.term.TermSelectUseCase;
 
 @PrimaryAdapter
@@ -25,7 +25,7 @@ public class TermSelectController {
 	@GetMapping("/api/system/terms/{id}")
 	public ResponseEntity<?> getTerm(@PathVariable String id) {
 		
-		TermSaveDTO term = useCase.select(id);								
+		TermSelectDTO term = useCase.select(id);								
 		
 		return toOne(term, MessageUtil.getQueryMessage(term == null ? 0 : 1));
 	}		

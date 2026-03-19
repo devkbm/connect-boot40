@@ -4,8 +4,8 @@ import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.term.application.port.in.term.TermSaveDTO;
-import com.like.system.term.application.port.in.term.TermSaveDTOMapper;
+import com.like.system.term.application.port.in.term.TermSelectDTO;
+import com.like.system.term.application.port.in.term.TermSelectDTOMapper;
 import com.like.system.term.application.port.in.term.TermSelectUseCase;
 import com.like.system.term.application.port.out.TermCommandDbPort;
 
@@ -21,8 +21,8 @@ public class TermSelectService implements TermSelectUseCase {
 	}
 	
 	@Override
-	public TermSaveDTO select(String id) {
-		return TermSaveDTOMapper.toDTO(this.dbPort.select(id));
+	public TermSelectDTO select(String id) {
+		return TermSelectDTOMapper.toDTO(this.dbPort.select(id));
 	}
 
 }

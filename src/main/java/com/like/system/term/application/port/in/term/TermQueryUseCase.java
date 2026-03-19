@@ -6,5 +6,5 @@ import org.jmolecules.architecture.hexagonal.PrimaryPort;
 
 @PrimaryPort
 public interface TermQueryUseCase {
-	List<TermSaveDTO> select(TermQueryDTO dto);
+	List<TermSelectDTO> select(TermQueryDTO dto);
 }

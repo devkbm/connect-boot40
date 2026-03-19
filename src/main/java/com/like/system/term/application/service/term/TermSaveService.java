@@ -1,8 +1,5 @@
 package com.like.system.term.application.service.term;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jmolecules.architecture.hexagonal.Application;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,53 +9,43 @@ import com.like.system.term.application.port.in.term.TermSaveDTOMapper;
 import com.like.system.term.application.port.in.term.TermSaveUseCase;
 import com.like.system.term.application.port.out.DataDomainCommandDbPort;
 import com.like.system.term.application.port.out.TermCommandDbPort;
-import com.like.system.term.application.port.out.WordCommandDbPort;
 import com.like.system.term.domain.DataDomainDictionary;
 import com.like.system.term.domain.TermDictionary;
-import com.like.system.term.domain.WordDictionary;
+
 
 @Transactional
 @Application
 @Service
 public class TermSaveService implements TermSaveUseCase {
 
-	TermCommandDbPort dbPort;
-	WordCommandDbPort wordDbPort;
+	TermCommandDbPort dbPort;	
 	DataDomainCommandDbPort dataDomainDbPort;
 	
-	TermSaveService(TermCommandDbPort dbPort,
-					WordCommandDbPort wordDbPort,
-					DataDomainCommandDbPort dataDomainDbPort) {
-		this.dbPort = dbPort;
-		this.wordDbPort = wordDbPort;
+	TermSaveService(
+			TermCommandDbPort dbPort,
+			DataDomainCommandDbPort dataDomainDbPort
+			) {
+		this.dbPort = dbPort;		
 		this.dataDomainDbPort = dataDomainDbPort;
 	}
 	
 	@Override
 	public void save(TermSaveDTO dto) {
-		TermDictionary entity = dto.termId() == null ? null : dbPort.select(dto.termId());
+		TermDictionary entity = dbPort.select(dto.term());
 		
-		if (entity == null) {
+		if (entity == null) {			
 			entity = this.createEntity(dto);									
 		} else {						  				
 			TermSaveDTOMapper.modifyEntity(dto, entity, this.getDataDomainDictionary(dto));
 		}
 		
-		this.dbPort.save(entity);
-	
+		this.dbPort.save(entity);	
 	}
 	
-	private TermDictionary createEntity(TermSaveDTO dto) {
-		TermDictionary entity = null;
+	private TermDictionary createEntity(TermSaveDTO dto) {		
 		DataDomainDictionary dataDomain = this.getDataDomainDictionary(dto);
-				
-		if (dto.term().size() == 1) {				
-			entity = TermSaveDTOMapper.newEntity(dto, this.getWordDictionary(dto.term().get(0)), dataDomain);
-		} else if (dto.term().size() > 1) {				
-			entity = TermSaveDTOMapper.newEntity(dto, this.getWordDictionary(dto.term()), dataDomain);
-		}
-		
-		return entity;
+					 			
+		return TermSaveDTOMapper.newEntity(dto, dataDomain);
 	}
 	
 	private DataDomainDictionary getDataDomainDictionary(TermSaveDTO dto) {
@@ -66,21 +53,5 @@ public class TermSaveService implements TermSaveUseCase {
 		
 		return dataDomainDbPort.select(dto.dataDomainId());
 	}
-	
-	private WordDictionary getWordDictionary(String id) {
-		return wordDbPort.select(id);
-	}
-	
-	private List<WordDictionary> getWordDictionary(List<String> ids) {
-		// List<String> 순번대로 조회되지 않아서 수정
-		// return wordDictionaryRepository.findAllById(ids);
 		
-		List<WordDictionary> list = new ArrayList<>(ids.size());
-		
-		for (String id : ids) {
-			list.add(this.getWordDictionary(id));
-		}
-		return list;
-	}
-
 }
