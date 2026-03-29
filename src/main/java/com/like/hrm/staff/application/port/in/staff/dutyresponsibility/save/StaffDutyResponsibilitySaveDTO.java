@@ -54,15 +54,15 @@ public record StaffDutyResponsibilitySaveDTO(
 		if (entity == null) return null;
 		
 		return StaffDutyResponsibilitySaveDTO.builder()
-				   .companyCode(entity.getStaff().getId().companyCode())
-				   .staffNo(entity.getStaff().getId().staffNo())
-				   .staffName(entity.getStaff().getName().getName())
-				   .seq(entity.getId().getSeq())
-				   .dutyResponsibilityCode(entity.getDutyResponsibilityCode())
-				   .dutyResponsibilityName(entity.getDutyResponsibilityCode())
-				   .fromDate(entity.getFromDate())
-				   .toDate(entity.getToDate())
-				   .isPayApply(entity.getIsPayApply())
+				   .companyCode(entity.staff().id().companyCode())
+				   .staffNo(entity.staff().id().staffNo())
+				   .staffName(entity.staff().name().getName())
+				   .seq(entity.id().seq())
+				   .dutyResponsibilityCode(entity.dutyResponsibilityCode())
+				   .dutyResponsibilityName(entity.dutyResponsibilityCode())
+				   .fromDate(entity.fromDate())
+				   .toDate(entity.toDate())
+				   .isPayApply(entity.isPayApply())
 				   .build();
 	}
 	

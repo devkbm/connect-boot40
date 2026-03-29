@@ -11,25 +11,25 @@ public class DeptSelectDTOMapper {
 		
 		if (entity == null) return null;
 		
-		Optional<Dept> parent = Optional.ofNullable(entity.getParentDept());
-		Optional<LocalDatePeriod> period= Optional.ofNullable(entity.getPeriod());
+		Optional<Dept> parent = Optional.ofNullable(entity.parentDept());
+		Optional<LocalDatePeriod> period= Optional.ofNullable(entity.period());
 		
 		DeptSelectDTO dto = DeptSelectDTO.builder()
 							   .createdDt(entity.getCreatedDt())
 							   .createdBy(entity.getCreatedBy().getLoggedUser())
 							   .modifiedDt(entity.getModifiedDt())
 							   .modifiedBy(entity.getModifiedBy().getLoggedUser())								  
-							   .companyCode(entity.getId().getCompanyCode())
-							   .deptCode(entity.getId().getDeptCode())
-							   .parentDeptCode(parent.map(r -> r.getId().getDeptCode()).orElse(null))
-							   .deptNameKorean(entity.getDeptNameKorean())
-							   .deptAbbreviationKorean(entity.getDeptAbbreviationKorean())
-							   .deptNameEnglish(entity.getDeptNameEnglish())
-							   .deptAbbreviationEnglish(entity.getDeptAbbreviationEnglish())
-							   .fromDate(period.map(LocalDatePeriod::getFrom).orElse(null))
-							   .toDate(period.map(LocalDatePeriod::getTo).orElse(null))
-							   .seq(entity.getSeq())
-							   .comment(entity.getComment())
+							   .companyCode(entity.id().companyCode())
+							   .deptCode(entity.id().deptCode())
+							   .parentDeptCode(parent.map(r -> r.id().deptCode()).orElse(null))
+							   .deptNameKorean(entity.deptNameKorean())
+							   .deptAbbreviationKorean(entity.deptAbbreviationKorean())
+							   .deptNameEnglish(entity.deptNameEnglish())
+							   .deptAbbreviationEnglish(entity.deptAbbreviationEnglish())
+							   .fromDate(period.map(LocalDatePeriod::from).orElse(null))
+							   .toDate(period.map(LocalDatePeriod::to).orElse(null))
+							   .seq(entity.seq())
+							   .comment(entity.comment())
 							   .build();		
 		return dto;		
 	}

@@ -21,6 +21,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * <p>용어사전 엔티티<p/>
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
  * 2. 복합단어로 구성 <br>
  *   - 복합단어일 경우 _(under-bar)로 결합 <br>
  */
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "COMTERM")

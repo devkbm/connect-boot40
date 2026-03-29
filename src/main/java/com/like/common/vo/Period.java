@@ -5,12 +5,6 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class Period {
 
@@ -20,6 +14,8 @@ public class Period {
 	@Column(name="TO_DT")
 	private LocalDateTime to;
 	
+	protected Period() {} 
+	
 	public Period(LocalDateTime from, LocalDateTime to) {
 		this.from = from;
 		this.to = to;
@@ -27,6 +23,16 @@ public class Period {
 		if (!isValid(from, to))
 			throw newException();		
 	}	
+	
+	
+	public LocalDateTime from() {
+		return from;
+	}
+
+	public LocalDateTime to() {
+		return to;
+	}
+
 	
 	/**
 	 * 비교대상기간이 from ~ to 사이에 포함되어있는지 여부를 리턴한다.
@@ -63,7 +69,7 @@ public class Period {
 	 * @return 포함여부
 	 */
 	public boolean isBetween(Period period) {		
-		return isBetween(period.getFrom(), period.getTo());
+		return isBetween(period.from(), period.to());
 	}
 	
 	/**
@@ -88,6 +94,7 @@ public class Period {
 				String.format("시작일시[%s]가 종료일시[%s]보다 클 수 없습니다.",from.toString(),to.toString()));
 	}
 	
+		
 	public static void main(String[] args) {
 		Period p1 = new Period(LocalDateTime.of(1991, 1, 1, 1, 1 ,0), LocalDateTime.of(1991, 1, 2, 1, 1 ,0));
 		Period p2 = new Period(LocalDateTime.of(1990, 1, 1, 1, 1 ,0), LocalDateTime.of(1991, 1, 2, 1, 1 ,0));

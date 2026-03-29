@@ -10,9 +10,7 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @Embeddable
 public class StaffSchoolCareerList {
 	
@@ -20,13 +18,15 @@ public class StaffSchoolCareerList {
 	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<StaffSchoolCareer> schoolCareerList = new LinkedHashSet<>();
 	
+	public StaffSchoolCareerList() {}
+	
 	public Stream<StaffSchoolCareer> getStream() {
 		return this.schoolCareerList.stream();
 	}
 	
 	public StaffSchoolCareer get(Staff staff, Long seq) {
 		return this.schoolCareerList.stream()
-								 	.filter(e -> e.getId().equals(new StaffSchoolCareerId(staff, seq)))
+								 	.filter(e -> e.id().equals(new StaffSchoolCareerId(staff, seq)))
 								 	.findFirst()
 								 	.orElse(null);
 	}
@@ -36,17 +36,17 @@ public class StaffSchoolCareerList {
 	}
 	
 	public void remove(Staff staff, Long seq) {
-		this.schoolCareerList.removeIf(e -> e.getId().equals(new StaffSchoolCareerId(staff, seq)));
+		this.schoolCareerList.removeIf(e -> e.id().equals(new StaffSchoolCareerId(staff, seq)));
 	}
 	
-	long getNextSequence() {
+	long nextSequence() {
 		long maxSeq = 0;
 		
 		if (this.schoolCareerList == null || this.schoolCareerList.isEmpty()) {
 			maxSeq = 0;
 		} else {			
 			maxSeq = this.schoolCareerList.stream()
-							  		 .mapToLong(e -> e.getId().getSeq())
+							  		 .mapToLong(e -> e.id().seq())
 							  		 .max()
 							  		 .getAsLong();							 
 		}

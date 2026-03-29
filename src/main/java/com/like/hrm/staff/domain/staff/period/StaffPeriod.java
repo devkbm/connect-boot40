@@ -22,9 +22,10 @@ import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @EqualsAndHashCode(callSuper = false, of = {"id"})
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFPERIOD")
@@ -55,7 +56,7 @@ public class StaffPeriod extends AbstractAuditEntity {
 			String comment
 			) {
 		this.staff = staff;
-		this.id = new StaffPeriodId(staff, periodType, staff.getPeriodList().getNextSequence());
+		this.id = new StaffPeriodId(staff, periodType, staff.periodList().nextSequence());
 		this.period = new LocalDatePeriod(from, to);
 		this.comment = comment;		
 	}

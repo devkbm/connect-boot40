@@ -27,11 +27,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.experimental.Accessors;
 
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @JsonIgnoreProperties(value = { "menuGroup" })
 @Entity
-@Getter
 @Table(name = "commenu")
 @EntityListeners(AuditingEntityListener.class)
 public class Menu extends AbstractAuditEntity implements Serializable {			
@@ -95,9 +96,9 @@ public class Menu extends AbstractAuditEntity implements Serializable {
 			long level
 			) {
 		
-		this.id = new MenuId(companyCode, menuGroup.getId().getMenuGroupCode(), menuCode);
+		this.id = new MenuId(companyCode, menuGroup.id().menuGroupCode(), menuCode);
 		this.parent = parent == null ? null : parent;
-		this.parentMenuCode = parent == null ? null : parent.getId().getMenuCode();
+		this.parentMenuCode = parent == null ? null : parent.id().menuCode();
 		
 		this.name = menuName;			
 		this.type = menuType;
@@ -124,7 +125,7 @@ public class Menu extends AbstractAuditEntity implements Serializable {
 		this.sequence = sequence;
 		this.level = level;
 		this.parent = parent;
-		this.parentMenuCode = parent.getId().getMenuCode();
+		this.parentMenuCode = parent.id().menuCode();
 		this.menuGroup = menuGroup;
 		this.appUrl = appUrl;
 		this.appIcon = appIcon;

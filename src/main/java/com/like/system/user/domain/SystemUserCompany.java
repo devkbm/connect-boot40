@@ -22,8 +22,10 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
+@Accessors(fluent = true)
 @Getter
 @Audited
 @Entity
@@ -60,7 +62,7 @@ public class SystemUserCompany extends AbstractAuditEntity implements Serializab
 			Boolean useYn
 			) {		
 		this.systemUser = user;
-		this.id = new SystemUserCompanyId(companyCode, user.getId().getUserId());
+		this.id = new SystemUserCompanyId(companyCode, user.id().userId());
 		this.deptCode = deptCode;
 		this.useYn = useYn;		
 	}

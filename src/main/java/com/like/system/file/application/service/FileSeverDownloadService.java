@@ -23,13 +23,18 @@ public class FileSeverDownloadService implements FileServerDownloadUseCase {
 	@Override
 	public FileServerDownloadDTO getDownloadFile(String fileInfoId) {
 		FileInfo fileInfo = this.dbPort.getFileInfo(fileInfoId);		
-		File file = new File(fileInfo.getPath(), fileInfo.getUuid()); 
+		File file = new File(fileInfo.path(), fileInfo.uuid()); 
 		
 		fileInfo.plusDownloadCount();		
 		
 		this.dbPort.save(fileInfo);
 		
-		return new FileServerDownloadDTO(file, fileInfo.getSize(), fileInfo.getFileName(), fileInfo.getContentType());
+		return new FileServerDownloadDTO(
+				file, 
+				fileInfo.size(), 
+				fileInfo.fileName(), 
+				fileInfo.contentType()
+				);
 	}
 
 }

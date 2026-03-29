@@ -1,17 +1,11 @@
 package com.like.system.user.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(of = {"userId", "companyCode", "roleCode"})
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 public class SystemUserCompanyRoleId implements Serializable {
 		
@@ -30,4 +24,40 @@ public class SystemUserCompanyRoleId implements Serializable {
 		this.companyCode = companyCode;
 		this.roleCode = roleCode;
 	}
+	
+	protected SystemUserCompanyRoleId() {}
+
+	public SystemUserId userId() {
+		return userId;
+	}
+
+	public String companyCode() {
+		return companyCode;
+	}
+
+	public String roleCode() {
+		return roleCode;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(companyCode, roleCode, userId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SystemUserCompanyRoleId other = (SystemUserCompanyRoleId) obj;
+		return Objects.equals(companyCode, other.companyCode) && Objects.equals(roleCode, other.roleCode)
+				&& Objects.equals(userId, other.userId);
+	}
+	
+	
+	
+	
 }

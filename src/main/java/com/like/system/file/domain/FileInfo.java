@@ -21,10 +21,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @JsonAutoDetect
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@Accessors(fluent = true) @Getter
 @Entity
 @Table(name = "comfileinfo")
 @EntityListeners(AuditingEntityListener.class)

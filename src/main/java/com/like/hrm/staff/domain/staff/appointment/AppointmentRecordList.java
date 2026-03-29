@@ -29,7 +29,7 @@ public class AppointmentRecordList {
 	
 	public AppointmentRecord get(Staff staff, Long seq) {		
 		return appointmentRecordList.stream()
-							   		.filter(e -> e.getId().equals(new AppointmentRecordId(staff, seq)))
+							   		.filter(e -> e.id().equals(new AppointmentRecordId(staff, seq)))
 							   		.findFirst()
 							   		.orElse(null);
 	}
@@ -41,17 +41,17 @@ public class AppointmentRecordList {
 	}	
 	
 	public void remove(Staff staff, Long seq) {		
-		this.appointmentRecordList.removeIf(e -> e.getId().equals(new AppointmentRecordId(staff, seq)));			
+		this.appointmentRecordList.removeIf(e -> e.id().equals(new AppointmentRecordId(staff, seq)));			
 	}	
 	
-	long getNextSequence() {
+	long nextSequence() {
 		long maxSeq = 0;
 		
 		if (this.appointmentRecordList == null || this.appointmentRecordList.isEmpty()) {
 			maxSeq = 0;
 		} else {			
 			maxSeq = this.appointmentRecordList.stream()
-							  		.mapToLong(e -> e.getId().getSeq())
+							  		.mapToLong(e -> e.id().seq())
 							  		.max()
 							  		.getAsLong();										  
 		}

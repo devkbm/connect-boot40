@@ -40,7 +40,7 @@ public class WebResourceQueryController {
 		List<HtmlSelectOptionRecord> list = new ArrayList<HtmlSelectOptionRecord>();
 		
 		for (WebResourceType type : WebResourceType.values()) {			
-			list.add(new HtmlSelectOptionRecord(type.getLabel(), type.toString()));
+			list.add(new HtmlSelectOptionRecord(type.label(), type.toString()));
 		}
 		
 		return toList(list, String.format("%d 건 조회되었습니다.", list.size()));

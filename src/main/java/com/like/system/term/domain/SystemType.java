@@ -20,17 +20,17 @@ public enum SystemType implements HtmlSelectOptionable {
 	}
 	
 	@Override
-	public String getLabel() {
+	public String label() {
 		return name;
 	}
 
 	@Override
-	public String getValue() {
+	public String value() {
 		return this.toString();
 	}
 
 	@Override
-	public Long getSequence() {
+	public Long sequence() {
 		// TODO Auto-generated method stub
 		return null;
 	}

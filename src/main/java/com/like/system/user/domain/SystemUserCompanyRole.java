@@ -12,10 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Audited
 @Entity
 @Table(name = "COMUSERROLE")
@@ -33,24 +30,26 @@ public class SystemUserCompanyRole extends AbstractAuditEntity implements Grante
 		
 	public SystemUserCompanyRole(SystemUser user, String companyCode, String roleCode) {
 		this.systemUser = user;
-		this.id = new SystemUserCompanyRoleId(user.getId().getUserId(), companyCode, roleCode);		
+		this.id = new SystemUserCompanyRoleId(user.id().userId(), companyCode, roleCode);		
 	}
 	
 	@Override
 	public String getAuthority() {
-		return this.id.getRoleCode();
+		return this.id.roleCode();
+	}
+	
+	protected SystemUserCompanyRole() {}
+
+	public String companyCode() {
+		return this.id.companyCode();		
 	}
 
-	public String getCompanyCode() {
-		return this.id.getCompanyCode();		
+	public String userId() {
+		return this.id.userId().userId();
 	}
 
-	public String getUserId() {
-		return this.id.getUserId().getUserId();
-	}
-
-	public String getRoleCode() {
-		return this.id.getRoleCode();
+	public String roleCode() {
+		return this.id.roleCode();
 	}
 	
 }

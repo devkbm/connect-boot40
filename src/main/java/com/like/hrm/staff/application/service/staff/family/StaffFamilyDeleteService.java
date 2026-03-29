@@ -24,7 +24,7 @@ public class StaffFamilyDeleteService implements StaffFamilyDeleteUseCase {
 		Staff staff = this.dbPort.select(companyCode, staffNo)
 								 .orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
 		
-		staff.getFamilyList().remove(staff, seq);
+		staff.familyList().remove(staff, seq);
 		
 		this.dbPort.save(staff);
 	}

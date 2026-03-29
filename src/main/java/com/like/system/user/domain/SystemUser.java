@@ -23,9 +23,12 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
+
+@Accessors(fluent = true)
 @Getter
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
 @Audited
 @Entity
 @Table(name = "comuser")
@@ -89,17 +92,17 @@ public class SystemUser extends AbstractAuditEntity implements Serializable {
 	}			
 			
 	public String getPassword() {
-		return password.getPassword();
+		return password.password();
 	}		
 	
 	public Optional<SystemUserCompany> getCompanyInfo(String companyCode) {
-		return this.getCompany().stream().filter(e -> e.id.companyCode.equals(companyCode)).findFirst();
+		return this.company().stream().filter(e -> e.id.companyCode.equals(companyCode)).findFirst();
 	}
 	
 	public List<SystemUserCompanyRole> getRoleList(String companyCode) {
 		if (this.roles == null) return new ArrayList<>();		
 		
-		return this.roles.stream().filter(e -> e.id.getCompanyCode().equals(companyCode)).toList();		
+		return this.roles.stream().filter(e -> e.id.companyCode().equals(companyCode)).toList();		
 	}
 	
 	public void setPassword(PasswordEncoder encoder, String password) {
@@ -117,7 +120,7 @@ public class SystemUser extends AbstractAuditEntity implements Serializable {
 	public String getImage() {
 		if (this.image == null) return null;
 		
-		return this.image.getImage();
+		return this.image.image();
 	}
 	
 	public void setImage(String path) {

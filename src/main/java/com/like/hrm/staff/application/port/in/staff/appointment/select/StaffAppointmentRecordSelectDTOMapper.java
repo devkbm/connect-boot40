@@ -11,20 +11,20 @@ public class StaffAppointmentRecordSelectDTOMapper {
 	public static StaffAppointmentRecordSelectDTO toDTO(AppointmentRecord entity) {
 		if (entity == null) return null;																													
 
-		Optional<AppointmentInformation> info = Optional.ofNullable(entity.getInfo());
+		Optional<AppointmentInformation> info = Optional.ofNullable(entity.info());
 		
 		return StaffAppointmentRecordSelectDTO
 				.builder()											 
-				.staffNo(entity.getStaff().getId().staffNo())
-				.staffName(entity.getStaff().getName().getName())
-				.seq(entity.getId().getSeq())
-				.appointmentTypeCode(entity.getAppointmentTypeCode())
-				.applyType(entity.getApplyType().getCode())
-				.appointmentDate(entity.getAppointmentDate())
-				.appointmentEndDate(entity.getAppointmentEndDate())
-				.recordName(entity.getRecordName())
-				.comment(entity.getComment())
-				.isCompleted(entity.getIsCompleted())
+				.staffNo(entity.staff().id().staffNo())
+				.staffName(entity.staff().name().getName())
+				.seq(entity.id().seq())
+				.appointmentTypeCode(entity.appointmentTypeCode())
+				.applyType(entity.applyType().getCode())
+				.appointmentDate(entity.appointmentDate())
+				.appointmentEndDate(entity.appointmentEndDate())
+				.recordName(entity.recordName())
+				.comment(entity.comment())
+				.isCompleted(entity.isCompleted())
 				.blngDeptCode(info.map(AppointmentInformation::getBlngDeptCode).orElse(null))
 				.workDeptCode(info.map(AppointmentInformation::getWorkDeptCode).orElse(null))
 				.jobGroupCode(info.map(AppointmentInformation::getJobGroupCode).orElse(null))

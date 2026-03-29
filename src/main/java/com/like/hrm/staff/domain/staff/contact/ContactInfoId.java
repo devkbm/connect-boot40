@@ -1,17 +1,12 @@
 package com.like.hrm.staff.domain.staff.contact;
 
+import java.util.Objects;
+
 import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Getter
-@EqualsAndHashCode(of = {"companyCode","staffNo","type"})
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 public class ContactInfoId {
 
@@ -25,8 +20,44 @@ public class ContactInfoId {
 	String type;	
 	
 	public ContactInfoId(Staff staff, String type) {
-		this.companyCode = staff.getId().companyCode();
-		this.staffNo = staff.getId().staffNo();
+		this.companyCode = staff.id().companyCode();
+		this.staffNo = staff.id().staffNo();
 		this.type = type;
 	}
+	
+	public ContactInfoId() {}
+
+	public String companyCode() {
+		return companyCode;
+	}
+
+	public String staffNo() {
+		return staffNo;
+	}
+
+	public String type() {
+		return type;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(companyCode, staffNo, type);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContactInfoId other = (ContactInfoId) obj;
+		return Objects.equals(companyCode, other.companyCode) && Objects.equals(staffNo, other.staffNo)
+				&& Objects.equals(type, other.type);
+	}
+	
+	
+	
+	
 }

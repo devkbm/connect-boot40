@@ -23,7 +23,7 @@ public class StaffSChoolCareerDeleteService implements StaffSchoolCareerDeleteUs
 	public void delete(String companyCode, String staffNo, Long seq) {
 		Staff staff = dbPort.select(companyCode, staffNo)
 							.orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
-		staff.getSchoolCareerList().remove(staff, seq);
+		staff.schoolCareerList().remove(staff, seq);
 		
 		this.dbPort.save(staff);
 	}

@@ -24,7 +24,7 @@ public class StaffLicenseDeleteService implements StaffLicenseDeleteUseCase {
 		Staff staff = this.dbPort.select(companyCode, staffNo)
 							     .orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
 		
-		staff.getLicenseList().remove(staff, seq);
+		staff.licenseList().remove(staff, seq);
 		
 		this.dbPort.save(staff);
 	}

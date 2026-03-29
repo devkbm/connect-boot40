@@ -73,7 +73,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 	
 			this.saveSocialLoginInfo(
 					socialLoginId,
-					systemUser.getId().getUserId(),									
+					systemUser.id().userId(),									
 					oAuth2User.getAttribute("name"),
 					oAuth2User.getAttribute("email")
 					);					
@@ -85,8 +85,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 		String companyCode = OAuth2LoginRequestThreadLocal.get();
 		
 		OAuth2User oAuth2 = new SystemOauth2User(
-				   systemUser.getId().getUserId(),
-				   systemUser.getName(),
+				   systemUser.id().userId(),
+				   systemUser.name(),
 				   systemUser.getRoleList(companyCode),
 	               attributes.getNameAttributeKey(),
 	               attributes.getAttributes()

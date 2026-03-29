@@ -43,11 +43,11 @@ public class Role {
 	}	
 		
 	public String getCompanyCode() {
-		return this.id.getCompanyCode();
+		return this.id.companyCode();
 	}
 
 	public String getRoleCode() {
-		return this.id.getRoleCode();
+		return this.id.roleCode();
 	}
 		
 }

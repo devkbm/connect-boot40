@@ -20,9 +20,10 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@Accessors(fluent = true) @Getter
 @Entity
 @SQLRestriction("STAFF_YN = false")
 @Table(name = "HRMSTAFF")

@@ -31,11 +31,11 @@ public record MenuGroupDTO(
 							.modifiedDt(entity.getModifiedDt())
 							.modifiedBy(entity.getModifiedBy() == null ? null : entity.getModifiedBy().getLoggedUser())
 							*/								
-							.companyCode(entity.getId().getCompanyCode())
-							.menuGroupCode(entity.getId().getMenuGroupCode())
-							.menuGroupName(entity.getName())
-							.menuGroupUrl(entity.getMenuGroupUrl())
-							.description(entity.getDescription())
+							.companyCode(entity.id().companyCode())
+							.menuGroupCode(entity.id().menuGroupCode())
+							.menuGroupName(entity.name())
+							.menuGroupUrl(entity.menuGroupUrl())
+							.description(entity.description())
 							.build();
 	}
 }

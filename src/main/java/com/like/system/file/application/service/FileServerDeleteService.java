@@ -27,7 +27,7 @@ public class FileServerDeleteService implements FileServerDeleteUseCase {
 		FileInfo fileInfo = dbPort.getFileInfo(fileInfoId);
 		
 		try {
-			fileServerRepository.deleteFile(new File(fileInfo.getPath(), fileInfo.getUuid()));
+			fileServerRepository.deleteFile(new File(fileInfo.path(), fileInfo.uuid()));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

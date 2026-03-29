@@ -39,22 +39,22 @@ public class AppointmentProcessor implements StaffAppointmentApplyUseCase {
 	@Override
 	public void apply(String companyCode, String staffNo, Long seq) {
 		AppointmentRecord record = appointmentDbPort.select(companyCode, staffNo, seq)
-				.orElseThrow(() -> new EntityNotFoundException(staffNo + " 발령정보가 존재하지 않습니다."));
+													.orElseThrow(() -> new EntityNotFoundException(staffNo + " 발령정보가 존재하지 않습니다."));
 		
 		Staff staff = staffDbPort.select(companyCode, staffNo)
-				.orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
+								 .orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
 				
-		HrmCodeSelectDTO appointmentCode = hrmCode.select("HR0000", record.getAppointmentTypeCode());
+		HrmCodeSelectDTO appointmentCode = hrmCode.select("HR0000", record.appointmentTypeCode());
 		
 		boolean isJoin = (boolean)appointmentCode.extraInfo().getOrDefault("joinDateYn", false);						
 		if (isJoin) {
-			StaffPeriod period = staff.joinCompany(record.getAppointmentDate());
+			StaffPeriod period = staff.joinCompany(record.appointmentDate());
 			periodDbPort.save(period);
 		}
 		
 		boolean isRetire = (boolean)appointmentCode.extraInfo().getOrDefault("retireDateYn", false);						
 		if (isRetire) {
-			StaffPeriod period = staff.retireCompany(record.getAppointmentDate());
+			StaffPeriod period = staff.retireCompany(record.appointmentDate());
 			periodDbPort.save(period);
 		}
 

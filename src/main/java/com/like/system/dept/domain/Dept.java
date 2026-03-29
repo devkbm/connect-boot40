@@ -27,10 +27,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder(builderMethodName = "internalBuilder")
+@Accessors(fluent = true)
 @Getter
 @Audited
 @Entity
@@ -103,10 +105,8 @@ public class Dept extends AbstractAuditEntity implements Serializable {
 		this.comment = comment;
 		this.parentDept = parentDept;
 	}
-	
-	
 		
-	public Dept getParentDept() {
+	public Dept parentDept() {
 		return parentDept;
 	}
 }

@@ -28,11 +28,12 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"staff"})
 @ToString(exclude = {"staff"})
 @EqualsAndHashCode(callSuper = false, of = {"id"})
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFAPPOINTMENTRECORD")
@@ -88,7 +89,7 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 			AppointmentInformation info
 			) {
 		this.staff = staff;
-		this.id = new AppointmentRecordId(staff, staff.getAppointmentRecordList().getNextSequence());
+		this.id = new AppointmentRecordId(staff, staff.appointmentRecordList().nextSequence());
 		this.appointmentTypeCode = appointmentTypeCode;
 		this.applyType = applyType;
 		this.appointmentDate = appointmentDate;

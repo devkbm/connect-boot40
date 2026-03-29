@@ -5,29 +5,29 @@ import java.util.regex.Pattern;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 /**
  * RFC-2822 총길이 320 64(로컬파트) + 1(@) + 255(도메인)
  * 이메일주소 검증 참조 사이트 https://emailregex.com/
  * 패턴매칭 참고 사이트 https://coding-factory.tistory.com/529
  */
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class Email {
 	
 	@Column(name="EMAIL")
 	private String address;	
 	
+	protected Email() {}
+	
 	public Email(String address) {		
 		if (!Email.isValid(address)) throw new IllegalArgumentException("올바른 이메일 형식이 아닙니다. "+ address);
 		
 		this.address = address;
 	}
-	
+		
+	public String address() {
+		return address;
+	}
+
 	public String getFullAddress() {
 		return this.address;
 	}

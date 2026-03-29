@@ -26,17 +26,17 @@ public enum BoardTypeDTO implements HtmlSelectOptionable {
 	}
 	    
 	@Override
-	public String getLabel() {
+	public String label() {
 		return name;		
 	}
 
 	@Override
-	public String getValue() {
+	public String value() {
 		return code;
 	}
 
 	@Override
-	public Long getSequence() {		
+	public Long sequence() {		
 		return seq;
 	}
 	

@@ -24,6 +24,6 @@ public class StaffFamilySelectService implements StaffFamilySelectUseCase {
 	public StaffFamilySelectDTO select(String companyCode, String staffNo, Long seq) {
 		Staff staff = dbPort.select(companyCode, staffNo)
 							.orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
-		return StaffFamilySelectDTO.toDTO(staff.getFamilyList().get(staff, seq));
+		return StaffFamilySelectDTO.toDTO(staff.familyList().get(staff, seq));
 	}
 }

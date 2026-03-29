@@ -20,17 +20,18 @@ public record StaffSelectDTO(
 		
 		if (entity == null) return null;			
 		
-		var name = entity.getName();
+		var name = entity.name();
 		
-		return new StaffSelectDTO(entity.getId().companyCode()
-								,entity.getId().staffNo()
-							   	,name.getName()
-							   	,name.getNameEng()
-							   	,name.getNameChi()
-							   	,entity.getResidentRegistrationNumber().getNumber()
-							   	,entity.getGender()
-							   	,entity.getBirthday()
-							   	,entity.getImagePath());								   
-							   
+		return new StaffSelectDTO(
+				entity.id().companyCode(),
+				entity.id().staffNo(),
+				name.getName(),
+				name.getNameEng(),
+				name.getNameChi(),
+				entity.residentRegistrationNumber().getNumber(),
+				entity.gender(),
+				entity.birthday(),
+				entity.imagePath()
+				);								   							  
 	}
 }

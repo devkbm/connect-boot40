@@ -23,17 +23,17 @@ public enum Database implements HtmlSelectOptionable {
 	}
 
 	@Override
-	public String getLabel() {
+	public String label() {
 		return this.name;
 	}
 
 	@Override
-	public String getValue() {
+	public String value() {
 		return this.toString();
 	}
 
 	@Override
-	public Long getSequence() {
+	public Long sequence() {
 		return this.seq;
 	}
 }

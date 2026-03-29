@@ -12,13 +12,13 @@ public class MenuGroupSelectDTOMapper {
 							.createdBy(entity.getCreatedBy() == null ? null : entity.getCreatedBy().getLoggedUser())
 							.modifiedDt(entity.getModifiedDt())
 							.modifiedBy(entity.getModifiedBy() == null ? null : entity.getModifiedBy().getLoggedUser())								
-							.companyCode(entity.getId().getCompanyCode())
+							.companyCode(entity.id().companyCode())
 							//.menuGroupId(entity.getId())
-							.menuGroupCode(entity.getId().getMenuGroupCode())
-							.menuGroupName(entity.getName())
-							.menuGroupUrl(entity.getMenuGroupUrl())
-							.description(entity.getDescription())
-							.sequence(entity.getSequence())
+							.menuGroupCode(entity.id().menuGroupCode())
+							.menuGroupName(entity.name())
+							.menuGroupUrl(entity.menuGroupUrl())
+							.description(entity.description())
+							.sequence(entity.sequence())
 							.build();
 	}
 			

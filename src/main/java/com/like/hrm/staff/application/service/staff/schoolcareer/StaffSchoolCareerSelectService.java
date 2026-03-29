@@ -25,7 +25,7 @@ public class StaffSchoolCareerSelectService implements StaffSchoolCareerSelectUs
 		Staff staff = dbPort.select(companyCode, staffNo)
 							.orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
 		
-		return StaffSchoolCareerSelectDTO.toDTO(staff.getSchoolCareerList().get(staff, seq));
+		return StaffSchoolCareerSelectDTO.toDTO(staff.schoolCareerList().get(staff, seq));
 
 	}
 

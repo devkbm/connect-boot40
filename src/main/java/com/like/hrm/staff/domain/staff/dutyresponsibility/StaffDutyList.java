@@ -23,14 +23,14 @@ public class StaffDutyList {
 	public StaffDuty get(Staff staff, Long seq) {
 		
 		return this.staffDutyList.stream()
-								 .filter(e -> e.getId().equals(new StaffDutyId(staff, seq)))
+								 .filter(e -> e.id().equals(new StaffDutyId(staff, seq)))
 								 .findFirst()
 								 .orElse(null);
 				
 	}
 		
 	public void remove(Staff staff, Long seq) {
-		this.staffDutyList.removeIf(e -> e.getId().equals(new StaffDutyId(staff, seq)));
+		this.staffDutyList.removeIf(e -> e.id().equals(new StaffDutyId(staff, seq)));
 	}
 	
 	void add(StaffDuty entity) {
@@ -50,7 +50,7 @@ public class StaffDutyList {
 			maxSeq = 0;
 		} else {			
 			maxSeq = staffDutyList.stream()
-								  .mapToLong(e -> e.getId().getSeq())
+								  .mapToLong(e -> e.id().seq())
 							  	  .max()
 							  	  .getAsLong();
 			

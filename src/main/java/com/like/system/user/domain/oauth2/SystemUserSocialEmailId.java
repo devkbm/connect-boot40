@@ -9,10 +9,8 @@ import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"userId", "seq"})
@@ -32,7 +30,7 @@ public class SystemUserSocialEmailId implements Serializable {
 	}
 	
 	public String userId() {
-		return this.userId.getUserId();
+		return this.userId.userId();
 	}
 	
 	public Long seq() {

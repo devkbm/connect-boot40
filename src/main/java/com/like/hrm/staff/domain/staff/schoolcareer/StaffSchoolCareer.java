@@ -14,7 +14,6 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,6 +26,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * <p>부서 이력 관리 클래스</p>
@@ -40,7 +40,7 @@ import lombok.NoArgsConstructor;
  */
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"staff"})
 @EqualsAndHashCode(callSuper = false, of = {"id"})
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFSCHOOLCAREER")
@@ -99,7 +99,7 @@ public class StaffSchoolCareer extends AbstractAuditEntity implements Serializab
 			String comment
 			) {
 		this.staff = staff;
-		this.id = new StaffSchoolCareerId(staff, staff.getSchoolCareerList().getNextSequence());		
+		this.id = new StaffSchoolCareerId(staff, staff.schoolCareerList().nextSequence());		
 		this.schoolCareerType = schoolCareerType;
 		this.schoolCode = schoolCode;
 		this.period = new LocalDatePeriod(fromDate, toDate);

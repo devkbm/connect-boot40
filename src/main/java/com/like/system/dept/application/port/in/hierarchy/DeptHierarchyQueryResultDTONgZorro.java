@@ -70,8 +70,8 @@ public class DeptHierarchyQueryResultDTONgZorro {
 		rec.deptAbbreviationKorean = dto.getDeptAbbreviationKorean();
 		rec.deptNameEnglish = dto.getDeptAbbreviationEnglish();
 		rec.deptAbbreviationEnglish = dto.getDeptAbbreviationEnglish();
-		rec.fromDate = period.map(LocalDatePeriod::getFrom).orElse(null);
-		rec.toDate = period.map(LocalDatePeriod::getTo).orElse(null);
+		rec.fromDate = period.map(LocalDatePeriod::from).orElse(null);
+		rec.toDate = period.map(LocalDatePeriod::to).orElse(null);
 		rec.seq = dto.getSeq();
 		rec.comment = dto.getComment();
 		

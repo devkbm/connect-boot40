@@ -50,7 +50,7 @@ public class StaffAppointmentSaveService implements StaffAppointmentSaveUseCase 
 		}
 		entity = this.appointmentDbPort.save(entity);
 						
-		apply.apply(entity.getId().getCompanyCode(), entity.getId().getStaffNo(), entity.getId().getSeq());							
+		apply.apply(entity.id().companyCode(), entity.id().staffNo(), entity.id().seq());							
 	}
 	
 }

@@ -25,7 +25,7 @@ public class StaffDutyResponsibilitySelectService implements StaffDutyResponsibi
 	public StaffDutyResponsibilitySelectDTO select(String companyCode, String staffNo, Long seq) {
 		Staff staff = this.dbPort.select(companyCode, staffNo)
 								 .orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
-		StaffDuty entity = staff.getStaffDutyResponsibilityList().get(staff, seq);
+		StaffDuty entity = staff.staffDutyResponsibilityList().get(staff, seq);
 				
 		return StaffDutyResponsibilitySelectDTO.toDTO(entity);
 	}

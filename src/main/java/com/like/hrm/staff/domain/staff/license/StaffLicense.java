@@ -24,6 +24,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * <p>자격 면허 관리</p>
@@ -37,7 +38,7 @@ import lombok.NoArgsConstructor;
  */
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"staff"})
 @EqualsAndHashCode(callSuper = false, of = {"id"})
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFLICENSE")
@@ -83,7 +84,7 @@ public class StaffLicense extends AbstractAuditEntity implements Serializable {
 			String comment
 			) {
 		this.staff = staff;
-		this.id = new StaffLicenseId(staff, staff.getLicenseList().getNextSequence());
+		this.id = new StaffLicenseId(staff, staff.licenseList().nextSequence());
 		this.licenseType = licenseType;
 		this.licenseNumber = licenseNumber;
 		this.dateOfAcquisition = dateOfAcquisition;

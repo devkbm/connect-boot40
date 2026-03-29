@@ -13,13 +13,13 @@ public class SystemUserProfileSelectDTOMapper {
 		return SystemUserProfileSelectDTO
 				.builder()
 				.companyCode("001")
-			    .userId(entity.getId().getUserId())
+			    .userId(entity.id().userId())
  			    //.staffNo(entity.getStaffId().getStaffNo())
-			    .staffName(entity.getName())												   
+			    .staffName(entity.name())												   
 			    //.deptCode(dept.map(r -> r.getId().getDeptCode()).orElse(""))
 			    //.deptName(dept.map(Dept::getDeptNameKorean).orElse(""))
-			    .mobileNum(entity.getMobileNum())
- 			    .email(entity.getEmail())
+			    .mobileNum(entity.mobileNum())
+ 			    .email(entity.email())
  			    .session(session)
  			    /*
  			    .ipAddress(WebRequestUtil.getIpAddress(request))

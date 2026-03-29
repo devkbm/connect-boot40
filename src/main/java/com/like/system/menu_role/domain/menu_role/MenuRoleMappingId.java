@@ -1,12 +1,11 @@
 package com.like.system.menu_role.domain.menu_role;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(of = {"companyCode", "menuGroupCode", "menuCode", "roleCode"})
 @Embeddable
 public class MenuRoleMappingId implements Serializable {
 	
@@ -32,4 +31,25 @@ public class MenuRoleMappingId implements Serializable {
 		this.menuCode = menuCode;
 		this.roleCode = roleCode;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(companyCode, menuCode, menuGroupCode, roleCode);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MenuRoleMappingId other = (MenuRoleMappingId) obj;
+		return Objects.equals(companyCode, other.companyCode) && Objects.equals(menuCode, other.menuCode)
+				&& Objects.equals(menuGroupCode, other.menuGroupCode) && Objects.equals(roleCode, other.roleCode);
+	}
+	
+	
+	
 }

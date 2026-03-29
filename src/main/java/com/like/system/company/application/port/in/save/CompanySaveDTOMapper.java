@@ -20,12 +20,12 @@ public class CompanySaveDTOMapper {
 		
 		return CompanySaveDTO
 				.builder()
-				.companyCode(entity.getId().getCompanyCode())
-				.companyName(entity.getCompanyName())
-				.businessRegistrationNumber(entity.getBusinessRegistrationNumber())
-				.coporationNumber(entity.getCoporationNumber())
-				.nameOfRepresentative(entity.getNameOfRepresentative())
-				.establishmentDate(entity.getEstablishmentDate())
+				.companyCode(entity.id().companyCode())
+				.companyName(entity.companyName())
+				.businessRegistrationNumber(entity.businessRegistrationNumber())
+				.coporationNumber(entity.coporationNumber())
+				.nameOfRepresentative(entity.nameOfRepresentative())
+				.establishmentDate(entity.establishmentDate())
 				.build();
 					
 	}

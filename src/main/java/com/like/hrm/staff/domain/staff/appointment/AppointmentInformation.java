@@ -9,7 +9,6 @@ import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,9 +53,17 @@ public class AppointmentInformation {
 	@Column(name="DUTY_RESPONSIBILITY_CODE", comment="직책코드", insertable = false, updatable = false)
 	private String dutyResponsibilityCodeList;
 
-	public AppointmentInformation(String blngDeptCode, String workDeptCode, String jobGroupCode, String jobPositionCode,
-			String occupationCode, String jobGradeCode, String payStepCode, String jobCode,
-			List<String> dutyResponsibilityCode) {		
+	public AppointmentInformation(
+			String blngDeptCode, 
+			String workDeptCode, 
+			String jobGroupCode, 
+			String jobPositionCode,
+			String occupationCode, 
+			String jobGradeCode, 
+			String payStepCode, 
+			String jobCode,
+			List<String> dutyResponsibilityCode
+			) {		
 		this.blngDeptCode = blngDeptCode;
 		this.workDeptCode = workDeptCode;
 		this.jobGroupCode = jobGroupCode;

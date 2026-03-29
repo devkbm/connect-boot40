@@ -27,9 +27,9 @@ public class BizCode {
 			Integer sequence,
 			String comment) {
 		this.bizCodeType = bizCodeType;
-		this.id = new BizCodeId(bizCodeType.getId().getCompanyCode()
-							   ,bizCodeType.getId().getTypeId()
-							   ,code);		
+		this.id = new BizCodeId(bizCodeType.getId().getCompanyCode(),
+							    bizCodeType.getId().getTypeId(),
+							    code);		
 		this.codeName = name;
 		this.useYn = useYn;
 		this.sequence = sequence;

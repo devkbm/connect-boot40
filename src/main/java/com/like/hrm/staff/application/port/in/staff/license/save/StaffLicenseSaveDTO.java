@@ -53,15 +53,15 @@ public record StaffLicenseSaveDTO(
 		if (entity == null) return null; 
 		
 		return StaffLicenseSaveDTO.builder()
-				   .companyCode(entity.getStaff().getId().companyCode())
-				   .staffNo(entity.getStaff().getId().staffNo())
-				   .staffName(entity.getStaff().getName().getName())
-				   .seq(entity.getId().getSeq())
-				   .licenseType(entity.getLicenseType())
-				   .licenseNumber(entity.getLicenseNumber())
-				   .dateOfAcquisition(entity.getDateOfAcquisition())
-				   .certificationAuthority(entity.getCertificationAuthority())
-				   .comment(entity.getComment())
+				   .companyCode(entity.staff().id().companyCode())
+				   .staffNo(entity.staff().id().staffNo())
+				   .staffName(entity.staff().name().getName())
+				   .seq(entity.id().seq())
+				   .licenseType(entity.licenseType())
+				   .licenseNumber(entity.licenseNumber())
+				   .dateOfAcquisition(entity.dateOfAcquisition())
+				   .certificationAuthority(entity.certificationAuthority())
+				   .comment(entity.comment())
 				   .build();			
 	}
 }

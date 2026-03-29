@@ -1,12 +1,11 @@
 package com.like.system.menu_role.domain.menu;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(of = {"menuGroupId", "menuCode"})
 @Embeddable
 public class MenuId implements Serializable {
 
@@ -29,14 +28,14 @@ public class MenuId implements Serializable {
 		this.menuCode = menuCode;
 	}
 
-	public MenuGroupId getMenuGroupId() {
+	public MenuGroupId menuGroupId() {
 		return menuGroupId;
 	}
 
-	public String getMenuCode() {
+	public String menuCode() {
 		return menuCode;
 	}
-	/*
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(menuCode, menuGroupId.companyCode, menuGroupId.menuGroupCode);
@@ -54,7 +53,6 @@ public class MenuId implements Serializable {
 		return Objects.equals(menuCode, other.menuCode) 
 			&& Objects.equals(menuGroupId.companyCode, other.menuGroupId.companyCode)
 			&& Objects.equals(menuGroupId.menuGroupCode, other.menuGroupId.menuGroupCode);
-	}
-	*/
+	}	
 	
 }

@@ -63,19 +63,19 @@ public record StaffSchoolCareerSaveDTO(
 		if (entity == null) return null;			
 								
 		return StaffSchoolCareerSaveDTO.builder()
-				   .companyCode(entity.getStaff().getId().companyCode())
-				   .staffNo(entity.getStaff().getId().staffNo())
-				   .staffName(entity.getStaff().getName().getName())
-				   .seq(entity.getId().getSeq())
-				   .schoolCareerType(entity.getSchoolCareerType())
-				   .schoolCode(entity.getSchoolCode())
-				   .fromDate(entity.getPeriod().getFrom())
-				   .toDate(entity.getPeriod().getTo())
-				   .majorName(entity.getMajorName())
-				   .pluralMajorName(entity.getPluralMajorName())
-				   .location(entity.getLocation())
-				   .lessonYear(entity.getLessonYear())
-				   .comment(entity.getComment())
+				   .companyCode(entity.staff().id().companyCode())
+				   .staffNo(entity.staff().id().staffNo())
+				   .staffName(entity.staff().name().getName())
+				   .seq(entity.id().seq())
+				   .schoolCareerType(entity.schoolCareerType())
+				   .schoolCode(entity.schoolCode())
+				   .fromDate(entity.period().from())
+				   .toDate(entity.period().to())
+				   .majorName(entity.majorName())
+				   .pluralMajorName(entity.pluralMajorName())
+				   .location(entity.location())
+				   .lessonYear(entity.lessonYear())
+				   .comment(entity.comment())
 				   .build();												 						
 	}
 }

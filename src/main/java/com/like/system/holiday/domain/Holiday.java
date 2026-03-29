@@ -8,14 +8,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
+import lombok.Getter;
+import lombok.experimental.Accessors;
+
+@Accessors(fluent = true) @Getter
 @Table(name = "COMHOLIDAY")
 @Entity
 public class Holiday extends AbstractAuditEntity implements Serializable {	
@@ -31,8 +28,17 @@ public class Holiday extends AbstractAuditEntity implements Serializable {
 	@Column(name="CMT")
 	private String comment;		
 	
+	protected Holiday() {}
+	
+	public Holiday(HolidayId id, String holidayName, String comment) {	
+		this.id = id;
+		this.holidayName = holidayName;
+		this.comment = comment;
+	}
+		
 	public void modify(String holidayName, String comment) {
 		this.holidayName = holidayName;
 		this.comment = comment;
 	}
+	
 }

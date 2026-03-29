@@ -27,8 +27,8 @@ public class SpringSecurityUserService implements UserDetailsService {
 				 					.orElseThrow(() -> new UsernameNotFoundException(username + " is Not Found"));
 	
 		return CustomUserDetails.builder()
-								.userId(user.getId().getUserId())
-								.userName(user.getName())
+								.userId(user.id().userId())
+								.userName(user.name())
 								.password(user.getPassword())
 								.authorities(user.getRoleList(LoginRequestContext.get().companyCode()))
 								.build();

@@ -22,9 +22,10 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@Accessors(fluent = true) @Getter
 @Entity
 @Table(name = "comcode")
 @EntityListeners(AuditingEntityListener.class)
@@ -98,9 +99,9 @@ public class Code extends AbstractAuditEntity  {
 		this.seq = seq;				
 		
 		this.parentCode = parentCode;
-		this._parentCode = parentCode == null ? null : parentCode.getId().getCodeId();
+		this._parentCode = parentCode == null ? null : parentCode.id().codeId();
 				
-		this.hierarchyLevel();
+		this.setHierarchyLevel();
 	}
 		
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
@@ -126,7 +127,7 @@ public class Code extends AbstractAuditEntity  {
 		return this.parentCode;
 	}
 		
-	private void hierarchyLevel() {
+	private void setHierarchyLevel() {
 		if ( this.parentCode == null ) {
 			this.hierarchyLevel = 1; 
 		} else {

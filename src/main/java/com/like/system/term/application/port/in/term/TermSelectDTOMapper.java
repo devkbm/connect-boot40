@@ -6,16 +6,16 @@ public class TermSelectDTOMapper {
 
 	public static TermSelectDTO toDTO(TermDictionary entity) {		
 		return TermSelectDTO.builder()						   					   					   						  
-					   .term(entity.getTerm())
-					   .termEng(entity.getTermEng())
-					   .definition(entity.getDefinition())
-					   .status(entity.getStatus())
-					   .system(entity.getSystem())
-					   .columnName(entity.getColumnName())
-					   .size(entity.getSize())
-					   .comment(entity.getComment())
-					   .dataDomainId(entity.getDataDomain().getId())
-					   .dataDomainName(entity.getDataDomain().getDomainName())					   					   
+					   .term(entity.term())
+					   .termEng(entity.termEng())
+					   .definition(entity.definition())
+					   .status(entity.status())
+					   .system(entity.system())
+					   .columnName(entity.columnName())
+					   .size(entity.size())
+					   .comment(entity.comment())
+					   .dataDomainId(entity.dataDomain().id())
+					   .dataDomainName(entity.dataDomain().domainName())					   					   
 					   .build();						   
 	}
 		

@@ -53,16 +53,16 @@ public record StaffFamilySaveDTO(
 		if (entity == null) return null;
 		
 		return StaffFamilySaveDTO.builder()		
-				   .companyCode(entity.getStaff().getId().companyCode())
-				   .staffNo(entity.getStaff().getId().staffNo())
-				   .staffName(entity.getStaff().getName().getName())
-				   .seq(entity.getId().getSeq())
-				   .familyName(entity.getName())
-				   .familyRRN(entity.getResidentRegistrationNumber())
-				   .familyRelation(entity.getRelation())
-				   .occupation(entity.getOccupation())
-				   .schoolCareerType(entity.getSchoolCareerType())
-				   .comment(entity.getComment())
+				   .companyCode(entity.staff().id().companyCode())
+				   .staffNo(entity.staff().id().staffNo())
+				   .staffName(entity.staff().name().getName())
+				   .seq(entity.id().seq())
+				   .familyName(entity.name())
+				   .familyRRN(entity.residentRegistrationNumber())
+				   .familyRelation(entity.relation())
+				   .occupation(entity.occupation())
+				   .schoolCareerType(entity.schoolCareerType())
+				   .comment(entity.comment())
 				   .build();									 							 							 							 					
 	}
 }

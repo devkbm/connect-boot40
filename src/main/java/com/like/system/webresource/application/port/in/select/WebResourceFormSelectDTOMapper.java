@@ -8,13 +8,14 @@ public class WebResourceFormSelectDTOMapper {
 		
 		if (entity == null) return null; 
 		
+		
 		return WebResourceFormSelectDTO
 					.builder()				    
-				    .resourceId(entity.getId())
-				    .resourceName(entity.getName())
-				    .resourceType(entity.getType())
-				    .url(entity.getUrl())
-				    .description(entity.getDescription())
+				    .resourceId(entity.id())
+				    .resourceName(entity.name())
+				    .resourceType(entity.type())
+				    .url(entity.url())
+				    .description(entity.description())
 				    .build();
 	}
 		

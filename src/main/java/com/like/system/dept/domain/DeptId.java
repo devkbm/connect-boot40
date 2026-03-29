@@ -1,12 +1,11 @@
 package com.like.system.dept.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(of = {"companyCode", "deptCode"})
 @Embeddable
 public class DeptId implements Serializable {
 	
@@ -25,11 +24,30 @@ public class DeptId implements Serializable {
 		this.deptCode = deptCode;
 	}
 
-	public String getCompanyCode() {
+	public String companyCode() {
 		return companyCode;
 	}
 
-	public String getDeptCode() {
+	public String deptCode() {
 		return deptCode;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(companyCode, deptCode);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DeptId other = (DeptId) obj;
+		return Objects.equals(companyCode, other.companyCode) && Objects.equals(deptCode, other.deptCode);
+	}
+	
+	
 }

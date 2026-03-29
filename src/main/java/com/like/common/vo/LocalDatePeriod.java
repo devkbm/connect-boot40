@@ -6,14 +6,6 @@ import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class LocalDatePeriod implements Serializable {
 	
@@ -24,6 +16,8 @@ public class LocalDatePeriod implements Serializable {
 	
 	@Column(name="TO_DT")
 	private LocalDate to;
+	
+	protected LocalDatePeriod() {}
 	
 	public LocalDatePeriod(LocalDate from, LocalDate to) {
 		this.from = from;
@@ -40,10 +34,29 @@ public class LocalDatePeriod implements Serializable {
 		}	
 	}
 	
+	public LocalDate from() {
+		return from;
+	}
+
+	public LocalDate to() {
+		return to;
+	}
+		
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("LocalDatePeriod [from=");
+		builder.append(from);
+		builder.append(", to=");
+		builder.append(to);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private boolean isValid() {		
 		return from.isAfter(to) ? false : true;
-	}
-	
+	}	
+		
 	public static void main(String[] args) {
 		LocalDatePeriod p1 = new LocalDatePeriod(LocalDate.of(1991, 1, 1), LocalDate.of(1991, 1, 2));
 		LocalDatePeriod p2 = new LocalDatePeriod(LocalDate.of(1990, 1, 1), LocalDate.of(1991, 1, 2));
@@ -51,4 +64,6 @@ public class LocalDatePeriod implements Serializable {
 		System.out.println(p1.toString());
 		System.out.println(p2.toString());
 	}
+
+
 }

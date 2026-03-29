@@ -16,10 +16,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Accessors(fluent = true) @Getter
 @Entity
-@Getter
 @Table(name = "commenugroup")
 @EntityListeners(AuditingEntityListener.class)
 public class MenuGroup extends AbstractAuditEntity implements Serializable {		

@@ -19,8 +19,10 @@ public class FileServerUploadService implements FileServerUploadUseCase {
 	FileInfoCommandDbPort dbPort;
 	FileServerRepository fileServerRepository;
 	
-	FileServerUploadService(FileInfoCommandDbPort dbPort
-					 	   ,FileServerRepository fileServerRepository) {
+	FileServerUploadService(
+			FileInfoCommandDbPort dbPort,
+			FileServerRepository fileServerRepository
+			) {
 		this.dbPort = dbPort;
 		this.fileServerRepository = fileServerRepository;
 	}
@@ -29,7 +31,7 @@ public class FileServerUploadService implements FileServerUploadUseCase {
 	public FileInfo uploadFile(MultipartFile sourceFile, String userId, String appUrl) {									
 		FileInfo entity = FileInfo.create(sourceFile, fileServerRepository.getFileServerUploadPath(), userId, appUrl);		
 		
-		toFileServer(sourceFile, entity.getUuid());
+		toFileServer(sourceFile, entity.uuid());
 		
 		return this.dbPort.save(entity);			
 	}
@@ -41,7 +43,7 @@ public class FileServerUploadService implements FileServerUploadUseCase {
 		for (MultipartFile file : sourceFiles) {			
 			FileInfo entity = FileInfo.create(file, fileServerRepository.getFileServerUploadPath(), userId, appUrl);
 			
-			toFileServer(file, entity.getUuid());
+			toFileServer(file, entity.uuid());
 			
 			files.add(entity);
 		}				    

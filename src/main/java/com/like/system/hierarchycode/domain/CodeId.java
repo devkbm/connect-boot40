@@ -1,18 +1,11 @@
 package com.like.system.hierarchycode.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@EqualsAndHashCode(of = {"companyCode", "codeId"})
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Embeddable
 public class CodeId implements Serializable {
 	
@@ -23,6 +16,8 @@ public class CodeId implements Serializable {
 	
 	@Column(name="CODE_ID")
 	String codeId;
+	
+	protected CodeId() {}
 	
 	public CodeId(String companyCode, String codeId) {
 		this.companyCode = companyCode;		
@@ -35,7 +30,33 @@ public class CodeId implements Serializable {
 		if ( parentCode == null ) {
 			this.codeId = code;			
 		} else {
-			this.codeId = parentCode.getId().getCodeId() + code;
+			this.codeId = parentCode.id().codeId() + code;
 		}
 	}
+
+	public String companyCode() {
+		return companyCode;
+	}
+
+	public String codeId() {
+		return codeId;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codeId, companyCode);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CodeId other = (CodeId) obj;
+		return Objects.equals(codeId, other.codeId) && Objects.equals(companyCode, other.companyCode);
+	}	
+	
 }

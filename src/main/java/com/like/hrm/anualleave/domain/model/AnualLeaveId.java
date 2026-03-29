@@ -30,8 +30,8 @@ public class AnualLeaveId implements Serializable {
 	Integer yyyy;			
 	
 	public AnualLeaveId(Staff staff, Integer yyyy) {
-		this.companyCode = staff.getId().companyCode();
-		this.staffNo = staff.getId().staffNo();
+		this.companyCode = staff.id().companyCode();
+		this.staffNo = staff.id().staffNo();
 		this.yyyy = yyyy;
 	}
 }

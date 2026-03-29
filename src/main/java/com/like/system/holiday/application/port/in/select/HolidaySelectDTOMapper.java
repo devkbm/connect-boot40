@@ -9,10 +9,10 @@ public class HolidaySelectDTOMapper {
 		
 		return HolidaySelectDTO
 					.builder()
-					.companyCode(entity.getId().getCompanyCode())
-					.date(entity.getId().getDate())
-					.holidayName(entity.getHolidayName())
-					.comment(entity.getComment())
+					.companyCode(entity.id().companyCode())
+					.date(entity.id().date())
+					.holidayName(entity.holidayName())
+					.comment(entity.comment())
 					.build(); 
 	}
 		

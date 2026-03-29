@@ -1,7 +1,5 @@
 package com.like.hrm.staff.application.port.in.staff.appointment.save;
 
-import java.util.Optional;
-
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentApplyType;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentInformation;
@@ -42,6 +40,7 @@ public class StaffAppointmentRecordDTOMapper {
 		return entity;
 	}
 			
+	/*
 	public static StaffAppointmentRecordDTO toDTO(AppointmentRecord entity) {
 		if (entity == null) return null;																													
 
@@ -70,6 +69,7 @@ public class StaffAppointmentRecordDTOMapper {
 				.dutyResponsibilityCode(info.map(AppointmentInformation::getDutyResponsibilityCode).orElse(null))
 				.build();									
 	}
+	*/
 	
 	private static AppointmentInformation newAppointmentInformation(StaffAppointmentRecordDTO dto) {
 		return new AppointmentInformation(

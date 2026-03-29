@@ -5,12 +5,6 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class SystemUserAccountAttribute implements Serializable {
 		
@@ -40,15 +34,21 @@ public class SystemUserAccountAttribute implements Serializable {
 	@Column(name="ENABLED_YN")
 	Boolean isEnabled = true;
 	
-	public SystemUserAccountAttribute(
-			 Boolean isAccountNonExpired
-			,Boolean isAccountNonLocked
-			,Boolean isCredentialsNonExpired
-			,Boolean isEnabled) {
-		
+	protected SystemUserAccountAttribute() {}
+	
+	public SystemUserAccountAttribute(			
+			Boolean isAccountNonExpired,
+			Boolean isAccountNonLocked,
+			Boolean isCredentialsNonExpired,
+			Boolean isEnabled
+			) {		
 		this.isAccountNonExpired = isAccountNonExpired;
 		this.isAccountNonLocked = isAccountNonLocked;
 		this.isCredentialsNonExpired = isCredentialsNonExpired;
 		this.isEnabled = isEnabled;			
 	}
+
+
+
+	
 }

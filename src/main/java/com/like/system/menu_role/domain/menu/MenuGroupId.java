@@ -24,11 +24,11 @@ public class MenuGroupId implements Serializable {
 		this.menuGroupCode = menuGroupCode;
 	}
 
-	public String getCompanyCode() {
+	public String companyCode() {
 		return companyCode;
 	}
 
-	public String getMenuGroupCode() {
+	public String menuGroupCode() {
 		return menuGroupCode;
 	}
 

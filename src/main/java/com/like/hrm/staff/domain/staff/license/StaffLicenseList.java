@@ -31,7 +31,7 @@ public class StaffLicenseList {
 	
 	public StaffLicense get(Staff staff, Long seq) {		
 		return this.licenseList.stream()
-							   .filter(e -> e.getId().equals(new StaffLicenseId(staff, seq)))
+							   .filter(e -> e.id().equals(new StaffLicenseId(staff, seq)))
 							   .findFirst()
 							   .orElse(null);
 	}
@@ -41,17 +41,17 @@ public class StaffLicenseList {
 	}	
 	
 	public void remove(Staff staff, Long seq) {		
-		this.licenseList.removeIf(e -> e.getId().equals(new StaffLicenseId(staff, seq)));			
+		this.licenseList.removeIf(e -> e.id().equals(new StaffLicenseId(staff, seq)));			
 	}
 		
-	long getNextSequence() {
+	long nextSequence() {
 		long maxSeq = 0;
 		
 		if (this.licenseList == null || this.licenseList.isEmpty()) {
 			maxSeq = 0;
 		} else {			
 			maxSeq = this.licenseList.stream()
-							  		 .mapToLong(e -> e.getId().getSeq())
+							  		 .mapToLong(e -> e.id().seq())
 							  		 .max()
 							  		 .getAsLong();							 
 		}

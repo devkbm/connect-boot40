@@ -25,7 +25,7 @@ public class StaffLicenseSelectService implements StaffLicenseSelectUseCase {
 		Staff staff = this.dbPort.select(companyCode, staffNo)
 								 .orElseThrow(() -> new EntityNotFoundException(staffNo + " 직원정보가 존재하지 않습니다."));
 		
-		return StaffLicenseSelectDTO.toDTO(staff.getLicenseList().get(staff, seq));
+		return StaffLicenseSelectDTO.toDTO(staff.licenseList().get(staff, seq));
 	}
 
 }

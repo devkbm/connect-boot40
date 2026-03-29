@@ -27,7 +27,7 @@ public class StaffPeriodList {
 	public StaffPeriod get(Staff staff, String periodType, Long seq) {
 		return this.periodList
 				.stream()
-				.filter(e -> e.getId().equals(new StaffPeriodId(staff, periodType, seq)))
+				.filter(e -> e.id().equals(new StaffPeriodId(staff, periodType, seq)))
 				.findFirst()
 				.orElse(null);
 	}
@@ -35,8 +35,8 @@ public class StaffPeriodList {
 	public StaffPeriod getMax(Staff staff, String periodType) {
 		return this.periodList
 				.stream()			
-				.filter(e -> e.getId().getPeriodType().equals(periodType))
-				.max((s1, s2) -> Long.compare(s1.getId().getSeq(), s2.getId().getSeq()))				
+				.filter(e -> e.id().periodType().equals(periodType))
+				.max((s1, s2) -> Long.compare(s1.id().seq(), s2.id().seq()))				
 				.orElse(null);
 	}
 	
@@ -46,14 +46,14 @@ public class StaffPeriodList {
 	}
 	
 	
-	long getNextSequence() {
+	long nextSequence() {
 		long maxSeq = 0;
 		
 		if (this.periodList == null || this.periodList.isEmpty()) {
 			maxSeq = 0;
 		} else {			
 			maxSeq = this.periodList.stream()
-							  		.mapToLong(e -> e.getId().getSeq())
+							  		.mapToLong(e -> e.id().seq())
 							  		.max()
 							  		.getAsLong();							 
 		}

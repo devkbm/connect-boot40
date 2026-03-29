@@ -28,7 +28,7 @@ public class FileUploadExportService implements FileUploadUseCase {
 	public FileInfoDTO uploadFile(MultipartFile sourceFile, String userId, String appUrl) {
 		FileInfo entity = FileInfo.create(sourceFile, fileServerRepository.getFileServerUploadPath(), userId, appUrl);		
 		
-		toFileServer(sourceFile, entity.getUuid());
+		toFileServer(sourceFile, entity.uuid());
 		
 		return FileInfoDTO.toDTO(this.dbPort.save(entity));
 	}
@@ -40,7 +40,7 @@ public class FileUploadExportService implements FileUploadUseCase {
 		for (MultipartFile file : sourceFiles) {			
 			FileInfo entity = FileInfo.create(file, fileServerRepository.getFileServerUploadPath(), userId, appUrl);
 			
-			toFileServer(file, entity.getUuid());
+			toFileServer(file, entity.uuid());
 			
 			files.add(entity);
 		}				    

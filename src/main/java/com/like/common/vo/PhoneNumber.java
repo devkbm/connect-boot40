@@ -3,12 +3,6 @@ package com.like.common.vo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class PhoneNumber {
 
@@ -19,7 +13,14 @@ public class PhoneNumber {
 		this.number = number;
 	}
 	
+	protected PhoneNumber() {}
+	
+	public String number() {
+		return number;
+	}
+	
 	public String getPhoneNumber() {
 		return this.number;
 	}
+	
 }

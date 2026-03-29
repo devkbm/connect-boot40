@@ -14,8 +14,8 @@ public class PayItemStaffSaveDTOMapper {
 				.companyCode(entity.getCompanyCode())
 				.staffNo(entity.getStaffNo())
 				.payItemCode(entity.getPayItemCode())
-				.fromDt(entity.getPriod().getFrom())
-				.toDt(entity.getPriod().getTo())
+				.fromDt(entity.getPriod().from())
+				.toDt(entity.getPriod().to())
 				.wageAmount(entity.getWageAmount())				
 				.comment(entity.getComment())
 				.build();

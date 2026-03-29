@@ -23,10 +23,11 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @JsonIgnoreProperties(ignoreUnknown = true, value = {"staff"})
 @EqualsAndHashCode(callSuper = false, of = {"id"})
-@Getter
+@Accessors(fluent = true) @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFFAMILY")
@@ -74,7 +75,7 @@ public class StaffFamily extends AbstractAuditEntity implements Serializable {
 			String comment
 			) {		
 		this.staff = staff;
-		this.id = new StaffFamilyId(staff, staff.getFamilyList().getNextSequence());
+		this.id = new StaffFamilyId(staff, staff.familyList().nextSequence());
 		this.name = name;
 		this.residentRegistrationNumber = residentRegistrationNumber;
 		this.relation = relation;

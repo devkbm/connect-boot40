@@ -3,12 +3,6 @@ package com.like.common.vo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Embeddable
 public class Address {
 
@@ -27,16 +21,36 @@ public class Address {
 	@Column(name="SUB_ADDR")
 	private String sub_address;
 	
-	public Address(String address_type
-			      ,String post_number
-				  ,String main_address
-				  ,String sub_address) {
+	public Address(
+			String address_type,
+			String post_number,
+			String main_address,
+			String sub_address
+			) {
 		this.address_type = address_type;
 		this.post_number = post_number;
 		this.main_address = main_address;
 		this.sub_address = sub_address;
 	}
-			
+	
+	protected Address() {} 
+				
+	public String addressType() {
+		return address_type;
+	}
+
+	public String postNumber() {
+		return post_number;
+	}
+
+	public String mainAddress() {
+		return main_address;
+	}
+
+	public String subAddress() {
+		return sub_address;
+	}
+
 	public String getFullAddress() {
 		return this.main_address + " " + this.sub_address; 
 	}

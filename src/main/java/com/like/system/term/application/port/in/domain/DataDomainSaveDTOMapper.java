@@ -7,11 +7,11 @@ public class DataDomainSaveDTOMapper {
 
 	public static DataDomainSaveDTO toDTO(DataDomainDictionary entity) {
 		return DataDomainSaveDTO.builder()
-							 .domainId(entity.getId())
-							 .database(entity.getDatabase().name())
-							 .domainName(entity.getDomainName())
-							 .dataType(entity.getDataType())
-							 .comment(entity.getComment())
+							 .domainId(entity.id())
+							 .database(entity.database().name())
+							 .domainName(entity.domainName())
+							 .dataType(entity.dataType())
+							 .comment(entity.comment())
 							 .build(); 
 	}
 	

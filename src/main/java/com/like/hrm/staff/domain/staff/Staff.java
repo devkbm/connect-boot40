@@ -27,6 +27,7 @@ import com.like.hrm.staff.domain.staff.schoolcareer.StaffSchoolCareerList;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * Aggregate Root 
@@ -34,7 +35,7 @@ import lombok.NoArgsConstructor;
  *  
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@Accessors(fluent = true) @Getter
 @Entity
 @SQLRestriction("STAFF_YN = true")
 @Table(name = "HRMSTAFF")
@@ -143,15 +144,15 @@ public class Staff extends AbstractStaff implements Serializable {
 		
 		StaffPeriod period = this.periodList.getMax(this, "A");
 		
-		period.modify(period.getPeriod().getFrom(), retireDate, "");
+		period.modify(period.period().from(), retireDate, "");
 		
 		return period;
 	}
 	
 	public void applyAppointmentRecord(AppointmentRecord record) {		
-		if (this.currentAppointment == null) this.currentAppointment = new CurrentAppointmentInformation(record.getInfo()); 		
+		if (this.currentAppointment == null) this.currentAppointment = new CurrentAppointmentInformation(record.info()); 		
 								
-		this.currentAppointment.apply(record.getInfo());					
+		this.currentAppointment.apply(record.info());					
 	}	
 		
 }

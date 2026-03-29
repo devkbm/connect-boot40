@@ -74,7 +74,7 @@ public class FileServerUploadController {
 			res.put("status", "success");
 			
 			Map<String, String> link = new HashMap<>();
-			link.put("download", FileServerRepository.fileDownLoadUrl+info.getId());
+			link.put("download", FileServerRepository.fileDownLoadUrl+info.id());
 			
 			FileResponseDTO response = FileResponseDTO.convert(info);
 			fileList.add(response);

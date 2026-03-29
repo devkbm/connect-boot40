@@ -1,17 +1,13 @@
 package com.like.system.user.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Getter
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
 @Embeddable
 public class SystemUserPassword implements Serializable {
 	
@@ -25,11 +21,7 @@ public class SystemUserPassword implements Serializable {
 	@Column(name="pwd")
 	String password;		
 	
-	/*
-	boolean isEqual(String password) {
-		return this.password.equals(password);
-	}
-	*/
+	protected SystemUserPassword() {}	
 	
 	void set(PasswordEncoder encoder, String rawPassword) {
 		this.password = encoder.encode(rawPassword);
@@ -40,5 +32,30 @@ public class SystemUserPassword implements Serializable {
 			this.set(encoder, afterPassword);
 		}
 	}
+
+	public String password() {
+		return password;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(password);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SystemUserPassword other = (SystemUserPassword) obj;
+		return Objects.equals(password, other.password);
+	}
+	
+	
+	
+	
 			
 }

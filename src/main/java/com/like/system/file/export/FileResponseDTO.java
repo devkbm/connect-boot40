@@ -17,13 +17,13 @@ public record FileResponseDTO(
 		
 		// url 예시 - http://localhost:8090/common/file/"+info.getPkFile()
 		
-		return new FileResponseDTO(entity.getId().toString()
-								  ,entity.getFileName()
-								  ,entity.getSize()
-								  ,entity.getContentType()
+		return new FileResponseDTO(entity.id().toString()
+								  ,entity.fileName()
+								  ,entity.size()
+								  ,entity.contentType()
 								  ,"done"
 								  ,"success"
-								  ,FileServerRepository.fileDownLoadUrl+entity.getId().toString());
+								  ,FileServerRepository.fileDownLoadUrl+entity.id().toString());
 	}
 	
 	public static FileResponseDTO convert(FileInfoDTO info) {

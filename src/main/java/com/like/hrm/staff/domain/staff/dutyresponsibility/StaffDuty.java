@@ -22,9 +22,10 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@Accessors(fluent = true) @Getter
 @Entity
 @Table(name = "HRMSTAFFDUTYRESPONSIBILITY")
 @EntityListeners(AuditingEntityListener.class)
@@ -63,13 +64,13 @@ public class StaffDuty extends AbstractAuditEntity implements Serializable {
 			Boolean isPayApply
 			) {
 		this.staff = staff;		
-		this.id = new StaffDutyId(staff, staff.getStaffDutyResponsibilityList().getNextSeq());
+		this.id = new StaffDutyId(staff, staff.staffDutyResponsibilityList().getNextSeq());
 		this.dutyResponsibilityCode = dutyResponsibilityCode;	
 		this.fromDate = fromDate;
 		this.toDate = toDate;
 		this.isPayApply = isPayApply;
 		
-		staff.getStaffDutyResponsibilityList().add(this);
+		staff.staffDutyResponsibilityList().add(this);
 	}
 	
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")

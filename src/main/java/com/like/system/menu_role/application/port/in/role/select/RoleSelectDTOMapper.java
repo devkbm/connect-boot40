@@ -9,7 +9,7 @@ public class RoleSelectDTOMapper {
 		return RoleSelectDTO
 				.builder()
 				.clientAppUrl(entity.getAppUrl())
-				.id(entity.getId().getRoleCode())
+				.id(entity.getId().roleCode())
 				.companyCode(entity.getCompanyCode())
 				.roleCode(entity.getRoleCode())
 				.roleName(entity.getRoleName())

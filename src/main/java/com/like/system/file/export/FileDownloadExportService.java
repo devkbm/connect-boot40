@@ -30,9 +30,9 @@ public class FileDownloadExportService implements FileDownloadUseCase {
 	@Override
 	public void download(String fileInfoId, HttpServletResponse response) {
 		FileInfo fileInfo = this.dbPort.getFileInfo(fileInfoId);
-		File file = new File(fileInfo.getPath(), fileInfo.getUuid());
+		File file = new File(fileInfo.path(), fileInfo.uuid());
 		
-		this.webPort.setResponse(response, fileInfo.getSize(), fileInfo.getFileName(), "application/octet-stream");
+		this.webPort.setResponse(response, fileInfo.size(), fileInfo.fileName(), "application/octet-stream");
 		
 		try (OutputStream os = response.getOutputStream()) {			
 			FileConverterUtil.fileToStream(file, os);			
@@ -50,9 +50,9 @@ public class FileDownloadExportService implements FileDownloadUseCase {
 	@Override
 	public void viewImage(String fileInfoId, HttpServletResponse response) {
 		FileInfo fileInfo = this.dbPort.getFileInfo(fileInfoId);
-		File file = new File(fileInfo.getPath(), fileInfo.getUuid());
+		File file = new File(fileInfo.path(), fileInfo.uuid());
 		
-		this.webPort.setImageResponse(response, fileInfo.getSize(), fileInfo.getContentType());
+		this.webPort.setImageResponse(response, fileInfo.size(), fileInfo.contentType());
 		
 		try (OutputStream os = response.getOutputStream()) {			
 			FileConverterUtil.fileToStream(file, os);			

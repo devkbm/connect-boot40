@@ -29,7 +29,7 @@ public class StaffFamilyList {
 	
 	public StaffFamily get(Staff staff, Long seq) {					
 		return this.familyList.stream()
-							  .filter(e -> e.getId().equals(new StaffFamilyId(staff, seq)))
+							  .filter(e -> e.id().equals(new StaffFamilyId(staff, seq)))
 							  .findFirst()
 							  .orElse(null);
 	}
@@ -39,17 +39,17 @@ public class StaffFamilyList {
 	}	
 	
 	public void remove(Staff staff, Long seq) {		
-		this.familyList.removeIf(e -> e.getId().equals(new StaffFamilyId(staff, seq)));			
+		this.familyList.removeIf(e -> e.id().equals(new StaffFamilyId(staff, seq)));			
 	}
 	
-	long getNextSequence() {
+	long nextSequence() {
 		long maxSeq = 0;
 		
 		if (this.familyList == null || this.familyList.isEmpty()) {
 			maxSeq = 0;
 		} else {
 			maxSeq = this.familyList.stream()
-							  		.mapToLong(e -> e.getId().getSeq())
+							  		.mapToLong(e -> e.id().seq())
 							  		.max()
 							  		.getAsLong();							 
 		}

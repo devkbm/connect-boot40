@@ -20,15 +20,15 @@ public record FileInfoDTO(
 	public static FileInfoDTO toDTO(FileInfo entity) {
 		return FileInfoDTO
 				.builder()
-				.fildId(entity.getId().toString())
-				.appUrl(entity.getAppUrl())
-				.userId(entity.getUserId())
-				.contentType(entity.getContentType())
-				.uuid(entity.getUuid())
-				.path(entity.getPath())
-				.fileName(entity.getFileName())
-				.size(entity.getSize())
-				.downloadCount(entity.getDownloadCount())
+				.fildId(entity.id().toString())
+				.appUrl(entity.appUrl())
+				.userId(entity.userId())
+				.contentType(entity.contentType())
+				.uuid(entity.uuid())
+				.path(entity.path())
+				.fileName(entity.fileName())
+				.size(entity.size())
+				.downloadCount(entity.downloadCount())
 				.build();
 	}
 }

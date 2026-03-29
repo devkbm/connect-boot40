@@ -9,18 +9,18 @@ public class PartnerCompanyStaffSelectDTOMapper {
 		
 		return PartnerCompanyStaffSelectDTO
 				.builder()
-				.companyCode(entity.getId().companyCode())
-				.staffNo(entity.getId().staffNo())
-				.name(entity.getName().getName())
-				.nameEng(entity.getName().getNameEng())
-				.nameChi(entity.getName().getNameChi())
-				.gender(entity.getGender())
-				.birthday(entity.getBirthday())
-				.partnerCompanyCode(entity.getPartnerCompanyCode())
-				.joinDate(entity.getJoinDate())
-				.retireDate(entity.getRetireDate())
-				.blngDeptCode(entity.getBlngDeptCode())
-				.workDeptCode(entity.getWorkDeptCode())
+				.companyCode(entity.id().companyCode())
+				.staffNo(entity.id().staffNo())
+				.name(entity.name().getName())
+				.nameEng(entity.name().getNameEng())
+				.nameChi(entity.name().getNameChi())
+				.gender(entity.gender())
+				.birthday(entity.birthday())
+				.partnerCompanyCode(entity.partnerCompanyCode())
+				.joinDate(entity.joinDate())
+				.retireDate(entity.retireDate())
+				.blngDeptCode(entity.blngDeptCode())
+				.workDeptCode(entity.workDeptCode())
 				.build(); 
 	}	
 	
