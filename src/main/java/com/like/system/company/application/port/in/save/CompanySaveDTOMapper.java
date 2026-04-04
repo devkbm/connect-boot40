@@ -16,6 +16,7 @@ public class CompanySaveDTOMapper {
 				);
 	}
 	
+	/*
 	public static CompanySaveDTO toDTO(CompanyInfo entity) {		
 		
 		return CompanySaveDTO
@@ -29,4 +30,5 @@ public class CompanySaveDTOMapper {
 				.build();
 					
 	}
+	*/
 }

@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
-@Accessors(fluent = true)
+//@Accessors(fluent = true)
 @Getter
 @Audited
 @Entity

@@ -53,9 +53,9 @@ public class PostQueryBySliceDbAdapter implements PostQueryBySliceDbPort {
 		List<PostQueryResultDTO> contents = Collections.emptyList();
 		
 		if (databaseId == "h2") {
-			h2.getPostSlice(params);			
+			contents = h2.getPostSlice(params);			
 		} else {
-			oracle.getPostSlice(params);
+			contents = oracle.getPostSlice(params);
 		}		
 		
 		// 마지막 데이터인지 여부를 확인하기 위해 +1개를 조회한후 데이터 제거
