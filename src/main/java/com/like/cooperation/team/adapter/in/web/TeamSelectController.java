@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.cooperation.team.application.port.in.save.TeamSaveDTO;
+import com.like.cooperation.team.application.port.in.select.TeamSelectDTO;
 import com.like.cooperation.team.application.port.in.select.TeamSelectUseCase;
 import com.like.core.message.MessageUtil;
 
@@ -23,7 +23,7 @@ public class TeamSelectController {
 	@GetMapping("/api/grw/team/{teamId}")
 	public ResponseEntity<?> getTeam(@PathVariable Long teamId) {							
 		
-		TeamSaveDTO dto = useCase.select(teamId);
+		TeamSelectDTO dto = useCase.select(teamId);
 		
 		return toOne(dto, MessageUtil.getQueryMessage(dto == null ? 0 : 1));					
 	}

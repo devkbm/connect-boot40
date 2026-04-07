@@ -3,7 +3,8 @@ package com.like.cooperation.team.application.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.cooperation.team.application.port.in.save.TeamSaveDTO;
+import com.like.cooperation.team.application.port.in.select.TeamSelectDTO;
+import com.like.cooperation.team.application.port.in.select.TeamSelectDTOMapper;
 import com.like.cooperation.team.application.port.in.select.TeamSelectUseCase;
 import com.like.cooperation.team.application.port.out.TeamCommandDbPort;
 
@@ -18,8 +19,8 @@ public class TeamSelectService implements TeamSelectUseCase {
 	}
 	
 	@Override
-	public TeamSaveDTO select(Long teamId) {
-		return TeamSaveDTO.toDTO(this.dbPort.select(teamId));
+	public TeamSelectDTO select(Long teamId) {
+		return TeamSelectDTOMapper.toDTO(this.dbPort.select(teamId));
 	}
 
 }
