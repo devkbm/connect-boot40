@@ -101,7 +101,12 @@ public class Staff extends AbstractStaff implements Serializable {
 	@Embedded
 	ContactInfoList contactInfoList = new ContactInfoList();
 			
-	public Staff(String companyCode, StaffNoCreateStrategy strategy, StaffName name, String residentRegistrationNumber) {
+	public Staff(
+			String companyCode, 
+			StaffNoCreateStrategy strategy, 
+			StaffName name, 
+			String residentRegistrationNumber
+			) {
 		this.id 						= new StaffId(companyCode, strategy.create());
 		this.name 						= name; 
 		this.residentRegistrationNumber = ResidentRegistrationNumber.of(residentRegistrationNumber);
@@ -109,8 +114,10 @@ public class Staff extends AbstractStaff implements Serializable {
 		this.birthday 					= this.residentRegistrationNumber.getBirthDay();		
 	}	
 					
-	public void modifyEntity(StaffName name
-						    ,LocalDate birthday) {
+	public void modifyEntity(
+			StaffName name,
+			LocalDate birthday
+		) {
 		this.name 		= name;				
 		this.birthday 	= birthday;
 	}

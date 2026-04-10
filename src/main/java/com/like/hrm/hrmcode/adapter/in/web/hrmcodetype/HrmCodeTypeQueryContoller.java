@@ -45,15 +45,17 @@ public class HrmCodeTypeQueryContoller {
 		Integer sequence,
 		String comment
 		 */			
-		Map<String, List<HrmCodeTypeSaveDTO>> list = new HashMap<>();
-		/*
-		list.put("a", List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5"),
-							  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5")));
-		list.put("b", List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5"),
-				  			  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5")));
+		Map<Test, List<HrmCodeTypeSaveDTO>> list = new HashMap<>();
+		
+		list.put(new Test("a", "b"), List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5","6"),
+							  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5","6")));
+		list.put(new Test("c", "b"), List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5","6"),
+				  			  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5","6")));
 
-		*/
+		
 		return toMap(list, "0");
 	}
+	
+	record Test(String a, String b) {};
 	
 }
