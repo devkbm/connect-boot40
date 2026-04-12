@@ -58,6 +58,12 @@ public class Board extends AbstractAuditEntity {
 	    			
 	@Column(name="USE_YN", comment="사용여부")
 	Boolean useYn;        		      		
+	
+	@Column(name="SEQ", comment="순번")
+	Long sequence;
+	
+	@Embedded
+	BoardCategory category;
 			
 	/**
 	 * 게시글 리스트
@@ -77,14 +83,16 @@ public class Board extends AbstractAuditEntity {
 			@Nullable Board parent,
 			BoardType boardType,
 			String boardName,
-			String description
+			String description,
+			BoardCategory category
 			) {
 		this.createdAppUrl(appUrl);
 		this.parent = parent;
 		this.boardType = boardType;
 		this.boardName = boardName;
 		this.description = description; 
-		this.useYn = true;		
+		this.useYn = true;				
+		this.category = category;
 	}
 	
 	public void modify(
@@ -94,13 +102,17 @@ public class Board extends AbstractAuditEntity {
 		    String boardName,
 		    String description,						    
 		    Boolean useYn,
-		    long sequence) {
+		    Long sequence,
+		    BoardCategory category
+		    ) {
 		this.createdAppUrl(appUrl);
 		this.parent = parent;
 		this.boardType = boardType;
 		this.boardName = boardName;
 		this.description = description;		
 		this.useYn = useYn;			
+		this.sequence = sequence;
+		this.category = category;
 	}
 	               
 	/*

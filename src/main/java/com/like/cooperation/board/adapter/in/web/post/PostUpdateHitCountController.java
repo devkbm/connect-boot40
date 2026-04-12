@@ -22,8 +22,8 @@ public class PostUpdateHitCountController {
 	}
 	
 	@GetMapping("/api/grw/board/post/hitcnt")
-	public ResponseEntity<?> updateArticleHitCnt(@RequestParam String id,
-												 @RequestParam String userId) {								
+	public ResponseEntity<?> updateHitCnt(@RequestParam String id,
+										  @RequestParam String userId) {								
 				
 		useCase.plusHitCount(Base64Util.fromBase64Decode(id), userId);			
 										

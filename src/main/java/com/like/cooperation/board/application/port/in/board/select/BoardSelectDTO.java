@@ -1,6 +1,7 @@
 package com.like.cooperation.board.application.port.in.board.select;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
@@ -20,7 +21,9 @@ public record BoardSelectDTO(
 		String boardName,
 		String boardDescription,			
 		Boolean useYn,			
-		long sequence
+		long sequence,
+		Boolean categoryUse,
+		List<String> category
 		) {
 		
 }

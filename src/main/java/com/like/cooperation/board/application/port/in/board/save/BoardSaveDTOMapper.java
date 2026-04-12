@@ -2,7 +2,10 @@ package com.like.cooperation.board.application.port.in.board.save;
 
 import java.util.Optional;
 
+import org.jspecify.annotations.Nullable;
+
 import com.like.cooperation.board.domain.board.Board;
+import com.like.cooperation.board.domain.board.BoardCategory;
 import com.like.cooperation.board.domain.board.BoardType;
 
 public class BoardSaveDTOMapper {
@@ -46,6 +49,7 @@ public class BoardSaveDTOMapper {
 	}	
 	
 	public static void modifyBoard(BoardSaveDTO dto, Board board, Board parentBoard) {
+		
 		board.modify(				
 				dto.clientAppUrl(),
 				parentBoard,
@@ -53,7 +57,8 @@ public class BoardSaveDTOMapper {
 				dto.boardName(),
 	          	dto.boardDescription(),					          
 	          	dto.useYn(),
-	          	dto.sequence()
+	          	dto.sequence(),
+	          	new BoardCategory(dto.categoryUse(), dto.category())
 				);		
 	}
 }

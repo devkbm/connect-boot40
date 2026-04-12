@@ -23,7 +23,7 @@ public class PostDeleteController {
 	}	
 		
 	@DeleteMapping("/api/grw/board/post/{id}")
-	public ResponseEntity<?> deleteArticle(@PathVariable String id) {
+	public ResponseEntity<?> delete(@PathVariable String id) {
 		useCase.delete(Base64Util.fromBase64Decode(id));							
 		
 		return toList(null, MessageUtil.getDeleteMessage(1));

@@ -7,5 +7,5 @@ import org.springframework.data.domain.Slice;
 @PrimaryPort
 public interface PostQueryBySliceUseCase {
 	
-	Slice<PostQueryResultDTO> getAritlceSlice(String userId, PostQueryDTO dto, Pageable pageable);
+	Slice<PostQueryResultDTO> getSlice(String userId, PostQueryDTO dto, Pageable pageable);
 }

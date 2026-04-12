@@ -1,6 +1,7 @@
 package com.like.cooperation.board.application.port.in.board.save;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
@@ -20,7 +21,9 @@ public record BoardSaveDTO(
 		String boardName,
 		String boardDescription,			
 		Boolean useYn,			
-		long sequence
+		Long sequence,
+		Boolean categoryUse,
+		List<String> category
 		) {
 		
 }

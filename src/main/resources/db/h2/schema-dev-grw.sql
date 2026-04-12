@@ -12,8 +12,10 @@ CREATE TABLE GRWBOARD (
   	BOARD_TYPE          	VARCHAR(10)     	NOT NULL	,
   	BOARD_NAME          	VARCHAR(500)		NULL    	,
   	BOARD_DESC          	TEXT			    NULL    	,
-  	USE_YN              	BOOLEAN         	NULL    	,
+  	USE_YN              	BOOLEAN         	NULL    	,  	
   	SEQ                 	INT             	NULL    	,
+  	CATEGORY_YN				BOOLEAN				NULL		,
+  	CATEGORY				TEXT				NULL		,
   	constraint pk_grwboard primary key(BOARD_ID)
 );
 COMMENT ON TABLE GRWBOARD IS '게시판';

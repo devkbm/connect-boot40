@@ -27,7 +27,7 @@ public class PostSelectController {
 	}		
 	
 	@GetMapping("/api/grw/board/post/{id}")
-	public ResponseEntity<?> getArticle(@PathVariable String id, HttpSession session) {						
+	public ResponseEntity<?> get(@PathVariable String id, HttpSession session) {						
 							
 		Long decodedId = Base64Util.fromBase64Decode(id);
 		

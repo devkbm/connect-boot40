@@ -24,7 +24,7 @@ public class PostSaveByMultiPartController {
 			
 	@PostMapping("/api/grw/board/post_multipart")
 	@ResponseBody
-	public ResponseEntity<?> saveArticleWithMultiPartFile(PostSaveByMultipartDTO dto) throws Exception {													
+	public ResponseEntity<?> saveWithMultiPartFile(PostSaveByMultipartDTO dto) throws Exception {													
 											
 		useCase.save(dto);											
 		

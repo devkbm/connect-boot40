@@ -27,7 +27,7 @@ public class PostSaveController {
 					
 	@PostMapping("/api/grw/board/post")
 	@ResponseBody
-	public ResponseEntity<?> saveArticleJson(@RequestBody @Valid PostSaveDTO dto) throws Exception {															
+	public ResponseEntity<?> saveJson(@RequestBody @Valid PostSaveDTO dto) throws Exception {															
 										
 		Long postId = useCase.save(dto);											
 		

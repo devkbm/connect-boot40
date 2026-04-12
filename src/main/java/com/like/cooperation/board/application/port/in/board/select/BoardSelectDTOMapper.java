@@ -24,7 +24,11 @@ public class BoardSelectDTOMapper {
 					    .boardType(entity.getBoardType().toString())
 					    .boardName(entity.getBoardName())
 					    .boardDescription(entity.getDescription())						   						    
-					    .useYn(entity.getUseYn())						    
+					    .useYn(entity.getUseYn())
+					    .categoryUse(entity.getCategory().getUse())
+					    .category(entity.getCategory().getCategory())
+					    //.categoryUse(entity.getCategory() == null ? false : entity.getCategory().getUse())
+					    //.category(entity.getCategory() == null ? null : entity.getCategory().getCategory())
 					    .build();	
 	}
 		
